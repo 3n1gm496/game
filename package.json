@@ -1,0 +1,51 @@
+{
+  "name": "meridien",
+  "version": "1.0.0",
+  "private": true,
+  "description": "MÉRIDIEN — Delitto al Grand Hotel. Giallo sociale multiplayer 4-8 giocatori.",
+  "license": "SEE LICENSE IN LICENSE",
+  "type": "module",
+  "packageManager": "pnpm@10.33.0",
+  "engines": {
+    "node": ">=20.11"
+  },
+  "scripts": {
+    "install:all": "pnpm install",
+    "dev": "pnpm --filter @meridien/web dev",
+    "dev:server": "pnpm --filter @meridien/server dev",
+    "dev:multiplayer": "node scripts/dev-multiplayer.mjs",
+    "build": "pnpm -r --filter=!@meridien/tests build",
+    "build:web": "pnpm --filter @meridien/web build",
+    "preview": "pnpm --filter @meridien/web preview",
+    "start": "pnpm --filter @meridien/server start",
+    "lint": "eslint . --max-warnings=0",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "tsc -b tsconfig.build.json",
+    "test": "vitest run --root .",
+    "test:watch": "vitest --root .",
+    "test:e2e": "pnpm --filter @meridien/tests test:e2e",
+    "test:visual": "pnpm --filter @meridien/tests test:visual",
+    "test:load": "node tools/loadtest/dist/index.js || pnpm --filter @meridien/loadtest run start",
+    "validate:cases": "pnpm --filter @meridien/validate-cases run start",
+    "simulate": "pnpm --filter @meridien/simulate run start",
+    "generate:assets": "pnpm --filter @meridien/generate-assets run start",
+    "deploy:preview": "node scripts/deploy.mjs preview",
+    "deploy:production": "node scripts/deploy.mjs production",
+    "ios:sync": "pnpm build:web && npx cap sync ios",
+    "ios:build": "node scripts/ios-build.mjs",
+    "verify": "pnpm lint && pnpm typecheck && pnpm test && pnpm validate:cases"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@types/node": "^22.19.0",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "globals": "^15.15.0",
+    "prettier": "^3.9.6",
+    "typescript": "5.9.3",
+    "typescript-eslint": "^8.65.0",
+    "vitest": "^4.1.10"
+  }
+}

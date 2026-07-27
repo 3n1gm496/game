@@ -1,0 +1,17 @@
+{
+  "name": "@meridien/validate-cases",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "build": "tsc -b"
+  },
+  "dependencies": {
+    "@meridien/content": "workspace:*",
+    "@meridien/engine": "workspace:*"
+  },
+  "devDependencies": {
+    "tsx": "^4.20.6"
+  }
+}
