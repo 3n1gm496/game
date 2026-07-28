@@ -37,10 +37,14 @@ export default defineConfig(({ mode }) => ({
     assetsInlineLimit: 2048,
     rollupOptions: {
       output: {
-        manualChunks: {
-          pixi: ['pixi.js'],
-          motion: ['motion', 'motion/react'],
-          react: ['react', 'react-dom'],
+        // Vite 8 usa Rolldown: `manualChunks` va data in forma di funzione.
+        // Le tre librerie pesanti stanno in bundle separati così il guscio
+        // dell'applicazione arriva prima su rete mobile.
+        manualChunks(id: string): string | undefined {
+          if (id.includes('/pixi.js/') || id.includes('@pixi/')) return 'pixi';
+          if (id.includes('/motion/') || id.includes('framer-motion')) return 'motion';
+          if (id.includes('/react-dom/') || id.includes('/react/')) return 'react';
+          return undefined;
         },
       },
     },

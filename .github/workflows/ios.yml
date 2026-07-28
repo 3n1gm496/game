@@ -1,0 +1,98 @@
+name: Build iOS
+
+on:
+  workflow_dispatch:
+  push:
+    tags: ['v*']
+
+jobs:
+  ios:
+    name: Archivio iOS
+    runs-on: macos-14
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.33.0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build:web
+
+      - name: Genera il progetto Capacitor
+        run: |
+          pnpm add -D @capacitor/cli @capacitor/core @capacitor/ios
+          npx cap add ios || echo "Progetto iOS già presente"
+          npx cap sync ios
+
+      - name: Collega i plugin Swift
+        run: |
+          mkdir -p ios/App/App/Plugins
+          cp -R apps/ios/plugin/ios/Sources/MeridienPlugin/. ios/App/App/Plugins/
+
+      # Senza segreti ci si ferma qui: la compilazione non firmata verifica
+      # comunque che il progetto si generi e che i plugin Swift compilino.
+      - name: Compilazione non firmata
+        if: ${{ !secrets.IOS_CERTIFICATE_P12_BASE64 }}
+        run: |
+          xcodebuild -workspace ios/App/App.xcworkspace \
+            -scheme App -configuration Release \
+            -destination 'generic/platform=iOS' \
+            CODE_SIGNING_ALLOWED=NO build
+          echo "::notice::Build non firmata riuscita. Per TestFlight servono i segreti elencati in IOS_SETUP.md § 7."
+
+      - name: Importa certificato e profilo
+        if: ${{ secrets.IOS_CERTIFICATE_P12_BASE64 }}
+        env:
+          CERT: ${{ secrets.IOS_CERTIFICATE_P12_BASE64 }}
+          CERT_PASSWORD: ${{ secrets.IOS_CERTIFICATE_PASSWORD }}
+          PROFILE: ${{ secrets.IOS_PROVISIONING_PROFILE_BASE64 }}
+        run: |
+          KEYCHAIN=$RUNNER_TEMP/firma.keychain-db
+          security create-keychain -p "$RANDOM$RANDOM" "$KEYCHAIN"
+          security set-keychain-settings -lut 21600 "$KEYCHAIN"
+          security unlock-keychain -p "$RANDOM$RANDOM" "$KEYCHAIN" || true
+          echo "$CERT" | base64 --decode > "$RUNNER_TEMP/cert.p12"
+          security import "$RUNNER_TEMP/cert.p12" -k "$KEYCHAIN" -P "$CERT_PASSWORD" -T /usr/bin/codesign
+          security list-keychain -d user -s "$KEYCHAIN"
+          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+          echo "$PROFILE" | base64 --decode > ~/Library/MobileDevice/Provisioning\ Profiles/meridien.mobileprovision
+          rm -f "$RUNNER_TEMP/cert.p12"
+
+      - name: Archivio firmato
+        if: ${{ secrets.IOS_CERTIFICATE_P12_BASE64 }}
+        run: |
+          xcodebuild -workspace ios/App/App.xcworkspace \
+            -scheme App -configuration Release \
+            -destination 'generic/platform=iOS' \
+            -archivePath build/Meridien.xcarchive archive
+
+      - name: Carica su TestFlight
+        if: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
+        env:
+          KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
+          ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+          PRIVATE_KEY: ${{ secrets.APP_STORE_CONNECT_PRIVATE_KEY }}
+        run: |
+          mkdir -p ~/private_keys
+          echo "$PRIVATE_KEY" > ~/private_keys/AuthKey_$KEY_ID.p8
+          xcodebuild -exportArchive \
+            -archivePath build/Meridien.xcarchive \
+            -exportOptionsPlist ios/ExportOptions.plist \
+            -exportPath build/ipa
+          xcrun altool --upload-app -f build/ipa/App.ipa -t ios \
+            --apiKey "$KEY_ID" --apiIssuer "$ISSUER_ID"
+          rm -rf ~/private_keys
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ios-archive
+          path: build/
+          retention-days: 5

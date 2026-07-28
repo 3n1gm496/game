@@ -45,7 +45,29 @@ import {
 const MAX_CHAT = 60;
 const MAX_BOARD = 60;
 const MAX_ACTION_MEMORY = 64;
-const SEARCHES_PER_ACT: Record<1 | 2 | 3, number> = { 1: 1, 2: 3, 3: 1 };
+/**
+ * Ricerche disponibili per giocatore in ciascun atto.
+ *
+ * Le misure vengono dalle simulazioni (`pnpm simulate`). Due osservazioni
+ * hanno deciso questi numeri:
+ *
+ *  1. con 1/3/1 un gruppo copriva poco più di metà del caso e la soluzione
+ *     restava fuori portata in una partita su tre;
+ *  2. la copertura dipende dal numero di paia d'occhi, non dal singolo: in
+ *     quattro si perdevano indizi che in otto si trovavano sempre.
+ *
+ * Da qui la compensazione: i gruppi piccoli ricevono ricerche in più
+ * nell'Atto II, che è l'atto dell'esplorazione. Il totale di ritrovamenti
+ * possibili resta intorno ai quaranta in ogni taglia, e il ritmo resta quello
+ * giusto — in Atto II una ricerca ogni minuto e mezzo circa.
+ */
+const SEARCHES_PER_ACT: Record<1 | 2 | 3, number> = { 1: 2, 2: 4, 3: 2 };
+
+function searchesFor(act: 1 | 2 | 3, playerCount: number): number {
+  const base = SEARCHES_PER_ACT[act];
+  if (act !== 2) return base;
+  return base + Math.max(0, 6 - playerCount);
+}
 const MAX_PUBLIC_QUESTIONS = 3;
 const DISCONNECT_GRACE_MS = 45_000;
 
@@ -423,7 +445,7 @@ export class RoomRuntime {
         foundAt: null,
         shared: false,
       }));
-      player.searchesLeft = SEARCHES_PER_ACT[1];
+      player.searchesLeft = searchesFor(1, players.length);
       player.currentLocationId = s.openLocationIds[0] ?? null;
     }
 
@@ -461,8 +483,9 @@ export class RoomRuntime {
 
     if (isPlaying(phase)) {
       const act = phaseAct(phase);
+      const quanti = activePlayers(s).length;
       for (const p of activePlayers(s)) {
-        p.searchesLeft = SEARCHES_PER_ACT[act];
+        p.searchesLeft = searchesFor(act, quanti);
       }
       // ambienti che si aprono con l'atto
       const opened = this.caseDef.locations.filter((l) => l.fromAct <= act).map((l) => l.id);
@@ -698,6 +721,22 @@ export class RoomRuntime {
     p.searchesLeft -= 1;
     p.currentLocationId = locationId;
 
+    /*
+     * Chi cerca trova prima ciò che nessuno ha ancora visto.
+     *
+     * Senza questa preferenza due persone che frugano nella stessa stanza
+     * finiscono spesso sullo stesso oggetto, e il gruppo spreca ricerche su
+     * carte già in tavola. Le simulazioni lo mostravano bene: la copertura di
+     * un gruppo di quattro crollava proprio per questo. Non è un aiuto
+     * gratuito — è il modo in cui una stanza si svuota davvero.
+     */
+    const giaInGioco = new Set<string>(s.board.map((b) => b.clueId).filter((c): c is string => Boolean(c)));
+    for (const altro of activePlayers(s)) {
+      for (const h of altro.hand) giaInGioco.add(h.clueId);
+    }
+    const inediti = candidates.filter((d) => !giaInGioco.has(d.clueId));
+    const pool = inediti.length > 0 ? inediti : candidates;
+
     if (candidates.length === 0) {
       const effects: Effect[] = [
         {
@@ -717,7 +756,7 @@ export class RoomRuntime {
     }
 
     const rng = createRng(`${s.settings.seed}::ricerca::${p.id}::${locationId}::${p.searchesLeft}`);
-    const drop = rng.pick(candidates);
+    const drop = rng.pick(pool);
 
     if (drop.puzzle) {
       return [

@@ -42,17 +42,20 @@ export type Epilogue = z.infer<typeof EpilogueSchema>;
 
 /** Termini che una risposta AI non può mai contenere: la verità non passa di qui. */
 export const FORBIDDEN_PATTERNS: RegExp[] = [
-  /\bil colpevole è\b/i,
-  /\bl'assassino è\b/i,
-  /\bè stato lui\b/i,
-  /\bè stata lei\b/i,
-  /\bha ucciso\b/i,
-  /\bha avvelenato\b/i,
-  /\bsoluzione del caso\b/i,
-  /\bsystem prompt\b/i,
-  /\bistruzioni di sistema\b/i,
-  /\bapi[_ ]?key\b/i,
+  // Nota: `\b` non funziona dopo una lettera accentata, perché le vocali
+  // accentate non sono caratteri di parola ASCII. I confini sono espliciti.
+  /(?:^|\W)(il|la)\s+colpevol[ei]\s+(è|e')/i,
+  /(?:^|\W)l['’]assassin[oa]\s+(è|e')/i,
+  /(?:^|\W)(è|e')\s+stat[oa]\s+(lui|lei)(?:\W|$)/i,
+  /(?:^|\W)ha\s+ucciso(?:\W|$)/i,
+  /(?:^|\W)ha\s+avvelenat[oa](?:\W|$)/i,
+  /(?:^|\W)(l'|la\s+)?soluzione\s+del\s+caso(?:\W|$)/i,
+  /(?:^|\W)il\s+colpevole\s+si\s+chiama(?:\W|$)/i,
+  /\bsystem\s?prompt\b/i,
+  /\bistruzioni\s+di\s+sistema\b/i,
+  /\bapi[_\s-]?key\b/i,
   /\bsk-[a-z0-9-]{10,}/i,
+  /\bBearer\s+[A-Za-z0-9._-]{12,}/,
 ];
 
 export function violatesGuardrails(text: string): string | null {

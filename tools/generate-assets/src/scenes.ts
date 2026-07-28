@@ -19,7 +19,6 @@ import {
   bulbMirror,
   chandelier,
   checkerFloor,
-  cloudBands,
   column,
   crowd,
   diamondCarpet,
@@ -1332,7 +1331,7 @@ function scenes(): readonly SceneDef[] {
             ]),
           };
         },
-        (p, id) => ({
+        (p, _id) => ({
           defs: '',
           body: group({}, [
             diamondCarpet(p, { horizonY: 640, vanishX: SCENE_W / 2, rows: 13, cols: 5 }),

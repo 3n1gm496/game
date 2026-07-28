@@ -1,14 +1,6 @@
 {
   "extends": "../../tsconfig.base.json",
-  "compilerOptions": {
-    "outDir": "./dist",
-    "rootDir": "./src",
-    "types": ["node"],
-    "baseUrl": ".",
-    "paths": {
-      "@meridien/engine/design": ["../../packages/engine/src/design/tokens.ts"]
-    }
-  },
+  "compilerOptions": { "outDir": "./dist", "rootDir": "./src", "types": ["node"] },
   "include": ["src/**/*.ts"],
   "references": [{ "path": "../../packages/engine" }]
 }

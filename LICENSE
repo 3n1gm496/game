@@ -1,0 +1,37 @@
+Copyright (c) 2026 gli autori di MÉRIDIEN
+
+Tutti i diritti riservati.
+
+Il codice sorgente, i testi narrativi e gli asset grafici e sonori contenuti in
+questo repository sono opere originali dei rispettivi autori.
+
+È concesso il permesso di consultare, compilare ed eseguire questo software a
+scopo di valutazione, studio e sviluppo. Ogni altro uso — in particolare la
+ridistribuzione, la pubblicazione commerciale o la creazione di opere derivate —
+richiede un accordo scritto con i titolari dei diritti.
+
+I nomi «MÉRIDIEN» e «Grand Hotel Méridien», i personaggi, i casi e la direzione
+artistica sono parte dell'opera e non sono concessi in licenza separatamente.
+
+IL SOFTWARE È FORNITO «COSÌ COM'È», SENZA GARANZIE DI ALCUN TIPO, ESPRESSE O
+IMPLICITE, COMPRESE, A TITOLO ESEMPLIFICATIVO, LE GARANZIE DI COMMERCIABILITÀ,
+IDONEITÀ A UNO SCOPO PARTICOLARE E NON VIOLAZIONE. IN NESSUN CASO GLI AUTORI
+SARANNO RESPONSABILI PER QUALSIVOGLIA RIVENDICAZIONE, DANNO O ALTRA
+RESPONSABILITÀ DERIVANTE DAL SOFTWARE O DAL SUO UTILIZZO.
+
+── Componenti di terze parti ────────────────────────────────────────────────
+
+Questo progetto usa librerie open source, ciascuna con la propria licenza:
+React e React DOM (MIT), PixiJS (MIT), Zustand (MIT), Motion (MIT), Zod (MIT),
+ws (MIT), Vite (MIT), TypeScript (Apache-2.0), Vitest (MIT), Playwright
+(Apache-2.0), Capacitor (MIT). L'elenco completo e aggiornato si ottiene con
+`pnpm licenses list`.
+
+Il modello linguistico opzionale per il funzionamento su dispositivo
+(Qwen2.5 1.5B Instruct, Qwen Team / Alibaba Cloud) è distribuito con licenza
+Apache-2.0 e NON è incluso nel repository: viene scaricato dall'utente, su sua
+richiesta, dopo l'installazione dell'app. Vedi AI_ARCHITECTURE.md § 5.
+
+Nessun asset grafico o sonoro proviene da terze parti: tutto ciò che si vede e
+si sente è generato dal codice contenuto in `tools/generate-assets` e in
+`apps/web/src/audio`.

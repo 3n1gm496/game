@@ -481,7 +481,7 @@ function hair(ctx: Ctx): string {
     case 'pettinati':
       parts.push(
         el('path', {
-          d: `M ${f(cx - rx * 1.0)} ${f(HEAD_CY - ry * 0.26)} q ${f(rx * 0.1)} ${f(-ry * 0.86)} ${f(rx * 1.02)} ${f(-ry * 0.86)} q ${f(rx * 0.9)} 0 ${f(rx * 1.0)} ${f(ry * 0.7)} q ${f(-rx * 0.44)} ${f(-ry * 0.3)} ${f(-rx * 1.16)} ${f(-ry * 0.16)} q ${f(-rx * 0.6)} ${f(ry * 0.12)} ${f(-rx * 0.86)} ${f(ry * 0.32)} Z`,
+          d: `M ${f(cx - rx)} ${f(HEAD_CY - ry * 0.26)} q ${f(rx * 0.1)} ${f(-ry * 0.86)} ${f(rx * 1.02)} ${f(-ry * 0.86)} q ${f(rx * 0.9)} 0 ${f(rx)} ${f(ry * 0.7)} q ${f(-rx * 0.44)} ${f(-ry * 0.3)} ${f(-rx * 1.16)} ${f(-ry * 0.16)} q ${f(-rx * 0.6)} ${f(ry * 0.12)} ${f(-rx * 0.86)} ${f(ry * 0.32)} Z`,
           fill: col,
         }),
         el('path', {
@@ -511,11 +511,11 @@ function hair(ctx: Ctx): string {
     case 'rada':
       parts.push(
         el('path', {
-          d: `M ${f(cx - rx * 1.0)} ${f(HEAD_CY - ry * 0.06)} q ${f(-rx * 0.04)} ${f(-ry * 0.6)} ${f(rx * 0.44)} ${f(-ry * 0.66)} q ${f(-rx * 0.2)} ${f(ry * 0.3)} ${f(-rx * 0.06)} ${f(ry * 0.66)} Z`,
+          d: `M ${f(cx - rx)} ${f(HEAD_CY - ry * 0.06)} q ${f(-rx * 0.04)} ${f(-ry * 0.6)} ${f(rx * 0.44)} ${f(-ry * 0.66)} q ${f(-rx * 0.2)} ${f(ry * 0.3)} ${f(-rx * 0.06)} ${f(ry * 0.66)} Z`,
           fill: col,
         }),
         el('path', {
-          d: `M ${f(cx + rx * 1.0)} ${f(HEAD_CY - ry * 0.06)} q ${f(rx * 0.04)} ${f(-ry * 0.6)} ${f(-rx * 0.44)} ${f(-ry * 0.66)} q ${f(rx * 0.2)} ${f(ry * 0.3)} ${f(rx * 0.06)} ${f(ry * 0.66)} Z`,
+          d: `M ${f(cx + rx)} ${f(HEAD_CY - ry * 0.06)} q ${f(rx * 0.04)} ${f(-ry * 0.6)} ${f(-rx * 0.44)} ${f(-ry * 0.66)} q ${f(rx * 0.2)} ${f(ry * 0.3)} ${f(rx * 0.06)} ${f(ry * 0.66)} Z`,
           fill: col,
         }),
       );

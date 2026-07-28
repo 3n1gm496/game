@@ -47,7 +47,6 @@ export interface LocalModelBridge {
 }
 
 declare global {
-  // eslint-disable-next-line no-var
   var MeridienLocalModel: LocalModelBridge | undefined;
 }
 

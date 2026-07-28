@@ -61,6 +61,17 @@ export interface WitnessExchange {
   at: number;
 }
 
+/**
+ * Un'azione senza il proprio `actionId`: il tipo si distribuisce sull'unione
+ * dei messaggi, così ogni variante conserva i suoi campi. Senza la
+ * distribuzione TypeScript collasserebbe l'unione e rifiuterebbe tutto.
+ */
+export type AzioneSenzaId = ClientMessage extends infer M
+  ? M extends { actionId: string }
+    ? Omit<M, 'actionId'>
+    : never
+  : never;
+
 export interface GameStore {
   // rete
   client: MeridienClient | null;
@@ -98,7 +109,7 @@ export interface GameStore {
   // azioni
   init(): void;
   send(msg: ClientMessage): void;
-  act(msg: Omit<ClientMessage & { actionId: string }, 'actionId'>): void;
+  act(msg: AzioneSenzaId): void;
   setScreen(screen: Screen): void;
   setProfile(nickname: string, avatar: string): void;
   createRoom(caseId: string): void;

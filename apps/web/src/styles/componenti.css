@@ -1276,3 +1276,14 @@ select.campo {
   gap: var(--sp-2);
   margin-bottom: var(--sp-3);
 }
+
+/* ── Caricamento differito ─────────────────────────────────────────────── */
+
+.caricamento {
+  display: grid;
+  place-items: center;
+  color: var(--c-ivory-dim);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}

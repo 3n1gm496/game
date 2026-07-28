@@ -1,0 +1,84 @@
+name: Verifica
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verifica:
+    name: Lint, tipi, test, casi
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.33.0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Nessun segreto nel repository
+        run: node scripts/check-secrets.mjs
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Tipi
+        run: pnpm typecheck
+
+      - name: Test unitari e di integrazione
+        run: pnpm test
+
+      - name: Validazione dei casi
+        run: pnpm validate:cases
+
+      - name: Simulazioni
+        run: pnpm simulate
+
+      - name: Build
+        run: pnpm build
+
+      - name: La documentazione corrisponde al progetto
+        run: node scripts/check-docs.mjs
+
+      - name: Nessun segreto nel bundle
+        run: node scripts/check-secrets.mjs
+
+  e2e:
+    name: Partite reali multi-browser
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.33.0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+      - run: pnpm --filter @meridien/tests exec playwright install --with-deps chromium
+      - run: pnpm test:e2e
+
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-report
+          path: tests/playwright-report/
+          retention-days: 7

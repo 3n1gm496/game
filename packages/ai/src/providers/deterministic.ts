@@ -19,7 +19,6 @@ export class DeterministicNarrativeProvider implements AIProvider {
     return true;
   }
 
-  // eslint-disable-next-line @typescript-eslint/require-await
   async respond(request: AiRequest): Promise<AiOutcome> {
     switch (request.kind) {
       case 'witness':
