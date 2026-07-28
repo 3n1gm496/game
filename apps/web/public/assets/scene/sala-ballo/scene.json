@@ -1,0 +1,126 @@
+{
+  "chiave": "sala-ballo",
+  "titolo": "La sala da ballo",
+  "descrizione": "Il lampadario di millequattrocento gocce, le coppie sfocate, il palco in fondo.",
+  "larghezza": 1920,
+  "altezza": 1080,
+  "atmosfera": {
+    "pioggia": false,
+    "nebbia": 0.22,
+    "grana": 0.06,
+    "dominante": "#3A2440"
+  },
+  "layer": [
+    {
+      "file": "layer-0.svg",
+      "profondita": 0,
+      "parallasse": 0.15,
+      "ruolo": "fondo"
+    },
+    {
+      "file": "layer-1.svg",
+      "profondita": 1,
+      "parallasse": 0.4,
+      "ruolo": "medio"
+    },
+    {
+      "file": "layer-2.svg",
+      "profondita": 2,
+      "parallasse": 1,
+      "ruolo": "principale"
+    },
+    {
+      "file": "layer-3.svg",
+      "profondita": 3,
+      "parallasse": 1.6,
+      "ruolo": "primo-piano"
+    }
+  ],
+  "luci": [
+    {
+      "chiave": "lampadario",
+      "x": 50,
+      "y": 22,
+      "raggio": 30,
+      "colore": "#E0C365",
+      "intensita": 0.8,
+      "pulsazione": 0
+    },
+    {
+      "chiave": "ribalta",
+      "x": 50,
+      "y": 58,
+      "raggio": 16,
+      "colore": "#B5261E",
+      "intensita": 0.35,
+      "pulsazione": 0
+    },
+    {
+      "chiave": "applique",
+      "x": 12,
+      "y": 40,
+      "raggio": 9,
+      "colore": "#C9A227",
+      "intensita": 0.45,
+      "pulsazione": 0
+    }
+  ],
+  "hotspot": [
+    {
+      "chiave": "lampadario",
+      "etichetta": "Il lampadario",
+      "x": 50,
+      "y": 24,
+      "raggio": 12,
+      "layer": 2
+    },
+    {
+      "chiave": "tavolo",
+      "etichetta": "Il tavolo dei rinfreschi",
+      "x": 22,
+      "y": 74,
+      "raggio": 8,
+      "layer": 2
+    },
+    {
+      "chiave": "bicchieri",
+      "etichetta": "I bicchieri",
+      "x": 26,
+      "y": 70,
+      "raggio": 5,
+      "layer": 2
+    },
+    {
+      "chiave": "spartiti",
+      "etichetta": "Il leggio dell'orchestra",
+      "x": 72,
+      "y": 62,
+      "raggio": 6,
+      "layer": 2
+    },
+    {
+      "chiave": "porta",
+      "etichetta": "La porta della sala",
+      "x": 92,
+      "y": 56,
+      "raggio": 6,
+      "layer": 2
+    },
+    {
+      "chiave": "consegna",
+      "etichetta": "Il punto di consegna",
+      "x": 84,
+      "y": 84,
+      "raggio": 6,
+      "layer": 2
+    },
+    {
+      "chiave": "oggetto",
+      "etichetta": "L'oggetto fuori posto",
+      "x": 56,
+      "y": 86,
+      "raggio": 5,
+      "layer": 2
+    }
+  ]
+}

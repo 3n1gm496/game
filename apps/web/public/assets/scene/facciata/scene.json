@@ -1,0 +1,118 @@
+{
+  "chiave": "facciata",
+  "titolo": "La facciata",
+  "descrizione": "Insegna sotto la pioggia obliqua, palme piegate dal vento, la porta girevole che gira per nessuno.",
+  "larghezza": 1920,
+  "altezza": 1080,
+  "atmosfera": {
+    "pioggia": true,
+    "nebbia": 0.18,
+    "grana": 0.07,
+    "dominante": "#111C2E"
+  },
+  "layer": [
+    {
+      "file": "layer-0.svg",
+      "profondita": 0,
+      "parallasse": 0.15,
+      "ruolo": "fondo"
+    },
+    {
+      "file": "layer-1.svg",
+      "profondita": 1,
+      "parallasse": 0.4,
+      "ruolo": "medio"
+    },
+    {
+      "file": "layer-2.svg",
+      "profondita": 2,
+      "parallasse": 1,
+      "ruolo": "principale"
+    },
+    {
+      "file": "layer-3.svg",
+      "profondita": 3,
+      "parallasse": 1.6,
+      "ruolo": "primo-piano"
+    }
+  ],
+  "luci": [
+    {
+      "chiave": "insegna",
+      "x": 50,
+      "y": 26,
+      "raggio": 26,
+      "colore": "#E0C365",
+      "intensita": 0.75,
+      "pulsazione": 5400
+    },
+    {
+      "chiave": "pensilina",
+      "x": 50,
+      "y": 66,
+      "raggio": 18,
+      "colore": "#C9A227",
+      "intensita": 0.5,
+      "pulsazione": 0
+    },
+    {
+      "chiave": "faro-lontano",
+      "x": 88,
+      "y": 47,
+      "raggio": 10,
+      "colore": "#5C7FA3",
+      "intensita": 0.35,
+      "pulsazione": 4000
+    }
+  ],
+  "hotspot": [
+    {
+      "chiave": "porta",
+      "etichetta": "La porta girevole",
+      "x": 50,
+      "y": 74,
+      "raggio": 9,
+      "layer": 2
+    },
+    {
+      "chiave": "finestra",
+      "etichetta": "Le finestre illuminate",
+      "x": 22,
+      "y": 34,
+      "raggio": 7,
+      "layer": 2
+    },
+    {
+      "chiave": "valigia",
+      "etichetta": "Un baule sotto la pensilina",
+      "x": 66,
+      "y": 82,
+      "raggio": 6,
+      "layer": 2
+    },
+    {
+      "chiave": "telefono",
+      "etichetta": "La cabina telefonica",
+      "x": 84,
+      "y": 76,
+      "raggio": 6,
+      "layer": 2
+    },
+    {
+      "chiave": "consegna",
+      "etichetta": "Il punto di consegna",
+      "x": 12,
+      "y": 84,
+      "raggio": 6,
+      "layer": 2
+    },
+    {
+      "chiave": "oggetto",
+      "etichetta": "L'oggetto fuori posto",
+      "x": 36,
+      "y": 88,
+      "raggio": 5,
+      "layer": 2
+    }
+  ]
+}

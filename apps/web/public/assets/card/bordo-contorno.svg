@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- MÉRIDIEN — asset generato da tools/generate-assets. Non modificare a mano. -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="360" height="500" viewBox="0 0 360 500">
+<title>Dettaglio</title>
+<defs><linearGradient id="carta" x1="0" y1="0" x2="0.4" y2="1"><stop offset="0" stop-color="#F6EFE0"/><stop offset="1" stop-color="#E4D9C2"/></linearGradient><pattern id="grana" width="240" height="240" patternUnits="userSpaceOnUse"><image href="../paper-grain.svg" width="240" height="240" opacity="0.18"/></pattern></defs>
+<path d="M26 0H360V474L334 500H0V26Z" fill="url(#carta)"/><path d="M26 0H360V474L334 500H0V26Z" fill="url(#grana)" style="mix-blend-mode:multiply"/><path d="M26 0H360V474L334 500H0V26Z" fill="none" stroke="#5C7FA3" stroke-width="6"/><path d="M18 0H336V458L318 476H0V18Z" transform="translate(12 12)" fill="none" stroke="rgba(92,127,163,0.55)" stroke-width="1"/><path d="M12 12H348V52H12Z" fill="rgba(92,127,163,0.16)"/><path d="M12 52H348" stroke="rgba(92,127,163,0.7)" stroke-width="1"/><g transform="translate(28 472)" stroke="rgba(92,127,163,0.35)" stroke-width="1" fill="none"><path d="M0 0L38 -10"/><path d="M0 0L32 -18"/><path d="M0 0L26 -26"/><path d="M0 0L20 -34"/><path d="M0 0L14 -42"/></g>
+</svg>

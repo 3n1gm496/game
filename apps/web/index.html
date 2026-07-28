@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=5, user-scalable=yes"
+    />
+    <meta name="theme-color" content="#111C2E" />
+    <meta name="color-scheme" content="dark" />
+    <title>MÉRIDIEN — Delitto al Grand Hotel</title>
+    <meta
+      name="description"
+      content="Giallo sociale multiplayer per 4-8 giocatori. Grand Hotel Méridien, Riviera ligure, 1968: una tempesta, un ballo in maschera e una porta chiusa dall'interno."
+    />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' ws: wss:; media-src 'self' data: blob:; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'"
+    />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./icon-192.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Méridien" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta property="og:title" content="MÉRIDIEN — Delitto al Grand Hotel" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:description"
+      content="Un giallo sociale per 4-8 giocatori. Riviera ligure, 1968."
+    />
+    <meta property="og:image" content="./icon-512.png" />
+  </head>
+  <body>
+    <div id="radice"></div>
+    <noscript>
+      <div style="padding: 2rem; font-family: Georgia, serif; color: #f2e9d8; background: #111c2e">
+        <h1>MÉRIDIEN</h1>
+        <p>
+          Il Grand Hotel ha bisogno di JavaScript per aprire le porte. Attivalo nelle impostazioni del
+          browser e ricarica la pagina.
+        </p>
+      </div>
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

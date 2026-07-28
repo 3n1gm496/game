@@ -1,0 +1,117 @@
+{
+  "chiave": "bar",
+  "titolo": "Il bar",
+  "descrizione": "Bancone di mogano, specchiera, bottiglie in fila e due bicchieri di troppo.",
+  "larghezza": 1920,
+  "altezza": 1080,
+  "atmosfera": {
+    "pioggia": false,
+    "nebbia": 0.12,
+    "grana": 0.06,
+    "dominante": "#C9A227"
+  },
+  "layer": [
+    {
+      "file": "layer-0.svg",
+      "profondita": 0,
+      "parallasse": 0.15,
+      "ruolo": "fondo"
+    },
+    {
+      "file": "layer-1.svg",
+      "profondita": 1,
+      "parallasse": 0.4,
+      "ruolo": "medio"
+    },
+    {
+      "file": "layer-2.svg",
+      "profondita": 2,
+      "parallasse": 1,
+      "ruolo": "principale"
+    },
+    {
+      "file": "layer-3.svg",
+      "profondita": 3,
+      "parallasse": 1.6,
+      "ruolo": "primo-piano"
+    }
+  ],
+  "luci": [
+    {
+      "chiave": "lampade-bancone",
+      "x": 50,
+      "y": 24,
+      "raggio": 22,
+      "colore": "#C9A227",
+      "intensita": 0.65,
+      "pulsazione": 0
+    },
+    {
+      "chiave": "specchiera",
+      "x": 50,
+      "y": 40,
+      "raggio": 26,
+      "colore": "#E0C365",
+      "intensita": 0.35,
+      "pulsazione": 0
+    }
+  ],
+  "hotspot": [
+    {
+      "chiave": "bancone",
+      "etichetta": "Il bancone",
+      "x": 50,
+      "y": 68,
+      "raggio": 13,
+      "layer": 2
+    },
+    {
+      "chiave": "bicchieri",
+      "etichetta": "Due bicchieri",
+      "x": 36,
+      "y": 60,
+      "raggio": 6,
+      "layer": 2
+    },
+    {
+      "chiave": "telefono",
+      "etichetta": "Il telefono del bar",
+      "x": 78,
+      "y": 60,
+      "raggio": 5,
+      "layer": 2
+    },
+    {
+      "chiave": "registro",
+      "etichetta": "Il conto delle consumazioni",
+      "x": 22,
+      "y": 62,
+      "raggio": 5,
+      "layer": 2
+    },
+    {
+      "chiave": "tavolo",
+      "etichetta": "Il tavolino appartato",
+      "x": 88,
+      "y": 80,
+      "raggio": 7,
+      "layer": 2
+    },
+    {
+      "chiave": "consegna",
+      "etichetta": "Il punto di consegna",
+      "x": 10,
+      "y": 80,
+      "raggio": 6,
+      "layer": 2
+    },
+    {
+      "chiave": "oggetto",
+      "etichetta": "L'oggetto fuori posto",
+      "x": 60,
+      "y": 76,
+      "raggio": 5,
+      "layer": 2
+    }
+  ]
+}

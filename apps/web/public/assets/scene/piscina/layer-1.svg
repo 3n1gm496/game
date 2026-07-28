@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- MÉRIDIEN — asset generato da tools/generate-assets. Non modificare a mano. -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="1080" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+<title>La piscina vuota — livello 1 (medio)</title>
+<defs><radialGradient id="piscina-l1-lampione" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#E0C365" stop-opacity="0.5"/><stop offset="50%" stop-color="#E0C365" stop-opacity="0.175"/><stop offset="100%" stop-color="#E0C365" stop-opacity="0"/></radialGradient></defs>
+<g><circle cx="420" cy="320" r="200" fill="url(#piscina-l1-lampione)"/><rect x="414" y="330" width="12" height="260" fill="#3c414d"/><path d="M 386 330 L 454 330 L 446 296 L 394 296 Z" fill="#C9A227"/><rect x="0" y="400" width="1920" height="40" fill="#0a2120"/><g><ellipse cx="1210.276" cy="384.462" rx="190.186" ry="85.094" fill="rgba(92,127,163,0.078)"/><ellipse cx="1223.872" cy="354.439" rx="375.884" ry="78.019" fill="rgba(92,127,163,0.078)"/><ellipse cx="1299.982" cy="369.838" rx="230.023" ry="127.079" fill="rgba(92,127,163,0.095)"/><ellipse cx="1416.379" cy="371.541" rx="131.476" ry="70.936" fill="rgba(92,127,163,0.083)"/><ellipse cx="106.195" cy="485.521" rx="195.679" ry="71.968" fill="rgba(92,127,163,0.064)"/><ellipse cx="1287.278" cy="379.306" rx="205.583" ry="75.976" fill="rgba(92,127,163,0.108)"/></g></g>
+</svg>

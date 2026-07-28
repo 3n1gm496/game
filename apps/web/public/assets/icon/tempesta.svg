@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- MÉRIDIEN — asset generato da tools/generate-assets. Non modificare a mano. -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="miter">
+<title>Tempesta</title>
+<path d="M6 12.5A4 4 0 0 1 7 4.7A5.2 5.2 0 0 1 17 6.4A3.6 3.6 0 0 1 18 13.4H7"/><path d="M8 17L6.5 21"/><path d="M13 17L11.5 21"/><path d="M18 17L16.5 21"/>
+</svg>

@@ -1,0 +1,117 @@
+{
+  "chiave": "registrazione",
+  "titolo": "La sala di registrazione",
+  "descrizione": "Un registratore a bobine, il banco dei livelli, il vetro che dà sulla sala.",
+  "larghezza": 1920,
+  "altezza": 1080,
+  "atmosfera": {
+    "pioggia": false,
+    "nebbia": 0.08,
+    "grana": 0.06,
+    "dominante": "#3A2440"
+  },
+  "layer": [
+    {
+      "file": "layer-0.svg",
+      "profondita": 0,
+      "parallasse": 0.15,
+      "ruolo": "fondo"
+    },
+    {
+      "file": "layer-1.svg",
+      "profondita": 1,
+      "parallasse": 0.4,
+      "ruolo": "medio"
+    },
+    {
+      "file": "layer-2.svg",
+      "profondita": 2,
+      "parallasse": 1,
+      "ruolo": "principale"
+    },
+    {
+      "file": "layer-3.svg",
+      "profondita": 3,
+      "parallasse": 1.6,
+      "ruolo": "primo-piano"
+    }
+  ],
+  "luci": [
+    {
+      "chiave": "spia-rossa",
+      "x": 78,
+      "y": 22,
+      "raggio": 8,
+      "colore": "#B5261E",
+      "intensita": 0.7,
+      "pulsazione": 2400
+    },
+    {
+      "chiave": "lampada-banco",
+      "x": 40,
+      "y": 40,
+      "raggio": 14,
+      "colore": "#C9A227",
+      "intensita": 0.55,
+      "pulsazione": 0
+    }
+  ],
+  "hotspot": [
+    {
+      "chiave": "bobina",
+      "etichetta": "Il registratore a bobine",
+      "x": 32,
+      "y": 54,
+      "raggio": 9,
+      "layer": 2
+    },
+    {
+      "chiave": "finestra",
+      "etichetta": "Il vetro sulla sala",
+      "x": 68,
+      "y": 34,
+      "raggio": 10,
+      "layer": 2
+    },
+    {
+      "chiave": "telefono",
+      "etichetta": "L'interfono",
+      "x": 84,
+      "y": 62,
+      "raggio": 6,
+      "layer": 2
+    },
+    {
+      "chiave": "cassetto",
+      "etichetta": "Lo schedario dei nastri",
+      "x": 12,
+      "y": 60,
+      "raggio": 7,
+      "layer": 2
+    },
+    {
+      "chiave": "spartiti",
+      "etichetta": "Le note del tecnico",
+      "x": 52,
+      "y": 72,
+      "raggio": 6,
+      "layer": 2
+    },
+    {
+      "chiave": "consegna",
+      "etichetta": "Il punto di consegna",
+      "x": 90,
+      "y": 82,
+      "raggio": 6,
+      "layer": 2
+    },
+    {
+      "chiave": "oggetto",
+      "etichetta": "L'oggetto fuori posto",
+      "x": 46,
+      "y": 86,
+      "raggio": 5,
+      "layer": 2
+    }
+  ]
+}

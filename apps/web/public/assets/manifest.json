@@ -1,0 +1,3227 @@
+{
+ "versione": 1,
+ "generatoIl": "2026-07-28",
+ "totale": {
+  "file": 279,
+  "byte": 1618274
+ },
+ "file": [
+  {
+   "percorso": "card/bordo-contorno.svg",
+   "byte": 1315,
+   "sha256": "fb9cab241781bd4f3bd9965ff45c7179"
+  },
+  {
+   "percorso": "card/bordo-critico.svg",
+   "byte": 1316,
+   "sha256": "d16289ec85c97eb5c10da7672d264dfb"
+  },
+  {
+   "percorso": "card/bordo-falsa-pista.svg",
+   "byte": 1309,
+   "sha256": "b817c152f83e640f39f4e09f124c3f08"
+  },
+  {
+   "percorso": "card/bordo-utile.svg",
+   "byte": 1317,
+   "sha256": "3387cb8dc7f9ce7b8e131e81190964ad"
+  },
+  {
+   "percorso": "card/dorso.svg",
+   "byte": 2775,
+   "sha256": "3e48da627ac7b487ce37350ea96d4ec6"
+  },
+  {
+   "percorso": "icon/bicchiere.svg",
+   "byte": 469,
+   "sha256": "1c6b1a4199bcf224e016e6259e9a4cc1"
+  },
+  {
+   "percorso": "icon/bobina.svg",
+   "byte": 534,
+   "sha256": "214a57059367a82e1bbe4c96523bcdd0"
+  },
+  {
+   "percorso": "icon/campanello.svg",
+   "byte": 510,
+   "sha256": "c146721228877a142f8c2c6805788175"
+  },
+  {
+   "percorso": "icon/candela.svg",
+   "byte": 485,
+   "sha256": "ef3ce057b80573b16f2a8d7240a05fa8"
+  },
+  {
+   "percorso": "icon/chiave.svg",
+   "byte": 474,
+   "sha256": "b71a878f7fa535eae7a2e308403b36b2"
+  },
+  {
+   "percorso": "icon/faro.svg",
+   "byte": 507,
+   "sha256": "7e46de355fd9c29d64f60971d4d61366"
+  },
+  {
+   "percorso": "icon/fulmine.svg",
+   "byte": 418,
+   "sha256": "d96db41a2a8c79f531d19b9ec6c70a91"
+  },
+  {
+   "percorso": "icon/guanto.svg",
+   "byte": 562,
+   "sha256": "703a2b13176b420aed04f3900f7951be"
+  },
+  {
+   "percorso": "icon/lente.svg",
+   "byte": 428,
+   "sha256": "d64d992f52d25e730f15ecc1794e04db"
+  },
+  {
+   "percorso": "icon/macchina-fotografica.svg",
+   "byte": 483,
+   "sha256": "b7af0df7e4c6b069eafdb924cef7ef0b"
+  },
+  {
+   "percorso": "icon/maschera.svg",
+   "byte": 570,
+   "sha256": "678b0750cb6d2621124e71c1a07a461c"
+  },
+  {
+   "percorso": "icon/ombrello.svg",
+   "byte": 472,
+   "sha256": "ff9dfa24898e58e16e8ce266715448dd"
+  },
+  {
+   "percorso": "icon/orologio.svg",
+   "byte": 444,
+   "sha256": "9e3123c7bf78adc281e8ef3dd46e96da"
+  },
+  {
+   "percorso": "icon/porta.svg",
+   "byte": 464,
+   "sha256": "02928b0cafa0bb7b13a7f20abb19e9b7"
+  },
+  {
+   "percorso": "icon/scacchiera.svg",
+   "byte": 521,
+   "sha256": "59ffce820a8dafdaf7c73e96088180b0"
+  },
+  {
+   "percorso": "icon/scala.svg",
+   "byte": 498,
+   "sha256": "8cf269d6842a1946f6045361edbd0fe5"
+  },
+  {
+   "percorso": "icon/sigillo.svg",
+   "byte": 475,
+   "sha256": "c19c1404be8b4ebd3860f8d46ed32010"
+  },
+  {
+   "percorso": "icon/spartito.svg",
+   "byte": 566,
+   "sha256": "5ea4caca532419ec7f66988275e963d0"
+  },
+  {
+   "percorso": "icon/taccuino.svg",
+   "byte": 546,
+   "sha256": "f49dbfd93d6e105a780a36fb2a0aec83"
+  },
+  {
+   "percorso": "icon/telefono.svg",
+   "byte": 508,
+   "sha256": "458337df09d874ef0005d1a14d56b341"
+  },
+  {
+   "percorso": "icon/tempesta.svg",
+   "byte": 518,
+   "sha256": "13e58bc99c992341b5b8e77ed9f85b49"
+  },
+  {
+   "percorso": "icon/valigia.svg",
+   "byte": 448,
+   "sha256": "95acc4011c77e6e9c7e1bc63455580c2"
+  },
+  {
+   "percorso": "icons.svg",
+   "byte": 5044,
+   "sha256": "7f16911bda8dfd4af39b62453726399e"
+  },
+  {
+   "percorso": "logo-animato.svg",
+   "byte": 22067,
+   "sha256": "d7ad06237674a0342559f4e9438d2150"
+  },
+  {
+   "percorso": "logo.svg",
+   "byte": 18384,
+   "sha256": "bae12f11cb0d60aed09d5e7477b1f0cf"
+  },
+  {
+   "percorso": "paper-grain.svg",
+   "byte": 71642,
+   "sha256": "1189645602ff9799e57302c2bfeeb13b"
+  },
+  {
+   "percorso": "portrait/portrait-01/card.svg",
+   "byte": 7379,
+   "sha256": "bd79cf11b23f927ab898a5805e9b29d2"
+  },
+  {
+   "percorso": "portrait/portrait-01/lean-calm.svg",
+   "byte": 5532,
+   "sha256": "b889a72723549af0214e5d2de8089437"
+  },
+  {
+   "percorso": "portrait/portrait-01/lean-caught.svg",
+   "byte": 5625,
+   "sha256": "1190e6a6c64d4dfa96d183320095c788"
+  },
+  {
+   "percorso": "portrait/portrait-01/lean-smug.svg",
+   "byte": 5533,
+   "sha256": "9e778cd139d4a1b5705806fbb8529b27"
+  },
+  {
+   "percorso": "portrait/portrait-01/lean-worried.svg",
+   "byte": 5553,
+   "sha256": "e60c4b2d1cb0f3bfe9a9d85eee804bcb"
+  },
+  {
+   "percorso": "portrait/portrait-01/neutral-calm.svg",
+   "byte": 5449,
+   "sha256": "b352b85f53fe6cb98c69efff9e327195"
+  },
+  {
+   "percorso": "portrait/portrait-01/neutral-caught.svg",
+   "byte": 5542,
+   "sha256": "d8257706ddc3df20b1ecab4b23b8f93e"
+  },
+  {
+   "percorso": "portrait/portrait-01/neutral-smug.svg",
+   "byte": 5450,
+   "sha256": "6ea72efbbbf68775c1c5b2a0d54e19a3"
+  },
+  {
+   "percorso": "portrait/portrait-01/neutral-worried.svg",
+   "byte": 5470,
+   "sha256": "89ba67797c2ccf1380b239f959df4e85"
+  },
+  {
+   "percorso": "portrait/portrait-01/silhouette.svg",
+   "byte": 2834,
+   "sha256": "26c62892e772c0fd85d165fb2be4027f"
+  },
+  {
+   "percorso": "portrait/portrait-01/turn-calm.svg",
+   "byte": 5502,
+   "sha256": "d6ee5d5d39aa6b87ebf6c05f01b5a74d"
+  },
+  {
+   "percorso": "portrait/portrait-01/turn-caught.svg",
+   "byte": 5595,
+   "sha256": "8909e38a25af1890c8ff0ce3535436cc"
+  },
+  {
+   "percorso": "portrait/portrait-01/turn-smug.svg",
+   "byte": 5502,
+   "sha256": "75dfd1ba7e977d87602ead5310ede8e8"
+  },
+  {
+   "percorso": "portrait/portrait-01/turn-worried.svg",
+   "byte": 5523,
+   "sha256": "b1c5c534b90717bd5e23063f1ae994d2"
+  },
+  {
+   "percorso": "portrait/portrait-02/card.svg",
+   "byte": 6994,
+   "sha256": "be261bd74ab64dccc16ef4110ddf78d8"
+  },
+  {
+   "percorso": "portrait/portrait-02/lean-calm.svg",
+   "byte": 5049,
+   "sha256": "ef29265c3a07d1045e40c6233169710b"
+  },
+  {
+   "percorso": "portrait/portrait-02/lean-caught.svg",
+   "byte": 5139,
+   "sha256": "ff7d97d9d1acf0646f350a45c37e5d02"
+  },
+  {
+   "percorso": "portrait/portrait-02/lean-smug.svg",
+   "byte": 5048,
+   "sha256": "c4ed7873e58c3de4ce6fc193fb190cec"
+  },
+  {
+   "percorso": "portrait/portrait-02/lean-worried.svg",
+   "byte": 5066,
+   "sha256": "e3e054fe0fdadeaf4b433785a78912cd"
+  },
+  {
+   "percorso": "portrait/portrait-02/neutral-calm.svg",
+   "byte": 4996,
+   "sha256": "7ad07d3b5db373d749e21bbba350c2f0"
+  },
+  {
+   "percorso": "portrait/portrait-02/neutral-caught.svg",
+   "byte": 5086,
+   "sha256": "5513eb4c85ff37d178d13f9eb31a4f09"
+  },
+  {
+   "percorso": "portrait/portrait-02/neutral-smug.svg",
+   "byte": 4995,
+   "sha256": "d9ea4aec8adc9a1412658253348d961d"
+  },
+  {
+   "percorso": "portrait/portrait-02/neutral-worried.svg",
+   "byte": 5013,
+   "sha256": "fa2897c49272fb79a90abb4810c0de4d"
+  },
+  {
+   "percorso": "portrait/portrait-02/silhouette.svg",
+   "byte": 2160,
+   "sha256": "387b2dbd905159eea6c3d5b6624a60c4"
+  },
+  {
+   "percorso": "portrait/portrait-02/turn-calm.svg",
+   "byte": 5007,
+   "sha256": "24f04265002b22fcd082839d73216ad0"
+  },
+  {
+   "percorso": "portrait/portrait-02/turn-caught.svg",
+   "byte": 5100,
+   "sha256": "64fc3c9d3d3308d91244f97975d96a91"
+  },
+  {
+   "percorso": "portrait/portrait-02/turn-smug.svg",
+   "byte": 5008,
+   "sha256": "b02b232cfc18dd5a2856f133cb03b6fe"
+  },
+  {
+   "percorso": "portrait/portrait-02/turn-worried.svg",
+   "byte": 5025,
+   "sha256": "4ee1894efdf2b6e35cd130de70278ef6"
+  },
+  {
+   "percorso": "portrait/portrait-03/card.svg",
+   "byte": 7391,
+   "sha256": "240f6cabde5820869aab8615076cff82"
+  },
+  {
+   "percorso": "portrait/portrait-03/lean-calm.svg",
+   "byte": 5408,
+   "sha256": "fc555230dfd9ad91cd0ee51bc4ae5751"
+  },
+  {
+   "percorso": "portrait/portrait-03/lean-caught.svg",
+   "byte": 5498,
+   "sha256": "186e4053ed772782e880b67e28ea1e1f"
+  },
+  {
+   "percorso": "portrait/portrait-03/lean-smug.svg",
+   "byte": 5405,
+   "sha256": "0e74a4afb8b08a88d655df7a9d14660c"
+  },
+  {
+   "percorso": "portrait/portrait-03/lean-worried.svg",
+   "byte": 5425,
+   "sha256": "c4455217425588a84a4e451fc3cb70d6"
+  },
+  {
+   "percorso": "portrait/portrait-03/neutral-calm.svg",
+   "byte": 5325,
+   "sha256": "80e00c124defdc45c2dd0c6e4126c8dd"
+  },
+  {
+   "percorso": "portrait/portrait-03/neutral-caught.svg",
+   "byte": 5415,
+   "sha256": "9ee150cf9787114d32be3fe0236e877a"
+  },
+  {
+   "percorso": "portrait/portrait-03/neutral-smug.svg",
+   "byte": 5322,
+   "sha256": "3a3aed354c51d1e7240e0990e84a2448"
+  },
+  {
+   "percorso": "portrait/portrait-03/neutral-worried.svg",
+   "byte": 5342,
+   "sha256": "22dc5f5658f41c03cbf59a1d9e6748fd"
+  },
+  {
+   "percorso": "portrait/portrait-03/silhouette.svg",
+   "byte": 2633,
+   "sha256": "12d5151bf94bedb531ac04ee8aaa316f"
+  },
+  {
+   "percorso": "portrait/portrait-03/turn-calm.svg",
+   "byte": 5365,
+   "sha256": "1187567d594e5e7ea53b0ea24d5afb6b"
+  },
+  {
+   "percorso": "portrait/portrait-03/turn-caught.svg",
+   "byte": 5461,
+   "sha256": "5354d88a73977a2d66644fdc48dfccdd"
+  },
+  {
+   "percorso": "portrait/portrait-03/turn-smug.svg",
+   "byte": 5366,
+   "sha256": "53c1ba737a5291bb2595175883051b20"
+  },
+  {
+   "percorso": "portrait/portrait-03/turn-worried.svg",
+   "byte": 5382,
+   "sha256": "5b4196caa9bc10f2d0d926b18a8893e1"
+  },
+  {
+   "percorso": "portrait/portrait-04/card.svg",
+   "byte": 7380,
+   "sha256": "9db667db802c3aa9d884b9b1316b6173"
+  },
+  {
+   "percorso": "portrait/portrait-04/lean-calm.svg",
+   "byte": 5299,
+   "sha256": "60b956b28097dcc0363e63580b37e017"
+  },
+  {
+   "percorso": "portrait/portrait-04/lean-caught.svg",
+   "byte": 5392,
+   "sha256": "93cba725e362352f6e2f77edb8e12013"
+  },
+  {
+   "percorso": "portrait/portrait-04/lean-smug.svg",
+   "byte": 5300,
+   "sha256": "9c4402d64a4cddd773cb3b4a9f01ee26"
+  },
+  {
+   "percorso": "portrait/portrait-04/lean-worried.svg",
+   "byte": 5320,
+   "sha256": "1857b07bdf951bf7ad0e4f15b491afd2"
+  },
+  {
+   "percorso": "portrait/portrait-04/neutral-calm.svg",
+   "byte": 5246,
+   "sha256": "e721d8882425c4f6edafe11ce2fba162"
+  },
+  {
+   "percorso": "portrait/portrait-04/neutral-caught.svg",
+   "byte": 5339,
+   "sha256": "1c655c1b83bbdda93668a2ddaef1b4d3"
+  },
+  {
+   "percorso": "portrait/portrait-04/neutral-smug.svg",
+   "byte": 5247,
+   "sha256": "02e507f975c5ddc88f2ffc573d8106de"
+  },
+  {
+   "percorso": "portrait/portrait-04/neutral-worried.svg",
+   "byte": 5267,
+   "sha256": "29f4d88777c21b4d3cbf1ea1ff2d40cb"
+  },
+  {
+   "percorso": "portrait/portrait-04/silhouette.svg",
+   "byte": 2620,
+   "sha256": "7aa0621bb5fb2bf3cc4c1e221a70273c"
+  },
+  {
+   "percorso": "portrait/portrait-04/turn-calm.svg",
+   "byte": 5268,
+   "sha256": "81a6902c11f311648c6a797b5201fb53"
+  },
+  {
+   "percorso": "portrait/portrait-04/turn-caught.svg",
+   "byte": 5361,
+   "sha256": "4bf5722f800c56d2d97279b864f2a60e"
+  },
+  {
+   "percorso": "portrait/portrait-04/turn-smug.svg",
+   "byte": 5268,
+   "sha256": "bed19a95bf0b1430446c9f4e406dcaf8"
+  },
+  {
+   "percorso": "portrait/portrait-04/turn-worried.svg",
+   "byte": 5289,
+   "sha256": "b306d1c6fa7104d6c598486022f56b27"
+  },
+  {
+   "percorso": "portrait/portrait-05/card.svg",
+   "byte": 8056,
+   "sha256": "0560350660a37cce012468dcd7f15996"
+  },
+  {
+   "percorso": "portrait/portrait-05/lean-calm.svg",
+   "byte": 5907,
+   "sha256": "f574b632c9ecdc23c5e5ae39a37574e0"
+  },
+  {
+   "percorso": "portrait/portrait-05/lean-caught.svg",
+   "byte": 6001,
+   "sha256": "2b627ded87daf7e95970b5139d678fea"
+  },
+  {
+   "percorso": "portrait/portrait-05/lean-smug.svg",
+   "byte": 5904,
+   "sha256": "d40326318c951ab0e893b1b76338c501"
+  },
+  {
+   "percorso": "portrait/portrait-05/lean-worried.svg",
+   "byte": 5924,
+   "sha256": "e017745c7ffdd3ac4e6a4ae668d17c8f"
+  },
+  {
+   "percorso": "portrait/portrait-05/neutral-calm.svg",
+   "byte": 5854,
+   "sha256": "15c3ee1ad0e7254a72ddc22d028e305e"
+  },
+  {
+   "percorso": "portrait/portrait-05/neutral-caught.svg",
+   "byte": 5948,
+   "sha256": "4236a1ed65f3ddaff8207dbeb00c920d"
+  },
+  {
+   "percorso": "portrait/portrait-05/neutral-smug.svg",
+   "byte": 5851,
+   "sha256": "fbcdef5d53ab25fb58d1c375217f9b2f"
+  },
+  {
+   "percorso": "portrait/portrait-05/neutral-worried.svg",
+   "byte": 5871,
+   "sha256": "a31a5f27c07fb77e02103ee254563cb0"
+  },
+  {
+   "percorso": "portrait/portrait-05/silhouette.svg",
+   "byte": 3135,
+   "sha256": "9a2e4749b8c9cc91269e71cb2406035e"
+  },
+  {
+   "percorso": "portrait/portrait-05/turn-calm.svg",
+   "byte": 5865,
+   "sha256": "9484b623b1514695cc78cecb94008e7b"
+  },
+  {
+   "percorso": "portrait/portrait-05/turn-caught.svg",
+   "byte": 5961,
+   "sha256": "037f7c499c0fa1115ff3a359dc0b10b0"
+  },
+  {
+   "percorso": "portrait/portrait-05/turn-smug.svg",
+   "byte": 5864,
+   "sha256": "b0b58ab632948c00d2290e3ad1a4deae"
+  },
+  {
+   "percorso": "portrait/portrait-05/turn-worried.svg",
+   "byte": 5883,
+   "sha256": "453bb84fe0ebde0a6e454231268f4c81"
+  },
+  {
+   "percorso": "portrait/portrait-06/card.svg",
+   "byte": 7184,
+   "sha256": "1a023e67480b817931becb1716b176b6"
+  },
+  {
+   "percorso": "portrait/portrait-06/lean-calm.svg",
+   "byte": 4997,
+   "sha256": "f51377afcc9bd64f8b427ed6614fa172"
+  },
+  {
+   "percorso": "portrait/portrait-06/lean-caught.svg",
+   "byte": 5086,
+   "sha256": "7ee359200d6690b99ec9804f1a886ba8"
+  },
+  {
+   "percorso": "portrait/portrait-06/lean-smug.svg",
+   "byte": 4996,
+   "sha256": "fa829f531bf47ab097014b07b825cc02"
+  },
+  {
+   "percorso": "portrait/portrait-06/lean-worried.svg",
+   "byte": 5012,
+   "sha256": "12638eadc150b0052127f933b8ebe213"
+  },
+  {
+   "percorso": "portrait/portrait-06/neutral-calm.svg",
+   "byte": 4914,
+   "sha256": "d0bf0c6fb0772217c85024687ed9d6d4"
+  },
+  {
+   "percorso": "portrait/portrait-06/neutral-caught.svg",
+   "byte": 5003,
+   "sha256": "66e9050d168122a93cf4d7d267d4b059"
+  },
+  {
+   "percorso": "portrait/portrait-06/neutral-smug.svg",
+   "byte": 4913,
+   "sha256": "c9ead0348e737b8d216af652f495d0f5"
+  },
+  {
+   "percorso": "portrait/portrait-06/neutral-worried.svg",
+   "byte": 4929,
+   "sha256": "9480c5de5a55bc885c09fe8dd0934ae9"
+  },
+  {
+   "percorso": "portrait/portrait-06/silhouette.svg",
+   "byte": 2224,
+   "sha256": "13bc43a1868ff00d6da49a99d5efdd71"
+  },
+  {
+   "percorso": "portrait/portrait-06/turn-calm.svg",
+   "byte": 4956,
+   "sha256": "8ef6b285297d20950ef701a40563af1f"
+  },
+  {
+   "percorso": "portrait/portrait-06/turn-caught.svg",
+   "byte": 5046,
+   "sha256": "c9813dea3d0193c0dd663a4c845ad0d1"
+  },
+  {
+   "percorso": "portrait/portrait-06/turn-smug.svg",
+   "byte": 4957,
+   "sha256": "0b860c9b98f0beef4a38d76a6002945a"
+  },
+  {
+   "percorso": "portrait/portrait-06/turn-worried.svg",
+   "byte": 4971,
+   "sha256": "898216cd8659056a6df876d852f4f10d"
+  },
+  {
+   "percorso": "portrait/portrait-07/card.svg",
+   "byte": 8765,
+   "sha256": "ae9c5a895d61f149f62e11a04ebfe59c"
+  },
+  {
+   "percorso": "portrait/portrait-07/lean-calm.svg",
+   "byte": 6479,
+   "sha256": "ba2a34fd195a96fc38e14a3c282dc047"
+  },
+  {
+   "percorso": "portrait/portrait-07/lean-caught.svg",
+   "byte": 6568,
+   "sha256": "1ac21d91ae03006d5aabffb7cff1438b"
+  },
+  {
+   "percorso": "portrait/portrait-07/lean-smug.svg",
+   "byte": 6478,
+   "sha256": "b1f105713341fcdc375c09f605d30c8c"
+  },
+  {
+   "percorso": "portrait/portrait-07/lean-worried.svg",
+   "byte": 6501,
+   "sha256": "1e148c5e2768fde6fb299b419bd7bb61"
+  },
+  {
+   "percorso": "portrait/portrait-07/neutral-calm.svg",
+   "byte": 6427,
+   "sha256": "03edf6d3a8e65f97431bab8f937e1bf7"
+  },
+  {
+   "percorso": "portrait/portrait-07/neutral-caught.svg",
+   "byte": 6516,
+   "sha256": "62694d072c26b9571114d62dcba7be37"
+  },
+  {
+   "percorso": "portrait/portrait-07/neutral-smug.svg",
+   "byte": 6426,
+   "sha256": "b9d6cc6226633828ed6027af12ba4ea6"
+  },
+  {
+   "percorso": "portrait/portrait-07/neutral-worried.svg",
+   "byte": 6449,
+   "sha256": "3356f81923de5005132926e1df3510ca"
+  },
+  {
+   "percorso": "portrait/portrait-07/silhouette.svg",
+   "byte": 3318,
+   "sha256": "df849f6fa8705c1aa498e28e1e2ac0f7"
+  },
+  {
+   "percorso": "portrait/portrait-07/turn-calm.svg",
+   "byte": 6438,
+   "sha256": "c426da08a90cfd78b67c239478dee644"
+  },
+  {
+   "percorso": "portrait/portrait-07/turn-caught.svg",
+   "byte": 6531,
+   "sha256": "1a4c905c64f9b7ccdcfcc6efaaa6b7ee"
+  },
+  {
+   "percorso": "portrait/portrait-07/turn-smug.svg",
+   "byte": 6438,
+   "sha256": "ca24e357602395a14949d1c5ea9cc9e4"
+  },
+  {
+   "percorso": "portrait/portrait-07/turn-worried.svg",
+   "byte": 6458,
+   "sha256": "55e75c429aa01923060ce83ef85d10da"
+  },
+  {
+   "percorso": "portrait/portrait-08/card.svg",
+   "byte": 7230,
+   "sha256": "4a612f8b33a91475410e30ce3cd491e8"
+  },
+  {
+   "percorso": "portrait/portrait-08/lean-calm.svg",
+   "byte": 4876,
+   "sha256": "a668676d29ad723181de2bca9263b16b"
+  },
+  {
+   "percorso": "portrait/portrait-08/lean-caught.svg",
+   "byte": 4968,
+   "sha256": "1a574df1c2a93ef7b1e743715c4c8f89"
+  },
+  {
+   "percorso": "portrait/portrait-08/lean-smug.svg",
+   "byte": 4871,
+   "sha256": "71f75c9d6679f683a9935b881ffd66e1"
+  },
+  {
+   "percorso": "portrait/portrait-08/lean-worried.svg",
+   "byte": 4894,
+   "sha256": "39bfe2e2ec27fc0c74aad5fb18481677"
+  },
+  {
+   "percorso": "portrait/portrait-08/neutral-calm.svg",
+   "byte": 4824,
+   "sha256": "8540b28fd5e41f9fba10117bc588325f"
+  },
+  {
+   "percorso": "portrait/portrait-08/neutral-caught.svg",
+   "byte": 4916,
+   "sha256": "c057a3608670c387e201f30086642d95"
+  },
+  {
+   "percorso": "portrait/portrait-08/neutral-smug.svg",
+   "byte": 4819,
+   "sha256": "a207b400bce237aa7a1078e672d6ab65"
+  },
+  {
+   "percorso": "portrait/portrait-08/neutral-worried.svg",
+   "byte": 4842,
+   "sha256": "b9813e14156979252c3b75d19e4b2adb"
+  },
+  {
+   "percorso": "portrait/portrait-08/silhouette.svg",
+   "byte": 2147,
+   "sha256": "49de01cfe7aaacb5df3b73dd553a2edc"
+  },
+  {
+   "percorso": "portrait/portrait-08/turn-calm.svg",
+   "byte": 4835,
+   "sha256": "9c64cf0c3440c4a8bfa7bcc7bae49f50"
+  },
+  {
+   "percorso": "portrait/portrait-08/turn-caught.svg",
+   "byte": 4929,
+   "sha256": "a2e55a773c8ba2037d1bac92c67d3d12"
+  },
+  {
+   "percorso": "portrait/portrait-08/turn-smug.svg",
+   "byte": 4833,
+   "sha256": "55768bf65ac1f427b8a04c2e5e2c582a"
+  },
+  {
+   "percorso": "portrait/portrait-08/turn-worried.svg",
+   "byte": 4853,
+   "sha256": "d4aed2ef2807baf1b5e05049074899eb"
+  },
+  {
+   "percorso": "portrait/portrait-09/card.svg",
+   "byte": 7751,
+   "sha256": "a1267b97c63e83f8d391c324ee7dfcf6"
+  },
+  {
+   "percorso": "portrait/portrait-09/lean-calm.svg",
+   "byte": 5330,
+   "sha256": "b94a50f06a8b6f4e8acf6129600b48a4"
+  },
+  {
+   "percorso": "portrait/portrait-09/lean-caught.svg",
+   "byte": 5423,
+   "sha256": "2bc05e2797fdfb2ea2cffa034cb5a92e"
+  },
+  {
+   "percorso": "portrait/portrait-09/lean-smug.svg",
+   "byte": 5325,
+   "sha256": "a2681e8c979d6f91f886df9f43214b27"
+  },
+  {
+   "percorso": "portrait/portrait-09/lean-worried.svg",
+   "byte": 5345,
+   "sha256": "519f4918bff8cbb128b13a62682f726b"
+  },
+  {
+   "percorso": "portrait/portrait-09/neutral-calm.svg",
+   "byte": 5277,
+   "sha256": "814e44623062bbb5af39d22987e98a06"
+  },
+  {
+   "percorso": "portrait/portrait-09/neutral-caught.svg",
+   "byte": 5370,
+   "sha256": "5777cb53d401426f449e7940662a4983"
+  },
+  {
+   "percorso": "portrait/portrait-09/neutral-smug.svg",
+   "byte": 5272,
+   "sha256": "950b252ad9fe1a369de072c6da67922f"
+  },
+  {
+   "percorso": "portrait/portrait-09/neutral-worried.svg",
+   "byte": 5292,
+   "sha256": "ec20bd88a88317d5db247d4ced0f544b"
+  },
+  {
+   "percorso": "portrait/portrait-09/silhouette.svg",
+   "byte": 2190,
+   "sha256": "291507eceb4e5681f2d4317220ae1c2e"
+  },
+  {
+   "percorso": "portrait/portrait-09/turn-calm.svg",
+   "byte": 5288,
+   "sha256": "e178c15571282c8bfcaf11adf485d944"
+  },
+  {
+   "percorso": "portrait/portrait-09/turn-caught.svg",
+   "byte": 5376,
+   "sha256": "5196d940b96818f3c9333c17579ee1e8"
+  },
+  {
+   "percorso": "portrait/portrait-09/turn-smug.svg",
+   "byte": 5284,
+   "sha256": "3ad4e9b00b38086032d68b0103a23781"
+  },
+  {
+   "percorso": "portrait/portrait-09/turn-worried.svg",
+   "byte": 5303,
+   "sha256": "5d863eda9e05656c133c2f149e406160"
+  },
+  {
+   "percorso": "portrait/portrait-10/card.svg",
+   "byte": 7424,
+   "sha256": "1cfdefc528ed1da461dd1624acfd8b3f"
+  },
+  {
+   "percorso": "portrait/portrait-10/lean-calm.svg",
+   "byte": 4965,
+   "sha256": "1e7647242727742ad871bf0d190902f0"
+  },
+  {
+   "percorso": "portrait/portrait-10/lean-caught.svg",
+   "byte": 5055,
+   "sha256": "e4cdc46025790f16436e53b7ddf9e42e"
+  },
+  {
+   "percorso": "portrait/portrait-10/lean-smug.svg",
+   "byte": 4961,
+   "sha256": "e5e2f05e3ff49426981672a7c0cd8a09"
+  },
+  {
+   "percorso": "portrait/portrait-10/lean-worried.svg",
+   "byte": 4985,
+   "sha256": "06419b0c693ee735ed3151793dda8f23"
+  },
+  {
+   "percorso": "portrait/portrait-10/neutral-calm.svg",
+   "byte": 4882,
+   "sha256": "d97c1eec0da2f1cd8301a5a89f6fa547"
+  },
+  {
+   "percorso": "portrait/portrait-10/neutral-caught.svg",
+   "byte": 4972,
+   "sha256": "af38e5e3526ef26fd9db1ceec0162824"
+  },
+  {
+   "percorso": "portrait/portrait-10/neutral-smug.svg",
+   "byte": 4878,
+   "sha256": "9966a5314fa6377424c78892bebf9c77"
+  },
+  {
+   "percorso": "portrait/portrait-10/neutral-worried.svg",
+   "byte": 4902,
+   "sha256": "aa15e4163d2ca799933d4dc189c705b0"
+  },
+  {
+   "percorso": "portrait/portrait-10/silhouette.svg",
+   "byte": 2092,
+   "sha256": "8e5e175daeaeb61ef02b5dd591d80f7b"
+  },
+  {
+   "percorso": "portrait/portrait-10/turn-calm.svg",
+   "byte": 4928,
+   "sha256": "8790e679f58271daa601cd129c8ed63d"
+  },
+  {
+   "percorso": "portrait/portrait-10/turn-caught.svg",
+   "byte": 5018,
+   "sha256": "f94f5748305bd8f353e2a1cfe084e279"
+  },
+  {
+   "percorso": "portrait/portrait-10/turn-smug.svg",
+   "byte": 4926,
+   "sha256": "fe0d8ecc3918bcd2dc98e820d292e449"
+  },
+  {
+   "percorso": "portrait/portrait-10/turn-worried.svg",
+   "byte": 4947,
+   "sha256": "2778d3487afa0dbb477d1df0de698079"
+  },
+  {
+   "percorso": "portrait/portrait-11/card.svg",
+   "byte": 7546,
+   "sha256": "1b6253472e23d2befba63b8b4518b4a2"
+  },
+  {
+   "percorso": "portrait/portrait-11/lean-calm.svg",
+   "byte": 5019,
+   "sha256": "798934cf6b5d2654b7d445f2409f2b46"
+  },
+  {
+   "percorso": "portrait/portrait-11/lean-caught.svg",
+   "byte": 5112,
+   "sha256": "994ccd63ad015722a42e938227e7a494"
+  },
+  {
+   "percorso": "portrait/portrait-11/lean-smug.svg",
+   "byte": 5020,
+   "sha256": "f710cec3ed4f38d84ad382ea934ebac7"
+  },
+  {
+   "percorso": "portrait/portrait-11/lean-worried.svg",
+   "byte": 5040,
+   "sha256": "3e19008a9fbfe17033f2fabe7b2cf612"
+  },
+  {
+   "percorso": "portrait/portrait-11/neutral-calm.svg",
+   "byte": 4936,
+   "sha256": "5bde4670847b1b832f260c06c749bf62"
+  },
+  {
+   "percorso": "portrait/portrait-11/neutral-caught.svg",
+   "byte": 5029,
+   "sha256": "bf658a28cc6faea965add5612e88f5e1"
+  },
+  {
+   "percorso": "portrait/portrait-11/neutral-smug.svg",
+   "byte": 4937,
+   "sha256": "bc4c2f78349a22581856c8fa799e3027"
+  },
+  {
+   "percorso": "portrait/portrait-11/neutral-worried.svg",
+   "byte": 4957,
+   "sha256": "e6684ac20f87401c28f5c54705657511"
+  },
+  {
+   "percorso": "portrait/portrait-11/silhouette.svg",
+   "byte": 2323,
+   "sha256": "1f0482f0251a9599441b5c6dfc949805"
+  },
+  {
+   "percorso": "portrait/portrait-11/turn-calm.svg",
+   "byte": 4989,
+   "sha256": "6ddc65c1070f61facac919ebc7229783"
+  },
+  {
+   "percorso": "portrait/portrait-11/turn-caught.svg",
+   "byte": 5082,
+   "sha256": "903e7b1e853be156299feca0108a9ed9"
+  },
+  {
+   "percorso": "portrait/portrait-11/turn-smug.svg",
+   "byte": 4989,
+   "sha256": "7b11a83e9f1a45de36802c72c9a1063b"
+  },
+  {
+   "percorso": "portrait/portrait-11/turn-worried.svg",
+   "byte": 5010,
+   "sha256": "b59d0b919a51ffab2236cfcc35cf96f6"
+  },
+  {
+   "percorso": "portrait/portrait-12/card.svg",
+   "byte": 7604,
+   "sha256": "368fd38077baf136548ef9b6ffacea79"
+  },
+  {
+   "percorso": "portrait/portrait-12/lean-calm.svg",
+   "byte": 4978,
+   "sha256": "92d0681fc2aea96c39f575c008eabf91"
+  },
+  {
+   "percorso": "portrait/portrait-12/lean-caught.svg",
+   "byte": 5073,
+   "sha256": "4008917ba4314c3b51cb69bf810edb1c"
+  },
+  {
+   "percorso": "portrait/portrait-12/lean-smug.svg",
+   "byte": 4977,
+   "sha256": "7e854048df9a521f8c10b67f2debdc07"
+  },
+  {
+   "percorso": "portrait/portrait-12/lean-worried.svg",
+   "byte": 4996,
+   "sha256": "16b830a8314eebcb2a465c854f2ba477"
+  },
+  {
+   "percorso": "portrait/portrait-12/neutral-calm.svg",
+   "byte": 4926,
+   "sha256": "1209e0569ca28b68b6f2e9bfd4079552"
+  },
+  {
+   "percorso": "portrait/portrait-12/neutral-caught.svg",
+   "byte": 5021,
+   "sha256": "5c85668ef8d0db1894f1aa0a598c3314"
+  },
+  {
+   "percorso": "portrait/portrait-12/neutral-smug.svg",
+   "byte": 4925,
+   "sha256": "921e0e99f9adf29960f4f37a4974dc8c"
+  },
+  {
+   "percorso": "portrait/portrait-12/neutral-worried.svg",
+   "byte": 4944,
+   "sha256": "d0387ce5ac804c6f1b27a73626069148"
+  },
+  {
+   "percorso": "portrait/portrait-12/silhouette.svg",
+   "byte": 2235,
+   "sha256": "67a9d1babccff911a810e7b84180ba2a"
+  },
+  {
+   "percorso": "portrait/portrait-12/turn-calm.svg",
+   "byte": 4938,
+   "sha256": "d435065820b29d83b4b1166898283f7f"
+  },
+  {
+   "percorso": "portrait/portrait-12/turn-caught.svg",
+   "byte": 5036,
+   "sha256": "1aa1d349ff603207f5cb8b946d37454e"
+  },
+  {
+   "percorso": "portrait/portrait-12/turn-smug.svg",
+   "byte": 4938,
+   "sha256": "aea8bef85b8b1c996ea644b1a31eddef"
+  },
+  {
+   "percorso": "portrait/portrait-12/turn-worried.svg",
+   "byte": 4955,
+   "sha256": "bd24e76e16703aeb60923eb59bc32eac"
+  },
+  {
+   "percorso": "scene/bar/layer-0.svg",
+   "byte": 1173,
+   "sha256": "7f87774c10c6dc9d78931b47bebd0755"
+  },
+  {
+   "percorso": "scene/bar/layer-1.svg",
+   "byte": 12831,
+   "sha256": "329cf558faf338bc19a9bfb52f062d02"
+  },
+  {
+   "percorso": "scene/bar/layer-2.svg",
+   "byte": 4410,
+   "sha256": "765ba9bdd6b3709b38491da42a0120bf"
+  },
+  {
+   "percorso": "scene/bar/layer-3.svg",
+   "byte": 1978,
+   "sha256": "8059a1dc7159137bc2f656431533b626"
+  },
+  {
+   "percorso": "scene/bar/scene.json",
+   "byte": 2182,
+   "sha256": "818ac86a643ff4a4305503db7a26765c"
+  },
+  {
+   "percorso": "scene/camerino/layer-0.svg",
+   "byte": 3186,
+   "sha256": "663f8ea84d59a2725a255b8a74f01990"
+  },
+  {
+   "percorso": "scene/camerino/layer-1.svg",
+   "byte": 6631,
+   "sha256": "22e19ba01877f142ee246c12132db7fd"
+  },
+  {
+   "percorso": "scene/camerino/layer-2.svg",
+   "byte": 5301,
+   "sha256": "c77849214163ce693aef74d212f471da"
+  },
+  {
+   "percorso": "scene/camerino/layer-3.svg",
+   "byte": 1303,
+   "sha256": "82d5250854681ea141a26abef11d86a7"
+  },
+  {
+   "percorso": "scene/camerino/scene.json",
+   "byte": 2184,
+   "sha256": "ebe80aa07d12c358af3a38ba2118a145"
+  },
+  {
+   "percorso": "scene/corridoio/layer-0.svg",
+   "byte": 1228,
+   "sha256": "60f9937f825aa99b5aba59fa6bf8bd03"
+  },
+  {
+   "percorso": "scene/corridoio/layer-1.svg",
+   "byte": 1926,
+   "sha256": "7f68597bd307377cc9d5be3bdb926388"
+  },
+  {
+   "percorso": "scene/corridoio/layer-2.svg",
+   "byte": 18645,
+   "sha256": "4b2f18c1431ac5fbc04dcaf6386461be"
+  },
+  {
+   "percorso": "scene/corridoio/layer-3.svg",
+   "byte": 1358,
+   "sha256": "2d50c1bfea483135698a3c4ab7855522"
+  },
+  {
+   "percorso": "scene/corridoio/scene.json",
+   "byte": 2220,
+   "sha256": "d77df84f254f0e1dcb6c01a49c84892f"
+  },
+  {
+   "percorso": "scene/cucina/layer-0.svg",
+   "byte": 860,
+   "sha256": "c538fede24c20b784de72b444431f32b"
+  },
+  {
+   "percorso": "scene/cucina/layer-1.svg",
+   "byte": 3327,
+   "sha256": "22607baf4fa62118a5c634952def7901"
+  },
+  {
+   "percorso": "scene/cucina/layer-2.svg",
+   "byte": 5702,
+   "sha256": "6b1c6c52f800bc39866adc606130832b"
+  },
+  {
+   "percorso": "scene/cucina/layer-3.svg",
+   "byte": 1922,
+   "sha256": "f1ca1e2e5684a278812eed4d19ee0782"
+  },
+  {
+   "percorso": "scene/cucina/scene.json",
+   "byte": 2170,
+   "sha256": "1a1be7b4e93df89cdc6c0a94eb2953ff"
+  },
+  {
+   "percorso": "scene/facciata/layer-0.svg",
+   "byte": 9108,
+   "sha256": "5e5077835ec9873bf6dd362753a7e8a1"
+  },
+  {
+   "percorso": "scene/facciata/layer-1.svg",
+   "byte": 22750,
+   "sha256": "b457acc8dd9fbbc7239563251c654514"
+  },
+  {
+   "percorso": "scene/facciata/layer-2.svg",
+   "byte": 6823,
+   "sha256": "0024929d7c0bb8ebc58cec41e720a0c2"
+  },
+  {
+   "percorso": "scene/facciata/layer-3.svg",
+   "byte": 45391,
+   "sha256": "ff8daf81c81cab3be43f1258fcc482d0"
+  },
+  {
+   "percorso": "scene/facciata/scene.json",
+   "byte": 2242,
+   "sha256": "b97c24763974f2204250ff9ad7c6d74f"
+  },
+  {
+   "percorso": "scene/hall/layer-0.svg",
+   "byte": 4871,
+   "sha256": "06f118b5f40bda2cc4cbfa9138cacf12"
+  },
+  {
+   "percorso": "scene/hall/layer-1.svg",
+   "byte": 14842,
+   "sha256": "4dbcc43c00c01d453e5362f07f3e5864"
+  },
+  {
+   "percorso": "scene/hall/layer-2.svg",
+   "byte": 63864,
+   "sha256": "539132cb551ba3009e115745feacc73d"
+  },
+  {
+   "percorso": "scene/hall/layer-3.svg",
+   "byte": 1831,
+   "sha256": "12f924eff1f6248906893e70b23a0cdd"
+  },
+  {
+   "percorso": "scene/hall/scene.json",
+   "byte": 2499,
+   "sha256": "c7ac60427a3f3f5d196616407787ad6d"
+  },
+  {
+   "percorso": "scene/palco/layer-0.svg",
+   "byte": 2965,
+   "sha256": "b3f8202afe7a15930f83eebb1320f69e"
+  },
+  {
+   "percorso": "scene/palco/layer-1.svg",
+   "byte": 1510,
+   "sha256": "562c9a6444ebff9a2b444afc2e15c70e"
+  },
+  {
+   "percorso": "scene/palco/layer-2.svg",
+   "byte": 4178,
+   "sha256": "08df7ba2fc6482da7e327b98c59043b4"
+  },
+  {
+   "percorso": "scene/palco/layer-3.svg",
+   "byte": 7672,
+   "sha256": "8e51f07bfdaf092a79753b5e35706247"
+  },
+  {
+   "percorso": "scene/palco/scene.json",
+   "byte": 2015,
+   "sha256": "2dc104767f3b86eaea69385ef81da693"
+  },
+  {
+   "percorso": "scene/passaggio/layer-0.svg",
+   "byte": 2606,
+   "sha256": "26dbfac647f40e09d85bd7d5268a28fe"
+  },
+  {
+   "percorso": "scene/passaggio/layer-1.svg",
+   "byte": 4278,
+   "sha256": "b63c3e9f70584372c4ff4cc34d5a6d41"
+  },
+  {
+   "percorso": "scene/passaggio/layer-2.svg",
+   "byte": 4424,
+   "sha256": "fce765f56ea998863bef3c8d85a5ef3a"
+  },
+  {
+   "percorso": "scene/passaggio/layer-3.svg",
+   "byte": 2664,
+   "sha256": "8547bc47b81ec605977b67f0b9c609e7"
+  },
+  {
+   "percorso": "scene/passaggio/scene.json",
+   "byte": 2058,
+   "sha256": "865217980b390fb634ba4860bf35f787"
+  },
+  {
+   "percorso": "scene/piscina/layer-0.svg",
+   "byte": 2590,
+   "sha256": "ef39c2421c7778fd81cdb5d4c223b320"
+  },
+  {
+   "percorso": "scene/piscina/layer-1.svg",
+   "byte": 1463,
+   "sha256": "c0e66bf87ed8c03aee82c91d378511d5"
+  },
+  {
+   "percorso": "scene/piscina/layer-2.svg",
+   "byte": 3187,
+   "sha256": "ac5e815aa8174a66f321702d6b657ae4"
+  },
+  {
+   "percorso": "scene/piscina/layer-3.svg",
+   "byte": 30862,
+   "sha256": "2a157099685e681412f411695f929695"
+  },
+  {
+   "percorso": "scene/piscina/scene.json",
+   "byte": 2053,
+   "sha256": "70df20dc706adc786b90e2428bf0c410"
+  },
+  {
+   "percorso": "scene/quadro/layer-0.svg",
+   "byte": 1666,
+   "sha256": "f6fd8a071ddd5c20d3d1016cdae79519"
+  },
+  {
+   "percorso": "scene/quadro/layer-1.svg",
+   "byte": 1514,
+   "sha256": "d82ee95b910d21d8dbb663ea2f16ad28"
+  },
+  {
+   "percorso": "scene/quadro/layer-2.svg",
+   "byte": 5504,
+   "sha256": "4669d967e0a5a6f9c9d21c6663e21e92"
+  },
+  {
+   "percorso": "scene/quadro/layer-3.svg",
+   "byte": 1315,
+   "sha256": "2a64ab5adab0b283399e546879bbe92b"
+  },
+  {
+   "percorso": "scene/quadro/scene.json",
+   "byte": 1871,
+   "sha256": "4b98e4a9c1c719d607e134499715247a"
+  },
+  {
+   "percorso": "scene/registrazione/layer-0.svg",
+   "byte": 28356,
+   "sha256": "b87a582f80e6dd4a0b40ec938f645d80"
+  },
+  {
+   "percorso": "scene/registrazione/layer-1.svg",
+   "byte": 2309,
+   "sha256": "56618013b9e4a40a21ea35aa6a6babe8"
+  },
+  {
+   "percorso": "scene/registrazione/layer-2.svg",
+   "byte": 7553,
+   "sha256": "7336ed1b8e9aed8db8c1f193a27669a9"
+  },
+  {
+   "percorso": "scene/registrazione/layer-3.svg",
+   "byte": 1383,
+   "sha256": "ecca184c58346d1dcaf2522cfb33857c"
+  },
+  {
+   "percorso": "scene/registrazione/scene.json",
+   "byte": 2216,
+   "sha256": "01aa49cc57983285d260c9905fb872d6"
+  },
+  {
+   "percorso": "scene/sala-ballo/layer-0.svg",
+   "byte": 4791,
+   "sha256": "38ba11bf33bd61839432e8cfd7e04b36"
+  },
+  {
+   "percorso": "scene/sala-ballo/layer-1.svg",
+   "byte": 21086,
+   "sha256": "c888cd0048d9eed6f93bbe94c1387b90"
+  },
+  {
+   "percorso": "scene/sala-ballo/layer-2.svg",
+   "byte": 16799,
+   "sha256": "8eb5a11b557ad015e7cf92a38c57a01c"
+  },
+  {
+   "percorso": "scene/sala-ballo/layer-3.svg",
+   "byte": 3079,
+   "sha256": "3e21551d3a278263ff4aaf3667093f59"
+  },
+  {
+   "percorso": "scene/sala-ballo/scene.json",
+   "byte": 2359,
+   "sha256": "3b94afea4771db6c66735f44a98ad4b4"
+  },
+  {
+   "percorso": "scene/suite/layer-0.svg",
+   "byte": 10532,
+   "sha256": "8d106a5ed657750f1208747301c3b18a"
+  },
+  {
+   "percorso": "scene/suite/layer-1.svg",
+   "byte": 1656,
+   "sha256": "c0af387235b14e4d23a4a9a2b597c111"
+  },
+  {
+   "percorso": "scene/suite/layer-2.svg",
+   "byte": 2446,
+   "sha256": "c7e8725753318d44953ee4b7e032f126"
+  },
+  {
+   "percorso": "scene/suite/layer-3.svg",
+   "byte": 13458,
+   "sha256": "2880db79f9bbf452484dd7167f0de69a"
+  },
+  {
+   "percorso": "scene/suite/scene.json",
+   "byte": 2492,
+   "sha256": "7046e89352a532abcebc3824b01bde01"
+  },
+  {
+   "percorso": "scene/terrazza/layer-0.svg",
+   "byte": 9120,
+   "sha256": "632472dd9896a1c881289f711bacf21b"
+  },
+  {
+   "percorso": "scene/terrazza/layer-1.svg",
+   "byte": 1676,
+   "sha256": "419a553d5621bf408f15aca5ab354115"
+  },
+  {
+   "percorso": "scene/terrazza/layer-2.svg",
+   "byte": 5557,
+   "sha256": "7a40451fd8f2f1e838ade183b9c744b2"
+  },
+  {
+   "percorso": "scene/terrazza/layer-3.svg",
+   "byte": 39015,
+   "sha256": "3cc2371883583691809e05e486f23210"
+  },
+  {
+   "percorso": "scene/terrazza/scene.json",
+   "byte": 2176,
+   "sha256": "72b43c6ebbf49aa531e92d6c690d7bb7"
+  },
+  {
+   "percorso": "splash/iphone-15.svg",
+   "byte": 9807,
+   "sha256": "06628ed25d6c2f0a1b02a6a81b7cb2dd"
+  },
+  {
+   "percorso": "splash/iphone-max.svg",
+   "byte": 9612,
+   "sha256": "0e140ff77d1802c53e619a480d79bc4f"
+  },
+  {
+   "percorso": "splash/iphone-piccolo.svg",
+   "byte": 9547,
+   "sha256": "376565a544dab742802eba21fbf7e0ae"
+  },
+  {
+   "percorso": "splash/iphone-standard.svg",
+   "byte": 9689,
+   "sha256": "71d546c90477d16a77c01e9e3082c691"
+  },
+  {
+   "percorso": "splash/tablet.svg",
+   "byte": 9509,
+   "sha256": "1f83249754d0abeb3d65c42ee041c59a"
+  },
+  {
+   "percorso": "ui/bacheca.svg",
+   "byte": 15749,
+   "sha256": "def302a7ecfd418603ca41f0a89895fa"
+  },
+  {
+   "percorso": "ui/pianta.svg",
+   "byte": 5109,
+   "sha256": "91140273d39b5f91b5354f29a4c37a76"
+  },
+  {
+   "percorso": "ui/sipario.svg",
+   "byte": 2522,
+   "sha256": "4bc05b21db18a1980c5180f71bc879bd"
+  },
+  {
+   "percorso": "ui/timeline.svg",
+   "byte": 3931,
+   "sha256": "1f062d04f3b0516164f872112a343bca"
+  },
+  {
+   "percorso": "ui/verdetto.svg",
+   "byte": 1872,
+   "sha256": "2121b83423b927931973d21175800fe2"
+  }
+ ],
+ "scene": [
+  {
+   "chiave": "facciata",
+   "titolo": "La facciata",
+   "cartella": "assets/scene/facciata",
+   "layer": [
+    {
+     "file": "layer-0.svg",
+     "profondita": 0,
+     "parallasse": 0.15,
+     "ruolo": "fondo"
+    },
+    {
+     "file": "layer-1.svg",
+     "profondita": 1,
+     "parallasse": 0.4,
+     "ruolo": "medio"
+    },
+    {
+     "file": "layer-2.svg",
+     "profondita": 2,
+     "parallasse": 1,
+     "ruolo": "principale"
+    },
+    {
+     "file": "layer-3.svg",
+     "profondita": 3,
+     "parallasse": 1.6,
+     "ruolo": "primo-piano"
+    }
+   ],
+   "luci": [
+    {
+     "chiave": "insegna",
+     "x": 50,
+     "y": 26,
+     "raggio": 26,
+     "colore": "#E0C365",
+     "intensita": 0.75,
+     "pulsazione": 5400
+    },
+    {
+     "chiave": "pensilina",
+     "x": 50,
+     "y": 66,
+     "raggio": 18,
+     "colore": "#C9A227",
+     "intensita": 0.5,
+     "pulsazione": 0
+    },
+    {
+     "chiave": "faro-lontano",
+     "x": 88,
+     "y": 47,
+     "raggio": 10,
+     "colore": "#5C7FA3",
+     "intensita": 0.35,
+     "pulsazione": 4000
+    }
+   ],
+   "hotspot": [
+    {
+     "chiave": "porta",
+     "etichetta": "La porta girevole",
+     "x": 50,
+     "y": 74,
+     "raggio": 9,
+     "layer": 2
+    },
+    {
+     "chiave": "finestra",
+     "etichetta": "Le finestre illuminate",
+     "x": 22,
+     "y": 34,
+     "raggio": 7,
+     "layer": 2
+    },
+    {
+     "chiave": "valigia",
+     "etichetta": "Un baule sotto la pensilina",
+     "x": 66,
+     "y": 82,
+     "raggio": 6,
+     "layer": 2
+    },
+    {
+     "chiave": "telefono",
+     "etichetta": "La cabina telefonica",
+     "x": 84,
+     "y": 76,
+     "raggio": 6,
+     "layer": 2
+    },
+    {
+     "chiave": "consegna",
+     "etichetta": "Il punto di consegna",
+     "x": 12,
+     "y": 84,
+     "raggio": 6,
+     "layer": 2
+    },
+    {
+     "chiave": "oggetto",
+     "etichetta": "L'oggetto fuori posto",
+     "x": 36,
+     "y": 88,
+     "raggio": 5,
+     "layer": 2
+    }
+   ]
+  },
+  {
+   "chiave": "hall",
+   "titolo": "La hall",
+   "cartella": "assets/scene/hall",
+   "layer": [
+    {
+     "file": "layer-0.svg",
+     "profondita": 0,
+     "parallasse": 0.15,
+     "ruolo": "fondo"
+    },
+    {
+     "file": "layer-1.svg",
+     "profondita": 1,
+     "parallasse": 0.4,
+     "ruolo": "medio"
+    },
+    {
+     "file": "layer-2.svg",
+     "profondita": 2,
+     "parallasse": 1,
+     "ruolo": "principale"
+    },
+    {
+     "file": "layer-3.svg",
+     "profondita": 3,
+     "parallasse": 1.6,
+     "ruolo": "primo-piano"
+    }
+   ],
+   "luci": [
+    {
+     "chiave": "lampadario-hall",
+     "x": 50,
+     "y": 12,
+     "raggio": 22,
+     "colore": "#E0C365",
+     "intensita": 0.6,
+     "pulsazione": 0
+    },
+    {
+     "chiave": "bancone",
+     "x": 32,
+     "y": 56,
+     "raggio": 14,
+     "colore": "#C9A227",
+     "intensita": 0.55,
+     "pulsazione": 0
+    },
+    {
+     "chiave": "ingresso",
+     "x": 84,
+     "y": 44,
+     "raggio": 12,
+     "colore": "#5C7FA3",
+     "intensita": 0.4,
+     "pulsazione": 0
+    }
+   ],
+   "hotspot": [
+    {
+     "chiave": "bancone",
+     "etichetta": "Il bancone della portineria",
+     "x": 31,
+     "y": 62,
+     "raggio": 10,
+     "layer": 2
+    },
+    {
+     "chiave": "registro",
+     "etichetta": "Il registro degli arrivi",
+     "x": 25,
+     "y": 56,
+     "raggio": 5,
+     "layer": 2
+    },
+    {
+     "chiave": "orologio",
+     "etichetta": "Gli orologi delle capitali",
+     "x": 50,
+     "y": 22,
+     "raggio": 9,
+     "layer": 2
+    },
+    {
+     "chiave": "telefono",
+     "etichetta": "Il centralino",
+     "x": 40,
+     "y": 57,
+     "raggio": 5,
+     "layer": 2
+    },
+    {
+     "chiave": "porta",
+     "etichetta": "L'ingresso",
+     "x": 84,
+     "y": 52,
+     "raggio": 7,
+     "layer": 2
+    },
+    {
+     "chiave": "valigia",
+     "etichetta": "I bagagli in attesa",
+     "x": 70,
+     "y": 74,
+     "raggio": 6,
+     "layer": 2
+    },
+    {
+     "chiave": "consegna",
+     "etichetta": "Il punto di consegna",
+     "x": 88,
+     "y": 82,
+     "raggio": 6,
+     "layer": 2
+    },
+    {
+     "chiave": "oggetto",
+     "etichetta": "L'oggetto fuori posto",
+     "x": 58,
+     "y": 80,
+     "raggio": 5,
+     "layer": 2
+    }
+   ]
+  },
+  {
+   "chiave": "sala-ballo",
+   "titolo": "La sala da ballo",
+   "cartella": "assets/scene/sala-ballo",
+   "layer": [
+    {
+     "file": "layer-0.svg",
+     "profondita": 0,
+     "parallasse": 0.15,
+     "ruolo": "fondo"
+    },
+    {
+     "file": "layer-1.svg",
+     "profondita": 1,
+     "parallasse": 0.4,
+     "ruolo": "medio"
+    },
+    {
+     "file": "layer-2.svg",
+     "profondita": 2,
+     "parallasse": 1,
+     "ruolo": "principale"
+    },
+    {
+     "file": "layer-3.svg",
+     "profondita": 3,
+     "parallasse": 1.6,
+     "ruolo": "primo-piano"
+    }
+   ],
+   "luci": [
+    {
+     "chiave": "lampadario",
+     "x": 50,
+     "y": 22,
+     "raggio": 30,
+     "colore": "#E0C365",
+     "intensita": 0.8,
+     "pulsazione": 0
+    },
+    {
+     "chiave": "ribalta",
+     "x": 50,
+     "y": 58,
+     "raggio": 16,
+     "colore": "#B5261E",
+     "intensita": 0.35,
+     "pulsazione": 0
+    },
+    {
+     "chiave": "applique",
+     "x": 12,
+     "y": 40,
+     "raggio": 9,
+     "colore": "#C9A227",
+     "intensita": 0.45,
+     "pulsazione": 0
+    }
+   ],
+   "hotspot": [
+    {
+     "chiave": "lampadario",
+     "etichetta": "Il lampadario",
+     "x": 50,
+     "y": 24,
+     "raggio": 12,
+     "layer": 2
+    },
+    {
+     "chiave": "tavolo",
+     "etichetta": "Il tavolo dei rinfreschi",
+     "x": 22,
+     "y": 74,
+     "raggio": 8,
+     "layer": 2
+    },
+    {
+     "chiave": "bicchieri",
+     "etichetta": "I bicchieri",
+     "x": 26,
+     "y": 70,
+     "raggio": 5,
+     "layer": 2
+    },
+    {
+     "chiave": "spartiti",
+     "etichetta": "Il leggio dell'orchestra",
+     "x": 72,
+     "y": 62,
+     "raggio": 6,
+     "layer": 2
+    },
+    {
+     "chiave": "porta",
+     "etichetta": "La porta della sala",
+     "x": 92,
+     "y": 56,
+     "raggio": 6,
+     "layer": 2
+    },
+    {
+     "chiave": "consegna",
+     "etichetta": "Il punto di consegna",
+     "x": 84,
+     "y": 84,
+     "raggio": 6,
+     "layer": 2
+    },
+    {
+     "chiave": "oggetto",
+     "etichetta": "L'oggetto fuori posto",
+     "x": 56,
+     "y": 86,
+     "raggio": 5,
+     "layer": 2
+    }
+   ]
+  },
+  {
+   "chiave": "suite",
+   "titolo": "La suite 404",
+   "cartella": "assets/scene/suite",
+   "layer": [
+    {
+     "file": "layer-0.svg",
+     "profondita": 0,
+     "parallasse": 0.15,
+     "ruolo": "fondo"
+    },
+    {
+     "file": "layer-1.svg",
+     "profondita": 1,
+     "parallasse": 0.4,
+     "ruolo": "medio"
+    },
+    {
+     "file": "layer-2.svg",
+     "profondita": 2,
+     "parallasse": 1,
+     "ruolo": "principale"
+    },
+    {
+     "file": "layer-3.svg",
+     "profondita": 3,
+     "parallasse": 1.6,
+     "ruolo": "primo-piano"
+    }
+   ],
+   "luci": [
+    {
+     "chiave": "abatjour",
+     "x": 72,
+     "y": 52,
+     "raggio": 14,
+     "colore": "#E0C365",
+     "intensita": 0.7,
+     "pulsazione": 0
+    },
+    {
+     "chiave": "spiraglio",
+     "x": 12,
+     "y": 46,
+     "raggio": 10,
+     "colore": "#C9A227",
+     "intensita": 0.5,
+     "pulsazione": 0
+    },
+    {
+     "chiave": "finestra",
+     "x": 36,
+     "y": 34,
+     "raggio": 16,
+     "colore": "#5C7FA3",
+     "intensita": 0.3,
+     "pulsazione": 0
+    }
+   ],
+   "hotspot": [
+    {
+     "chiave": "porta",
+     "etichetta": "La porta socchiusa",
+     "x": 11,
+     "y": 50,
+     "raggio": 8,
+     "layer": 2
+    },
+    {
+     "chiave": "finestra",
+     "etichetta": "La finestra",
+     "x": 36,
+     "y": 34,
+     "raggio": 9,
+     "layer": 2
+    },
+    {
+     "chiave": "armadio",
+     "etichetta": "L'armadio",
+     "x": 88,
+     "y": 46,
+     "raggio": 8,
+     "layer": 2
+    },
+    {
+     "chiave": "cassetto",
+     "etichetta": "Il cassetto della scrivania",
+     "x": 60,
+     "y": 72,
+     "raggio": 6,
+     "layer": 2
+    },
+    {
+     "chiave": "telefono",
+     "etichetta": "Il telefono sul comodino",
+     "x": 72,
+     "y": 58,
+     "raggio": 5,
+     "layer": 2
+    },
+    {
+     "chiave": "orologio",
+     "etichetta": "L'orologio da viaggio",
+     "x": 66,
+     "y": 56,
+     "raggio": 4,
+     "layer": 2
+    },
+    {
+     "chiave": "consegna",
+     "etichetta": "Il punto di consegna",
+     "x": 24,
+     "y": 84,
+     "raggio": 6,
+     "layer": 2
+    },
+    {
+     "chiave": "oggetto",
+     "etichetta": "L'oggetto fuori posto",
+     "x": 46,
+     "y": 86,
+     "raggio": 5,
+     "layer": 2
+    }
+   ]
+  },
+  {
+   "chiave": "terrazza",
+   "titolo": "La terrazza",
+   "cartella": "assets/scene/terrazza",
+   "layer": [
+    {
+     "file": "layer-0.svg",
+     "profondita": 0,
+     "parallasse": 0.15,
+     "ruolo": "fondo"
+    },
+    {
+     "file": "layer-1.svg",
+     "profondita": 1,
+     "parallasse": 0.4,
+     "ruolo": "medio"
+    },
+    {
+     "file": "layer-2.svg",
+     "profondita": 2,
+     "parallasse": 1,
+     "ruolo": "principale"
+    },
+    {
+     "file": "layer-3.svg",
+     "profondita": 3,
+     "parallasse": 1.6,
+     "ruolo": "primo-piano"
+    }
+   ],
+   "luci": [
+    {
+     "chiave": "faro",
+     "x": 82,
+     "y": 38,
+     "raggio": 12,
+     "colore": "#5C7FA3",
+     "intensita": 0.7,
+     "pulsazione": 4000
+    },
+    {
+     "chiave": "lampione",
+     "x": 18,
+     "y": 44,
+     "raggio": 10,
+     "colore": "#C9A227",
+     "intensita": 0.5,
+     "pulsazione": 0
+    }
+   ],
+   "hotspot": [
+    {
+     "chiave": "ringhiera",
+     "etichetta": "La ringhiera",
+     "x": 50,
+     "y": 64,
+     "raggio": 12,
+     "layer": 2
+    },
+    {
+     "chiave": "tavolo",
+     "etichetta": "Il tavolino di vimini",
+     "x": 26,
+     "y": 76,
+     "raggio": 8,
+     "layer": 2
+    },
+    {
+     "chiave": "bicchieri",
+     "etichetta": "Due bicchieri",
+     "x": 30,
+     "y": 71,
+     "raggio": 5,
+     "layer": 2
+    },
+    {
+     "chiave": "porta",
+     "etichetta": "La portafinestra",
+     "x": 88,
+     "y": 52,
+     "raggio": 7,
+     "layer": 2
+    },
+    {
+     "chiave": "orologio",
+     "etichetta": "L'orologio da polso",
+     "x": 62,
+     "y": 82,
+     "raggio": 4,
+     "layer": 2
+    },
+    {
+     "chiave": "consegna",
+     "etichetta": "Il punto di consegna",
+     "x": 12,
+     "y": 84,
+     "raggio": 6,
+     "layer": 2
+    },
+    {
+     "chiave": "oggetto",
+     "etichetta": "L'oggetto fuori posto",
+     "x": 68,
+     "y": 88,
+     "raggio": 5,
+     "layer": 2
+    }
+   ]
+  },
+  {
+   "chiave": "piscina",
+   "titolo": "La piscina vuota",
+   "cartella": "assets/scene/piscina",
+   "layer": [
+    {
+     "file": "layer-0.svg",
+     "profondita": 0,
+     "parallasse": 0.15,
+     "ruolo": "fondo"
+    },
+    {
+     "file": "layer-1.svg",
+     "profondita": 1,
+     "parallasse": 0.4,
+     "ruolo": "medio"
+    },
+    {
+     "file": "layer-2.svg",
+     "profondita": 2,
+     "parallasse": 1,
+     "ruolo": "principale"
+    },
+    {
+     "file": "layer-3.svg",
+     "profondita": 3,
+     "parallasse": 1.6,
+     "ruolo": "primo-piano"
+    }
+   ],
+   "luci": [
+    {
+     "chiave": "lampione",
+     "x": 22,
+     "y": 30,
+     "raggio": 12,
+     "colore": "#C9A227",
+     "intensita": 0.5,
+     "pulsazione": 0
+    },
+    {
+     "chiave": "riflesso-vasca",
+     "x": 50,
+     "y": 80,
+     "raggio": 20,
+     "colore": "#1E5E58",
+     "intensita": 0.3,
+     "pulsazione": 0
+    }
+   ],
+   "hotspot": [
+    {
+     "chiave": "scaletta",
+     "etichetta": "La scaletta",
+     "x": 76,
+     "y": 62,
+     "raggio": 8,
+     "layer": 2
+    },
+    {
+     "chiave": "oggetto",
+     "etichetta": "Una scarpa sul fondo",
+     "x": 44,
+     "y": 88,
+     "raggio": 6,
+     "layer": 2
+    },
+    {
+     "chiave": "orologio",
+     "etichetta": "Un orologio fra le piastrelle",
+     "x": 58,
+     "y": 84,
+     "raggio": 5,
+     "layer": 2
+    },
+    {
+     "chiave": "ventilazione",
+     "etichetta": "La griglia di scarico",
+     "x": 30,
+     "y": 92,
+     "raggio": 5,
+     "layer": 2
+    },
+    {
+     "chiave": "finestra",
+     "etichetta": "Le finestre della sala",
+     "x": 12,
+     "y": 34,
+     "raggio": 6,
+     "layer": 2
+    },
+    {
+     "chiave": "consegna",
+     "etichetta": "Il punto di consegna",
+     "x": 88,
+     "y": 82,
+     "raggio": 6,
+     "layer": 2
+    }
+   ]
+  },
+  {
+   "chiave": "cucina",
+   "titolo": "La cucina",
+   "cartella": "assets/scene/cucina",
+   "layer": [
+    {
+     "file": "layer-0.svg",
+     "profondita": 0,
+     "parallasse": 0.15,
+     "ruolo": "fondo"
+    },
+    {
+     "file": "layer-1.svg",
+     "profondita": 1,
+     "parallasse": 0.4,
+     "ruolo": "medio"
+    },
+    {
+     "file": "layer-2.svg",
+     "profondita": 2,
+     "parallasse": 1,
+     "ruolo": "principale"
+    },
+    {
+     "file": "layer-3.svg",
+     "profondita": 3,
+     "parallasse": 1.6,
+     "ruolo": "primo-piano"
+    }
+   ],
+   "luci": [
+    {
+     "chiave": "plafoniera",
+     "x": 34,
+     "y": 16,
+     "raggio": 16,
+     "colore": "#F2E9D8",
+     "intensita": 0.6,
+     "pulsazione": 0
+    },
+    {
+     "chiave": "plafoniera-2",
+     "x": 68,
+     "y": 16,
+     "raggio": 16,
+     "colore": "#F2E9D8",
+     "intensita": 0.55,
+     "pulsazione": 0
+    }
+   ],
+   "hotspot": [
+    {
+     "chiave": "tavolo",
+     "etichetta": "Il tavolo d'acciaio",
+     "x": 48,
+     "y": 70,
+     "raggio": 11,
+     "layer": 2
+    },
+    {
+     "chiave": "orologio",
+     "etichetta": "L'orologio a muro",
+     "x": 78,
+     "y": 22,
+     "raggio": 6,
+     "layer": 2
+    },
+    {
+     "chiave": "bicchieri",
+     "etichetta": "I bicchieri sul vassoio",
+     "x": 30,
+     "y": 64,
+     "raggio": 5,
+     "layer": 2
+    },
+    {
+     "chiave": "porta",
+     "etichetta": "La porta a battente",
+     "x": 90,
+     "y": 52,
+     "raggio": 7,
+     "layer": 2
+    },
+    {
+     "chiave": "ventilazione",
+     "etichetta": "La cappa",
+     "x": 16,
+     "y": 30,
+     "raggio": 7,
+     "layer": 2
+    },
+    {
+     "chiave": "consegna",
+     "etichetta": "Il passavivande",
+     "x": 8,
+     "y": 66,
+     "raggio": 6,
+     "layer": 2
+    },
+    {
+     "chiave": "oggetto",
+     "etichetta": "L'oggetto fuori posto",
+     "x": 62,
+     "y": 78,
+     "raggio": 5,
+     "layer": 2
+    }
+   ]
+  },
+  {
+   "chiave": "corridoio",
+   "titolo": "Il corridoio",
+   "cartella": "assets/scene/corridoio",
+   "layer": [
+    {
+     "file": "layer-0.svg",
+     "profondita": 0,
+     "parallasse": 0.15,
+     "ruolo": "fondo"
+    },
+    {
+     "file": "layer-1.svg",
+     "profondita": 1,
+     "parallasse": 0.4,
+     "ruolo": "medio"
+    },
+    {
+     "file": "layer-2.svg",
+     "profondita": 2,
+     "parallasse": 1,
+     "ruolo": "principale"
+    },
+    {
+     "file": "layer-3.svg",
+     "profondita": 3,
+     "parallasse": 1.6,
+     "ruolo": "primo-piano"
+    }
+   ],
+   "luci": [
+    {
+     "chiave": "applique-1",
+     "x": 30,
+     "y": 40,
+     "raggio": 8,
+     "colore": "#C9A227",
+     "intensita": 0.5,
+     "pulsazione": 0
+    },
+    {
+     "chiave": "applique-2",
+     "x": 70,
+     "y": 40,
+     "raggio": 8,
+     "colore": "#C9A227",
+     "intensita": 0.5,
+     "pulsazione": 0
+    },
+    {
+     "chiave": "fondo",
+     "x": 50,
+     "y": 46,
+     "raggio": 10,
+     "colore": "#E0C365",
+     "intensita": 0.35,
+     "pulsazione": 0
+    }
+   ],
+   "hotspot": [
+    {
+     "chiave": "porta",
+     "etichetta": "La porta 404",
+     "x": 50,
+     "y": 48,
+     "raggio": 7,
+     "layer": 2
+    },
+    {
+     "chiave": "ventilazione",
+     "etichetta": "La griglia di aerazione",
+     "x": 82,
+     "y": 24,
+     "raggio": 5,
+     "layer": 2
+    },
+    {
+     "chiave": "telefono",
+     "etichetta": "Il telefono di servizio",
+     "x": 16,
+     "y": 52,
+     "raggio": 6,
+     "layer": 2
+    },
+    {
+     "chiave": "quadro",
+     "etichetta": "Il quadro appeso storto",
+     "x": 84,
+     "y": 42,
+     "raggio": 6,
+     "layer": 2
+    },
+    {
+     "chiave": "consegna",
+     "etichetta": "Il carrello della biancheria",
+     "x": 26,
+     "y": 74,
+     "raggio": 7,
+     "layer": 2
+    },
+    {
+     "chiave": "oggetto",
+     "etichetta": "L'oggetto fuori posto",
+     "x": 62,
+     "y": 82,
+     "raggio": 5,
+     "layer": 2
+    }
+   ]
+  },
+  {
+   "chiave": "camerino",
+   "titolo": "Il camerino",
+   "cartella": "assets/scene/camerino",
+   "layer": [
+    {
+     "file": "layer-0.svg",
+     "profondita": 0,
+     "parallasse": 0.15,
+     "ruolo": "fondo"
+    },
+    {
+     "file": "layer-1.svg",
+     "profondita": 1,
+     "parallasse": 0.4,
+     "ruolo": "medio"
+    },
+    {
+     "file": "layer-2.svg",
+     "profondita": 2,
+     "parallasse": 1,
+     "ruolo": "principale"
+    },
+    {
+     "file": "layer-3.svg",
+     "profondita": 3,
+     "parallasse": 1.6,
+     "ruolo": "primo-piano"
+    }
+   ],
+   "luci": [
+    {
+     "chiave": "specchio",
+     "x": 36,
+     "y": 40,
+     "raggio": 22,
+     "colore": "#E0C365",
+     "intensita": 0.85,
+     "pulsazione": 0
+    },
+    {
+     "chiave": "applique",
+     "x": 82,
+     "y": 34,
+     "raggio": 10,
+     "colore": "#C9A227",
+     "intensita": 0.4,
+     "pulsazione": 0
+    }
+   ],
+   "hotspot": [
+    {
+     "chiave": "specchio",
+     "etichetta": "Lo specchio",
+     "x": 36,
+     "y": 40,
+     "raggio": 13,
+     "layer": 2
+    },
+    {
+     "chiave": "spartiti",
+     "etichetta": "Gli spartiti",
+     "x": 62,
+     "y": 68,
+     "raggio": 7,
+     "layer": 2
+    },
+    {
+     "chiave": "armadio",
+     "etichetta": "La stampella con gli abiti",
+     "x": 84,
+     "y": 52,
+     "raggio": 9,
+     "layer": 2
+    },
+    {
+     "chiave": "cassetto",
+     "etichetta": "Il cassetto della toletta",
+     "x": 34,
+     "y": 70,
+     "raggio": 6,
+     "layer": 2
+    },
+    {
+     "chiave": "bicchieri",
+     "etichetta": "Il bicchiere d'acqua",
+     "x": 46,
+     "y": 62,
+     "raggio": 4,
+     "layer": 2
+    },
+    {
+     "chiave": "consegna",
+     "etichetta": "Il punto di consegna",
+     "x": 12,
+     "y": 80,
+     "raggio": 6,
+     "layer": 2
+    },
+    {
+     "chiave": "oggetto",
+     "etichetta": "L'oggetto fuori posto",
+     "x": 66,
+     "y": 86,
+     "raggio": 5,
+     "layer": 2
+    }
+   ]
+  },
+  {
+   "chiave": "passaggio",
+   "titolo": "Il passaggio di servizio",
+   "cartella": "assets/scene/passaggio",
+   "layer": [
+    {
+     "file": "layer-0.svg",
+     "profondita": 0,
+     "parallasse": 0.15,
+     "ruolo": "fondo"
+    },
+    {
+     "file": "layer-1.svg",
+     "profondita": 1,
+     "parallasse": 0.4,
+     "ruolo": "medio"
+    },
+    {
+     "file": "layer-2.svg",
+     "profondita": 2,
+     "parallasse": 1,
+     "ruolo": "principale"
+    },
+    {
+     "file": "layer-3.svg",
+     "profondita": 3,
+     "parallasse": 1.6,
+     "ruolo": "primo-piano"
+    }
+   ],
+   "luci": [
+    {
+     "chiave": "emergenza",
+     "x": 24,
+     "y": 26,
+     "raggio": 14,
+     "colore": "#1E5E58",
+     "intensita": 0.8,
+     "pulsazione": 0
+    },
+    {
+     "chiave": "emergenza-2",
+     "x": 76,
+     "y": 30,
+     "raggio": 12,
+     "colore": "#1E5E58",
+     "intensita": 0.6,
+     "pulsazione": 0
+    }
+   ],
+   "hotspot": [
+    {
+     "chiave": "scaletta",
+     "etichetta": "La scala a chiocciola",
+     "x": 72,
+     "y": 56,
+     "raggio": 11,
+     "layer": 2
+    },
+    {
+     "chiave": "ventilazione",
+     "etichetta": "La condotta",
+     "x": 20,
+     "y": 26,
+     "raggio": 8,
+     "layer": 2
+    },
+    {
+     "chiave": "porta",
+     "etichetta": "La porta di servizio",
+     "x": 40,
+     "y": 56,
+     "raggio": 8,
+     "layer": 2
+    },
+    {
+     "chiave": "cassetto",
+     "etichetta": "La cassetta degli attrezzi",
+     "x": 14,
+     "y": 80,
+     "raggio": 6,
+     "layer": 2
+    },
+    {
+     "chiave": "consegna",
+     "etichetta": "Il montacarichi",
+     "x": 90,
+     "y": 62,
+     "raggio": 7,
+     "layer": 2
+    },
+    {
+     "chiave": "oggetto",
+     "etichetta": "L'oggetto fuori posto",
+     "x": 56,
+     "y": 86,
+     "raggio": 5,
+     "layer": 2
+    }
+   ]
+  },
+  {
+   "chiave": "quadro",
+   "titolo": "Il quadro elettrico",
+   "cartella": "assets/scene/quadro",
+   "layer": [
+    {
+     "file": "layer-0.svg",
+     "profondita": 0,
+     "parallasse": 0.15,
+     "ruolo": "fondo"
+    },
+    {
+     "file": "layer-1.svg",
+     "profondita": 1,
+     "parallasse": 0.4,
+     "ruolo": "medio"
+    },
+    {
+     "file": "layer-2.svg",
+     "profondita": 2,
+     "parallasse": 1,
+     "ruolo": "principale"
+    },
+    {
+     "file": "layer-3.svg",
+     "profondita": 3,
+     "parallasse": 1.6,
+     "ruolo": "primo-piano"
+    }
+   ],
+   "luci": [
+    {
+     "chiave": "lampadina",
+     "x": 50,
+     "y": 14,
+     "raggio": 18,
+     "colore": "#F2E9D8",
+     "intensita": 0.7,
+     "pulsazione": 0
+    }
+   ],
+   "hotspot": [
+    {
+     "chiave": "quadro",
+     "etichetta": "Il quadro elettrico",
+     "x": 50,
+     "y": 44,
+     "raggio": 14,
+     "layer": 2
+    },
+    {
+     "chiave": "orologio",
+     "etichetta": "Il contatore orario",
+     "x": 74,
+     "y": 34,
+     "raggio": 6,
+     "layer": 2
+    },
+    {
+     "chiave": "cassetto",
+     "etichetta": "La cassetta dei fusibili",
+     "x": 24,
+     "y": 46,
+     "raggio": 7,
+     "layer": 2
+    },
+    {
+     "chiave": "porta",
+     "etichetta": "La porta blindata",
+     "x": 90,
+     "y": 56,
+     "raggio": 7,
+     "layer": 2
+    },
+    {
+     "chiave": "consegna",
+     "etichetta": "Il punto di consegna",
+     "x": 14,
+     "y": 80,
+     "raggio": 6,
+     "layer": 2
+    },
+    {
+     "chiave": "oggetto",
+     "etichetta": "L'oggetto fuori posto",
+     "x": 62,
+     "y": 84,
+     "raggio": 5,
+     "layer": 2
+    }
+   ]
+  },
+  {
+   "chiave": "palco",
+   "titolo": "Il palco",
+   "cartella": "assets/scene/palco",
+   "layer": [
+    {
+     "file": "layer-0.svg",
+     "profondita": 0,
+     "parallasse": 0.15,
+     "ruolo": "fondo"
+    },
+    {
+     "file": "layer-1.svg",
+     "profondita": 1,
+     "parallasse": 0.4,
+     "ruolo": "medio"
+    },
+    {
+     "file": "layer-2.svg",
+     "profondita": 2,
+     "parallasse": 1,
+     "ruolo": "principale"
+    },
+    {
+     "file": "layer-3.svg",
+     "profondita": 3,
+     "parallasse": 1.6,
+     "ruolo": "primo-piano"
+    }
+   ],
+   "luci": [
+    {
+     "chiave": "occhio-di-bue",
+     "x": 50,
+     "y": 30,
+     "raggio": 24,
+     "colore": "#F2E9D8",
+     "intensita": 0.8,
+     "pulsazione": 0
+    },
+    {
+     "chiave": "ribalta",
+     "x": 50,
+     "y": 86,
+     "raggio": 30,
+     "colore": "#E0C365",
+     "intensita": 0.6,
+     "pulsazione": 0
+    }
+   ],
+   "hotspot": [
+    {
+     "chiave": "spartiti",
+     "etichetta": "Il leggio",
+     "x": 62,
+     "y": 62,
+     "raggio": 8,
+     "layer": 2
+    },
+    {
+     "chiave": "bicchieri",
+     "etichetta": "Il bicchiere sullo sgabello",
+     "x": 34,
+     "y": 68,
+     "raggio": 5,
+     "layer": 2
+    },
+    {
+     "chiave": "porta",
+     "etichetta": "Le quinte",
+     "x": 90,
+     "y": 48,
+     "raggio": 7,
+     "layer": 2
+    },
+    {
+     "chiave": "tavolo",
+     "etichetta": "Lo sgabello",
+     "x": 34,
+     "y": 74,
+     "raggio": 6,
+     "layer": 2
+    },
+    {
+     "chiave": "consegna",
+     "etichetta": "Il punto di consegna",
+     "x": 12,
+     "y": 78,
+     "raggio": 6,
+     "layer": 2
+    },
+    {
+     "chiave": "oggetto",
+     "etichetta": "L'oggetto fuori posto",
+     "x": 50,
+     "y": 88,
+     "raggio": 5,
+     "layer": 2
+    }
+   ]
+  },
+  {
+   "chiave": "registrazione",
+   "titolo": "La sala di registrazione",
+   "cartella": "assets/scene/registrazione",
+   "layer": [
+    {
+     "file": "layer-0.svg",
+     "profondita": 0,
+     "parallasse": 0.15,
+     "ruolo": "fondo"
+    },
+    {
+     "file": "layer-1.svg",
+     "profondita": 1,
+     "parallasse": 0.4,
+     "ruolo": "medio"
+    },
+    {
+     "file": "layer-2.svg",
+     "profondita": 2,
+     "parallasse": 1,
+     "ruolo": "principale"
+    },
+    {
+     "file": "layer-3.svg",
+     "profondita": 3,
+     "parallasse": 1.6,
+     "ruolo": "primo-piano"
+    }
+   ],
+   "luci": [
+    {
+     "chiave": "spia-rossa",
+     "x": 78,
+     "y": 22,
+     "raggio": 8,
+     "colore": "#B5261E",
+     "intensita": 0.7,
+     "pulsazione": 2400
+    },
+    {
+     "chiave": "lampada-banco",
+     "x": 40,
+     "y": 40,
+     "raggio": 14,
+     "colore": "#C9A227",
+     "intensita": 0.55,
+     "pulsazione": 0
+    }
+   ],
+   "hotspot": [
+    {
+     "chiave": "bobina",
+     "etichetta": "Il registratore a bobine",
+     "x": 32,
+     "y": 54,
+     "raggio": 9,
+     "layer": 2
+    },
+    {
+     "chiave": "finestra",
+     "etichetta": "Il vetro sulla sala",
+     "x": 68,
+     "y": 34,
+     "raggio": 10,
+     "layer": 2
+    },
+    {
+     "chiave": "telefono",
+     "etichetta": "L'interfono",
+     "x": 84,
+     "y": 62,
+     "raggio": 6,
+     "layer": 2
+    },
+    {
+     "chiave": "cassetto",
+     "etichetta": "Lo schedario dei nastri",
+     "x": 12,
+     "y": 60,
+     "raggio": 7,
+     "layer": 2
+    },
+    {
+     "chiave": "spartiti",
+     "etichetta": "Le note del tecnico",
+     "x": 52,
+     "y": 72,
+     "raggio": 6,
+     "layer": 2
+    },
+    {
+     "chiave": "consegna",
+     "etichetta": "Il punto di consegna",
+     "x": 90,
+     "y": 82,
+     "raggio": 6,
+     "layer": 2
+    },
+    {
+     "chiave": "oggetto",
+     "etichetta": "L'oggetto fuori posto",
+     "x": 46,
+     "y": 86,
+     "raggio": 5,
+     "layer": 2
+    }
+   ]
+  },
+  {
+   "chiave": "bar",
+   "titolo": "Il bar",
+   "cartella": "assets/scene/bar",
+   "layer": [
+    {
+     "file": "layer-0.svg",
+     "profondita": 0,
+     "parallasse": 0.15,
+     "ruolo": "fondo"
+    },
+    {
+     "file": "layer-1.svg",
+     "profondita": 1,
+     "parallasse": 0.4,
+     "ruolo": "medio"
+    },
+    {
+     "file": "layer-2.svg",
+     "profondita": 2,
+     "parallasse": 1,
+     "ruolo": "principale"
+    },
+    {
+     "file": "layer-3.svg",
+     "profondita": 3,
+     "parallasse": 1.6,
+     "ruolo": "primo-piano"
+    }
+   ],
+   "luci": [
+    {
+     "chiave": "lampade-bancone",
+     "x": 50,
+     "y": 24,
+     "raggio": 22,
+     "colore": "#C9A227",
+     "intensita": 0.65,
+     "pulsazione": 0
+    },
+    {
+     "chiave": "specchiera",
+     "x": 50,
+     "y": 40,
+     "raggio": 26,
+     "colore": "#E0C365",
+     "intensita": 0.35,
+     "pulsazione": 0
+    }
+   ],
+   "hotspot": [
+    {
+     "chiave": "bancone",
+     "etichetta": "Il bancone",
+     "x": 50,
+     "y": 68,
+     "raggio": 13,
+     "layer": 2
+    },
+    {
+     "chiave": "bicchieri",
+     "etichetta": "Due bicchieri",
+     "x": 36,
+     "y": 60,
+     "raggio": 6,
+     "layer": 2
+    },
+    {
+     "chiave": "telefono",
+     "etichetta": "Il telefono del bar",
+     "x": 78,
+     "y": 60,
+     "raggio": 5,
+     "layer": 2
+    },
+    {
+     "chiave": "registro",
+     "etichetta": "Il conto delle consumazioni",
+     "x": 22,
+     "y": 62,
+     "raggio": 5,
+     "layer": 2
+    },
+    {
+     "chiave": "tavolo",
+     "etichetta": "Il tavolino appartato",
+     "x": 88,
+     "y": 80,
+     "raggio": 7,
+     "layer": 2
+    },
+    {
+     "chiave": "consegna",
+     "etichetta": "Il punto di consegna",
+     "x": 10,
+     "y": 80,
+     "raggio": 6,
+     "layer": 2
+    },
+    {
+     "chiave": "oggetto",
+     "etichetta": "L'oggetto fuori posto",
+     "x": 60,
+     "y": 76,
+     "raggio": 5,
+     "layer": 2
+    }
+   ]
+  }
+ ],
+ "ritratti": [
+  {
+   "id": "portrait-01",
+   "nome": "L'ereditiera",
+   "silhouette": "Abito lungo, spalle scoperte, ventaglio",
+   "cartella": "assets/portrait/portrait-01",
+   "file": [
+    "neutral-calm.svg",
+    "neutral-worried.svg",
+    "neutral-smug.svg",
+    "neutral-caught.svg",
+    "lean-calm.svg",
+    "lean-worried.svg",
+    "lean-smug.svg",
+    "lean-caught.svg",
+    "turn-calm.svg",
+    "turn-worried.svg",
+    "turn-smug.svg",
+    "turn-caught.svg",
+    "silhouette.svg",
+    "card.svg"
+   ]
+  },
+  {
+   "id": "portrait-02",
+   "nome": "L'impresario",
+   "silhouette": "Doppiopetto, sigaro, bassa statura",
+   "cartella": "assets/portrait/portrait-02",
+   "file": [
+    "neutral-calm.svg",
+    "neutral-worried.svg",
+    "neutral-smug.svg",
+    "neutral-caught.svg",
+    "lean-calm.svg",
+    "lean-worried.svg",
+    "lean-smug.svg",
+    "lean-caught.svg",
+    "turn-calm.svg",
+    "turn-worried.svg",
+    "turn-smug.svg",
+    "turn-caught.svg",
+    "silhouette.svg",
+    "card.svg"
+   ]
+  },
+  {
+   "id": "portrait-03",
+   "nome": "Il direttore d'albergo",
+   "silhouette": "Frac, chiave al collo, postura rigida",
+   "cartella": "assets/portrait/portrait-03",
+   "file": [
+    "neutral-calm.svg",
+    "neutral-worried.svg",
+    "neutral-smug.svg",
+    "neutral-caught.svg",
+    "lean-calm.svg",
+    "lean-worried.svg",
+    "lean-smug.svg",
+    "lean-caught.svg",
+    "turn-calm.svg",
+    "turn-worried.svg",
+    "turn-smug.svg",
+    "turn-caught.svg",
+    "silhouette.svg",
+    "card.svg"
+   ]
+  },
+  {
+   "id": "portrait-04",
+   "nome": "La cantante",
+   "silhouette": "Guanti lunghi, microfono, capelli raccolti",
+   "cartella": "assets/portrait/portrait-04",
+   "file": [
+    "neutral-calm.svg",
+    "neutral-worried.svg",
+    "neutral-smug.svg",
+    "neutral-caught.svg",
+    "lean-calm.svg",
+    "lean-worried.svg",
+    "lean-smug.svg",
+    "lean-caught.svg",
+    "turn-calm.svg",
+    "turn-worried.svg",
+    "turn-smug.svg",
+    "turn-caught.svg",
+    "silhouette.svg",
+    "card.svg"
+   ]
+  },
+  {
+   "id": "portrait-05",
+   "nome": "Il fotografo",
+   "silhouette": "Macchina al collo, giacca sformata, occhiali",
+   "cartella": "assets/portrait/portrait-05",
+   "file": [
+    "neutral-calm.svg",
+    "neutral-worried.svg",
+    "neutral-smug.svg",
+    "neutral-caught.svg",
+    "lean-calm.svg",
+    "lean-worried.svg",
+    "lean-smug.svg",
+    "lean-caught.svg",
+    "turn-calm.svg",
+    "turn-worried.svg",
+    "turn-smug.svg",
+    "turn-caught.svg",
+    "silhouette.svg",
+    "card.svg"
+   ]
+  },
+  {
+   "id": "portrait-06",
+   "nome": "Il medico",
+   "silhouette": "Valigetta, cappotto, mani in tasca",
+   "cartella": "assets/portrait/portrait-06",
+   "file": [
+    "neutral-calm.svg",
+    "neutral-worried.svg",
+    "neutral-smug.svg",
+    "neutral-caught.svg",
+    "lean-calm.svg",
+    "lean-worried.svg",
+    "lean-smug.svg",
+    "lean-caught.svg",
+    "turn-calm.svg",
+    "turn-worried.svg",
+    "turn-smug.svg",
+    "turn-caught.svg",
+    "silhouette.svg",
+    "card.svg"
+   ]
+  },
+  {
+   "id": "portrait-07",
+   "nome": "La contessa",
+   "silhouette": "Pelliccia, occhialini, bastone",
+   "cartella": "assets/portrait/portrait-07",
+   "file": [
+    "neutral-calm.svg",
+    "neutral-worried.svg",
+    "neutral-smug.svg",
+    "neutral-caught.svg",
+    "lean-calm.svg",
+    "lean-worried.svg",
+    "lean-smug.svg",
+    "lean-caught.svg",
+    "turn-calm.svg",
+    "turn-worried.svg",
+    "turn-smug.svg",
+    "turn-caught.svg",
+    "silhouette.svg",
+    "card.svg"
+   ]
+  },
+  {
+   "id": "portrait-08",
+   "nome": "Il campione sportivo",
+   "silhouette": "Spalle larghe, blazer, orologio grande",
+   "cartella": "assets/portrait/portrait-08",
+   "file": [
+    "neutral-calm.svg",
+    "neutral-worried.svg",
+    "neutral-smug.svg",
+    "neutral-caught.svg",
+    "lean-calm.svg",
+    "lean-worried.svg",
+    "lean-smug.svg",
+    "lean-caught.svg",
+    "turn-calm.svg",
+    "turn-worried.svg",
+    "turn-smug.svg",
+    "turn-caught.svg",
+    "silhouette.svg",
+    "card.svg"
+   ]
+  },
+  {
+   "id": "portrait-09",
+   "nome": "La giornalista",
+   "silhouette": "Taccuino, trench, capelli corti",
+   "cartella": "assets/portrait/portrait-09",
+   "file": [
+    "neutral-calm.svg",
+    "neutral-worried.svg",
+    "neutral-smug.svg",
+    "neutral-caught.svg",
+    "lean-calm.svg",
+    "lean-worried.svg",
+    "lean-smug.svg",
+    "lean-caught.svg",
+    "turn-calm.svg",
+    "turn-worried.svg",
+    "turn-smug.svg",
+    "turn-caught.svg",
+    "silhouette.svg",
+    "card.svg"
+   ]
+  },
+  {
+   "id": "portrait-10",
+   "nome": "Il croupier",
+   "silhouette": "Papillon, mani in evidenza, magro",
+   "cartella": "assets/portrait/portrait-10",
+   "file": [
+    "neutral-calm.svg",
+    "neutral-worried.svg",
+    "neutral-smug.svg",
+    "neutral-caught.svg",
+    "lean-calm.svg",
+    "lean-worried.svg",
+    "lean-smug.svg",
+    "lean-caught.svg",
+    "turn-calm.svg",
+    "turn-worried.svg",
+    "turn-smug.svg",
+    "turn-caught.svg",
+    "silhouette.svg",
+    "card.svg"
+   ]
+  },
+  {
+   "id": "portrait-11",
+   "nome": "La governante",
+   "silhouette": "Grembiule, mazzo di chiavi, crocchia",
+   "cartella": "assets/portrait/portrait-11",
+   "file": [
+    "neutral-calm.svg",
+    "neutral-worried.svg",
+    "neutral-smug.svg",
+    "neutral-caught.svg",
+    "lean-calm.svg",
+    "lean-worried.svg",
+    "lean-smug.svg",
+    "lean-caught.svg",
+    "turn-calm.svg",
+    "turn-worried.svg",
+    "turn-smug.svg",
+    "turn-caught.svg",
+    "silhouette.svg",
+    "card.svg"
+   ]
+  },
+  {
+   "id": "portrait-12",
+   "nome": "Il musicista",
+   "silhouette": "Custodia di strumento, sciarpa, curvo",
+   "cartella": "assets/portrait/portrait-12",
+   "file": [
+    "neutral-calm.svg",
+    "neutral-worried.svg",
+    "neutral-smug.svg",
+    "neutral-caught.svg",
+    "lean-calm.svg",
+    "lean-worried.svg",
+    "lean-smug.svg",
+    "lean-caught.svg",
+    "turn-calm.svg",
+    "turn-worried.svg",
+    "turn-smug.svg",
+    "turn-caught.svg",
+    "silhouette.svg",
+    "card.svg"
+   ]
+  }
+ ],
+ "icone": [
+  "chiave",
+  "orologio",
+  "maschera",
+  "bicchiere",
+  "spartito",
+  "macchina-fotografica",
+  "telefono",
+  "ombrello",
+  "valigia",
+  "faro",
+  "scala",
+  "lente",
+  "taccuino",
+  "sigillo",
+  "campanello",
+  "fulmine",
+  "porta",
+  "candela",
+  "guanto",
+  "bobina",
+  "scacchiera",
+  "tempesta"
+ ]
+}

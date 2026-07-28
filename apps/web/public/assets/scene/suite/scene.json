@@ -1,0 +1,134 @@
+{
+  "chiave": "suite",
+  "titolo": "La suite 404",
+  "descrizione": "Porta socchiusa, un solo abat-jour acceso, la finestra battuta dalla pioggia.",
+  "larghezza": 1920,
+  "altezza": 1080,
+  "atmosfera": {
+    "pioggia": true,
+    "nebbia": 0.12,
+    "grana": 0.07,
+    "dominante": "#3A2440"
+  },
+  "layer": [
+    {
+      "file": "layer-0.svg",
+      "profondita": 0,
+      "parallasse": 0.15,
+      "ruolo": "fondo"
+    },
+    {
+      "file": "layer-1.svg",
+      "profondita": 1,
+      "parallasse": 0.4,
+      "ruolo": "medio"
+    },
+    {
+      "file": "layer-2.svg",
+      "profondita": 2,
+      "parallasse": 1,
+      "ruolo": "principale"
+    },
+    {
+      "file": "layer-3.svg",
+      "profondita": 3,
+      "parallasse": 1.6,
+      "ruolo": "primo-piano"
+    }
+  ],
+  "luci": [
+    {
+      "chiave": "abatjour",
+      "x": 72,
+      "y": 52,
+      "raggio": 14,
+      "colore": "#E0C365",
+      "intensita": 0.7,
+      "pulsazione": 0
+    },
+    {
+      "chiave": "spiraglio",
+      "x": 12,
+      "y": 46,
+      "raggio": 10,
+      "colore": "#C9A227",
+      "intensita": 0.5,
+      "pulsazione": 0
+    },
+    {
+      "chiave": "finestra",
+      "x": 36,
+      "y": 34,
+      "raggio": 16,
+      "colore": "#5C7FA3",
+      "intensita": 0.3,
+      "pulsazione": 0
+    }
+  ],
+  "hotspot": [
+    {
+      "chiave": "porta",
+      "etichetta": "La porta socchiusa",
+      "x": 11,
+      "y": 50,
+      "raggio": 8,
+      "layer": 2
+    },
+    {
+      "chiave": "finestra",
+      "etichetta": "La finestra",
+      "x": 36,
+      "y": 34,
+      "raggio": 9,
+      "layer": 2
+    },
+    {
+      "chiave": "armadio",
+      "etichetta": "L'armadio",
+      "x": 88,
+      "y": 46,
+      "raggio": 8,
+      "layer": 2
+    },
+    {
+      "chiave": "cassetto",
+      "etichetta": "Il cassetto della scrivania",
+      "x": 60,
+      "y": 72,
+      "raggio": 6,
+      "layer": 2
+    },
+    {
+      "chiave": "telefono",
+      "etichetta": "Il telefono sul comodino",
+      "x": 72,
+      "y": 58,
+      "raggio": 5,
+      "layer": 2
+    },
+    {
+      "chiave": "orologio",
+      "etichetta": "L'orologio da viaggio",
+      "x": 66,
+      "y": 56,
+      "raggio": 4,
+      "layer": 2
+    },
+    {
+      "chiave": "consegna",
+      "etichetta": "Il punto di consegna",
+      "x": 24,
+      "y": 84,
+      "raggio": 6,
+      "layer": 2
+    },
+    {
+      "chiave": "oggetto",
+      "etichetta": "L'oggetto fuori posto",
+      "x": 46,
+      "y": 86,
+      "raggio": 5,
+      "layer": 2
+    }
+  ]
+}

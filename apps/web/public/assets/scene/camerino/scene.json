@@ -1,0 +1,117 @@
+{
+  "chiave": "camerino",
+  "titolo": "Il camerino",
+  "descrizione": "Specchio con lampadine, abiti su stampella, spartiti annotati a matita.",
+  "larghezza": 1920,
+  "altezza": 1080,
+  "atmosfera": {
+    "pioggia": false,
+    "nebbia": 0.08,
+    "grana": 0.07,
+    "dominante": "#E0C365"
+  },
+  "layer": [
+    {
+      "file": "layer-0.svg",
+      "profondita": 0,
+      "parallasse": 0.15,
+      "ruolo": "fondo"
+    },
+    {
+      "file": "layer-1.svg",
+      "profondita": 1,
+      "parallasse": 0.4,
+      "ruolo": "medio"
+    },
+    {
+      "file": "layer-2.svg",
+      "profondita": 2,
+      "parallasse": 1,
+      "ruolo": "principale"
+    },
+    {
+      "file": "layer-3.svg",
+      "profondita": 3,
+      "parallasse": 1.6,
+      "ruolo": "primo-piano"
+    }
+  ],
+  "luci": [
+    {
+      "chiave": "specchio",
+      "x": 36,
+      "y": 40,
+      "raggio": 22,
+      "colore": "#E0C365",
+      "intensita": 0.85,
+      "pulsazione": 0
+    },
+    {
+      "chiave": "applique",
+      "x": 82,
+      "y": 34,
+      "raggio": 10,
+      "colore": "#C9A227",
+      "intensita": 0.4,
+      "pulsazione": 0
+    }
+  ],
+  "hotspot": [
+    {
+      "chiave": "specchio",
+      "etichetta": "Lo specchio",
+      "x": 36,
+      "y": 40,
+      "raggio": 13,
+      "layer": 2
+    },
+    {
+      "chiave": "spartiti",
+      "etichetta": "Gli spartiti",
+      "x": 62,
+      "y": 68,
+      "raggio": 7,
+      "layer": 2
+    },
+    {
+      "chiave": "armadio",
+      "etichetta": "La stampella con gli abiti",
+      "x": 84,
+      "y": 52,
+      "raggio": 9,
+      "layer": 2
+    },
+    {
+      "chiave": "cassetto",
+      "etichetta": "Il cassetto della toletta",
+      "x": 34,
+      "y": 70,
+      "raggio": 6,
+      "layer": 2
+    },
+    {
+      "chiave": "bicchieri",
+      "etichetta": "Il bicchiere d'acqua",
+      "x": 46,
+      "y": 62,
+      "raggio": 4,
+      "layer": 2
+    },
+    {
+      "chiave": "consegna",
+      "etichetta": "Il punto di consegna",
+      "x": 12,
+      "y": 80,
+      "raggio": 6,
+      "layer": 2
+    },
+    {
+      "chiave": "oggetto",
+      "etichetta": "L'oggetto fuori posto",
+      "x": 66,
+      "y": 86,
+      "raggio": 5,
+      "layer": 2
+    }
+  ]
+}

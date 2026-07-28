@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- MÉRIDIEN — asset generato da tools/generate-assets. Non modificare a mano. -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="miter">
+<title>Scala</title>
+<path d="M6.5 3.5L6.5 20.5"/><path d="M17.5 3.5L17.5 20.5"/><path d="M6.5 8L17.5 8"/><path d="M6.5 12L17.5 12"/><path d="M6.5 16L17.5 16"/>
+</svg>

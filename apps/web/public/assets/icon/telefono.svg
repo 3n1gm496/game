@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- MÉRIDIEN — asset generato da tools/generate-assets. Non modificare a mano. -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="miter">
+<title>Telefono</title>
+<path d="M4 5.5C4 4.7 4.7 4 5.5 4H8L9.5 8L7.6 9.6C8.7 12.3 11.7 15.3 14.4 16.4L16 14.5L20 16V18.5C20 19.3 19.3 20 18.5 20C10.5 20 4 13.5 4 5.5Z"/>
+</svg>

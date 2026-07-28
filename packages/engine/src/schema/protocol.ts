@@ -104,7 +104,12 @@ export const ClientMessageSchema = z.discriminatedUnion('t', [
   z.object({ t: z.literal('pinToBoard'), actionId, kind: z.enum(['nota', 'dichiarazione']), text: shortText(180) }),
   z.object({ t: z.literal('unpin'), actionId, itemId: z.string().max(48) }),
   z.object({ t: z.literal('linkOnBoard'), actionId, fromItemId: z.string().max(48), toItemId: z.string().max(48) }),
-  z.object({ t: z.literal('flagContradiction'), actionId, contradictionId: z.string().max(64) }),
+  z.object({
+    t: z.literal('flagContradiction'),
+    actionId,
+    itemA: z.string().max(48),
+    itemB: z.string().max(48),
+  }),
   z.object({ t: z.literal('privateMessage'), actionId, toPlayerId: z.string().max(48), text: shortText(140) }),
   z.object({ t: z.literal('publicQuestion'), actionId, toPlayerId: z.string().max(48), question: shortText(160) }),
   z.object({ t: z.literal('answerQuestion'), actionId, questionId: z.string().max(48), answer: shortText(200) }),
@@ -195,6 +200,27 @@ export interface ChatEntry {
   caption?: string;
 }
 
+/**
+ * Catalogo del caso in corso: tutto ciò che il client deve poter mostrare
+ * (ambienti, sospettati, testimoni, opzioni d'accusa) e che non rivela nulla
+ * della soluzione. Le opzioni di movente, metodo e sequenza sono identiche in
+ * tutte le varianti: è la difesa contro il metagioco.
+ */
+export interface CaseCatalog {
+  caseId: string;
+  title: string;
+  subtitle: string;
+  victim: { name: string; role: string; portrait: string; description: string; lastSeen: string };
+  locations: { id: string; name: string; scene: string; floor: number; description: string; restricted: boolean }[];
+  roles: { id: string; name: string; profession: string; portrait: string; archetype: string }[];
+  witnesses: { id: string; name: string; role: string; portrait: string; locationId: string; topics: string[] }[];
+  motiveOptions: { key: string; label: string }[];
+  methodOptions: { key: string; label: string }[];
+  beats: { id: string; label: string }[];
+  abilities: { id: string; name: string; description: string }[];
+  intro: string;
+}
+
 export interface PublicRoomState {
   code: string;
   protocol: number;
@@ -211,6 +237,7 @@ export interface PublicRoomState {
   questions: PublicQuestion[];
   openLocationIds: string[];
   caseId: string;
+  catalog: CaseCatalog | null;
   /** noto solo dall'epilogo in poi */
   variantId: string | null;
   rematchVotes: string[];

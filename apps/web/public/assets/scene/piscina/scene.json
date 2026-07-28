@@ -1,0 +1,109 @@
+{
+  "chiave": "piscina",
+  "titolo": "La piscina vuota",
+  "descrizione": "Piastrelle verde petrolio, la scaletta, il fondo asciutto e una scarpa.",
+  "larghezza": 1920,
+  "altezza": 1080,
+  "atmosfera": {
+    "pioggia": true,
+    "nebbia": 0.16,
+    "grana": 0.07,
+    "dominante": "#14413F"
+  },
+  "layer": [
+    {
+      "file": "layer-0.svg",
+      "profondita": 0,
+      "parallasse": 0.15,
+      "ruolo": "fondo"
+    },
+    {
+      "file": "layer-1.svg",
+      "profondita": 1,
+      "parallasse": 0.4,
+      "ruolo": "medio"
+    },
+    {
+      "file": "layer-2.svg",
+      "profondita": 2,
+      "parallasse": 1,
+      "ruolo": "principale"
+    },
+    {
+      "file": "layer-3.svg",
+      "profondita": 3,
+      "parallasse": 1.6,
+      "ruolo": "primo-piano"
+    }
+  ],
+  "luci": [
+    {
+      "chiave": "lampione",
+      "x": 22,
+      "y": 30,
+      "raggio": 12,
+      "colore": "#C9A227",
+      "intensita": 0.5,
+      "pulsazione": 0
+    },
+    {
+      "chiave": "riflesso-vasca",
+      "x": 50,
+      "y": 80,
+      "raggio": 20,
+      "colore": "#1E5E58",
+      "intensita": 0.3,
+      "pulsazione": 0
+    }
+  ],
+  "hotspot": [
+    {
+      "chiave": "scaletta",
+      "etichetta": "La scaletta",
+      "x": 76,
+      "y": 62,
+      "raggio": 8,
+      "layer": 2
+    },
+    {
+      "chiave": "oggetto",
+      "etichetta": "Una scarpa sul fondo",
+      "x": 44,
+      "y": 88,
+      "raggio": 6,
+      "layer": 2
+    },
+    {
+      "chiave": "orologio",
+      "etichetta": "Un orologio fra le piastrelle",
+      "x": 58,
+      "y": 84,
+      "raggio": 5,
+      "layer": 2
+    },
+    {
+      "chiave": "ventilazione",
+      "etichetta": "La griglia di scarico",
+      "x": 30,
+      "y": 92,
+      "raggio": 5,
+      "layer": 2
+    },
+    {
+      "chiave": "finestra",
+      "etichetta": "Le finestre della sala",
+      "x": 12,
+      "y": 34,
+      "raggio": 6,
+      "layer": 2
+    },
+    {
+      "chiave": "consegna",
+      "etichetta": "Il punto di consegna",
+      "x": 88,
+      "y": 82,
+      "raggio": 6,
+      "layer": 2
+    }
+  ]
+}

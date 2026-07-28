@@ -1,0 +1,109 @@
+{
+  "chiave": "passaggio",
+  "titolo": "Il passaggio di servizio",
+  "descrizione": "Tubi, luce verde di emergenza, la scala a chiocciola che collega tutti i piani.",
+  "larghezza": 1920,
+  "altezza": 1080,
+  "atmosfera": {
+    "pioggia": false,
+    "nebbia": 0.2,
+    "grana": 0.07,
+    "dominante": "#1E5E58"
+  },
+  "layer": [
+    {
+      "file": "layer-0.svg",
+      "profondita": 0,
+      "parallasse": 0.15,
+      "ruolo": "fondo"
+    },
+    {
+      "file": "layer-1.svg",
+      "profondita": 1,
+      "parallasse": 0.4,
+      "ruolo": "medio"
+    },
+    {
+      "file": "layer-2.svg",
+      "profondita": 2,
+      "parallasse": 1,
+      "ruolo": "principale"
+    },
+    {
+      "file": "layer-3.svg",
+      "profondita": 3,
+      "parallasse": 1.6,
+      "ruolo": "primo-piano"
+    }
+  ],
+  "luci": [
+    {
+      "chiave": "emergenza",
+      "x": 24,
+      "y": 26,
+      "raggio": 14,
+      "colore": "#1E5E58",
+      "intensita": 0.8,
+      "pulsazione": 0
+    },
+    {
+      "chiave": "emergenza-2",
+      "x": 76,
+      "y": 30,
+      "raggio": 12,
+      "colore": "#1E5E58",
+      "intensita": 0.6,
+      "pulsazione": 0
+    }
+  ],
+  "hotspot": [
+    {
+      "chiave": "scaletta",
+      "etichetta": "La scala a chiocciola",
+      "x": 72,
+      "y": 56,
+      "raggio": 11,
+      "layer": 2
+    },
+    {
+      "chiave": "ventilazione",
+      "etichetta": "La condotta",
+      "x": 20,
+      "y": 26,
+      "raggio": 8,
+      "layer": 2
+    },
+    {
+      "chiave": "porta",
+      "etichetta": "La porta di servizio",
+      "x": 40,
+      "y": 56,
+      "raggio": 8,
+      "layer": 2
+    },
+    {
+      "chiave": "cassetto",
+      "etichetta": "La cassetta degli attrezzi",
+      "x": 14,
+      "y": 80,
+      "raggio": 6,
+      "layer": 2
+    },
+    {
+      "chiave": "consegna",
+      "etichetta": "Il montacarichi",
+      "x": 90,
+      "y": 62,
+      "raggio": 7,
+      "layer": 2
+    },
+    {
+      "chiave": "oggetto",
+      "etichetta": "L'oggetto fuori posto",
+      "x": 56,
+      "y": 86,
+      "raggio": 5,
+      "layer": 2
+    }
+  ]
+}

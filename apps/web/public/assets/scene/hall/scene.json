@@ -1,0 +1,134 @@
+{
+  "chiave": "hall",
+  "titolo": "La hall",
+  "descrizione": "Marmo a scacchi, bancone di ottone, il quadro degli orologi delle capitali.",
+  "larghezza": 1920,
+  "altezza": 1080,
+  "atmosfera": {
+    "pioggia": false,
+    "nebbia": 0.1,
+    "grana": 0.06,
+    "dominante": "#DCD6C8"
+  },
+  "layer": [
+    {
+      "file": "layer-0.svg",
+      "profondita": 0,
+      "parallasse": 0.15,
+      "ruolo": "fondo"
+    },
+    {
+      "file": "layer-1.svg",
+      "profondita": 1,
+      "parallasse": 0.4,
+      "ruolo": "medio"
+    },
+    {
+      "file": "layer-2.svg",
+      "profondita": 2,
+      "parallasse": 1,
+      "ruolo": "principale"
+    },
+    {
+      "file": "layer-3.svg",
+      "profondita": 3,
+      "parallasse": 1.6,
+      "ruolo": "primo-piano"
+    }
+  ],
+  "luci": [
+    {
+      "chiave": "lampadario-hall",
+      "x": 50,
+      "y": 12,
+      "raggio": 22,
+      "colore": "#E0C365",
+      "intensita": 0.6,
+      "pulsazione": 0
+    },
+    {
+      "chiave": "bancone",
+      "x": 32,
+      "y": 56,
+      "raggio": 14,
+      "colore": "#C9A227",
+      "intensita": 0.55,
+      "pulsazione": 0
+    },
+    {
+      "chiave": "ingresso",
+      "x": 84,
+      "y": 44,
+      "raggio": 12,
+      "colore": "#5C7FA3",
+      "intensita": 0.4,
+      "pulsazione": 0
+    }
+  ],
+  "hotspot": [
+    {
+      "chiave": "bancone",
+      "etichetta": "Il bancone della portineria",
+      "x": 31,
+      "y": 62,
+      "raggio": 10,
+      "layer": 2
+    },
+    {
+      "chiave": "registro",
+      "etichetta": "Il registro degli arrivi",
+      "x": 25,
+      "y": 56,
+      "raggio": 5,
+      "layer": 2
+    },
+    {
+      "chiave": "orologio",
+      "etichetta": "Gli orologi delle capitali",
+      "x": 50,
+      "y": 22,
+      "raggio": 9,
+      "layer": 2
+    },
+    {
+      "chiave": "telefono",
+      "etichetta": "Il centralino",
+      "x": 40,
+      "y": 57,
+      "raggio": 5,
+      "layer": 2
+    },
+    {
+      "chiave": "porta",
+      "etichetta": "L'ingresso",
+      "x": 84,
+      "y": 52,
+      "raggio": 7,
+      "layer": 2
+    },
+    {
+      "chiave": "valigia",
+      "etichetta": "I bagagli in attesa",
+      "x": 70,
+      "y": 74,
+      "raggio": 6,
+      "layer": 2
+    },
+    {
+      "chiave": "consegna",
+      "etichetta": "Il punto di consegna",
+      "x": 88,
+      "y": 82,
+      "raggio": 6,
+      "layer": 2
+    },
+    {
+      "chiave": "oggetto",
+      "etichetta": "L'oggetto fuori posto",
+      "x": 58,
+      "y": 80,
+      "raggio": 5,
+      "layer": 2
+    }
+  ]
+}

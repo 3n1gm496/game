@@ -1,0 +1,117 @@
+{
+  "chiave": "cucina",
+  "titolo": "La cucina",
+  "descrizione": "Acciaio, vapore, ganci vuoti, e un orologio a muro che nessuno guarda.",
+  "larghezza": 1920,
+  "altezza": 1080,
+  "atmosfera": {
+    "pioggia": false,
+    "nebbia": 0.3,
+    "grana": 0.06,
+    "dominante": "#5C7FA3"
+  },
+  "layer": [
+    {
+      "file": "layer-0.svg",
+      "profondita": 0,
+      "parallasse": 0.15,
+      "ruolo": "fondo"
+    },
+    {
+      "file": "layer-1.svg",
+      "profondita": 1,
+      "parallasse": 0.4,
+      "ruolo": "medio"
+    },
+    {
+      "file": "layer-2.svg",
+      "profondita": 2,
+      "parallasse": 1,
+      "ruolo": "principale"
+    },
+    {
+      "file": "layer-3.svg",
+      "profondita": 3,
+      "parallasse": 1.6,
+      "ruolo": "primo-piano"
+    }
+  ],
+  "luci": [
+    {
+      "chiave": "plafoniera",
+      "x": 34,
+      "y": 16,
+      "raggio": 16,
+      "colore": "#F2E9D8",
+      "intensita": 0.6,
+      "pulsazione": 0
+    },
+    {
+      "chiave": "plafoniera-2",
+      "x": 68,
+      "y": 16,
+      "raggio": 16,
+      "colore": "#F2E9D8",
+      "intensita": 0.55,
+      "pulsazione": 0
+    }
+  ],
+  "hotspot": [
+    {
+      "chiave": "tavolo",
+      "etichetta": "Il tavolo d'acciaio",
+      "x": 48,
+      "y": 70,
+      "raggio": 11,
+      "layer": 2
+    },
+    {
+      "chiave": "orologio",
+      "etichetta": "L'orologio a muro",
+      "x": 78,
+      "y": 22,
+      "raggio": 6,
+      "layer": 2
+    },
+    {
+      "chiave": "bicchieri",
+      "etichetta": "I bicchieri sul vassoio",
+      "x": 30,
+      "y": 64,
+      "raggio": 5,
+      "layer": 2
+    },
+    {
+      "chiave": "porta",
+      "etichetta": "La porta a battente",
+      "x": 90,
+      "y": 52,
+      "raggio": 7,
+      "layer": 2
+    },
+    {
+      "chiave": "ventilazione",
+      "etichetta": "La cappa",
+      "x": 16,
+      "y": 30,
+      "raggio": 7,
+      "layer": 2
+    },
+    {
+      "chiave": "consegna",
+      "etichetta": "Il passavivande",
+      "x": 8,
+      "y": 66,
+      "raggio": 6,
+      "layer": 2
+    },
+    {
+      "chiave": "oggetto",
+      "etichetta": "L'oggetto fuori posto",
+      "x": 62,
+      "y": 78,
+      "raggio": 5,
+      "layer": 2
+    }
+  ]
+}

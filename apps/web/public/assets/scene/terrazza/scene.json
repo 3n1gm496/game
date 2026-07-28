@@ -1,0 +1,117 @@
+{
+  "chiave": "terrazza",
+  "titolo": "La terrazza",
+  "descrizione": "Ringhiera bagnata, mare nero, il faro di Capo Mele che pulsa ogni quattro secondi.",
+  "larghezza": 1920,
+  "altezza": 1080,
+  "atmosfera": {
+    "pioggia": true,
+    "nebbia": 0.24,
+    "grana": 0.07,
+    "dominante": "#5C7FA3"
+  },
+  "layer": [
+    {
+      "file": "layer-0.svg",
+      "profondita": 0,
+      "parallasse": 0.15,
+      "ruolo": "fondo"
+    },
+    {
+      "file": "layer-1.svg",
+      "profondita": 1,
+      "parallasse": 0.4,
+      "ruolo": "medio"
+    },
+    {
+      "file": "layer-2.svg",
+      "profondita": 2,
+      "parallasse": 1,
+      "ruolo": "principale"
+    },
+    {
+      "file": "layer-3.svg",
+      "profondita": 3,
+      "parallasse": 1.6,
+      "ruolo": "primo-piano"
+    }
+  ],
+  "luci": [
+    {
+      "chiave": "faro",
+      "x": 82,
+      "y": 38,
+      "raggio": 12,
+      "colore": "#5C7FA3",
+      "intensita": 0.7,
+      "pulsazione": 4000
+    },
+    {
+      "chiave": "lampione",
+      "x": 18,
+      "y": 44,
+      "raggio": 10,
+      "colore": "#C9A227",
+      "intensita": 0.5,
+      "pulsazione": 0
+    }
+  ],
+  "hotspot": [
+    {
+      "chiave": "ringhiera",
+      "etichetta": "La ringhiera",
+      "x": 50,
+      "y": 64,
+      "raggio": 12,
+      "layer": 2
+    },
+    {
+      "chiave": "tavolo",
+      "etichetta": "Il tavolino di vimini",
+      "x": 26,
+      "y": 76,
+      "raggio": 8,
+      "layer": 2
+    },
+    {
+      "chiave": "bicchieri",
+      "etichetta": "Due bicchieri",
+      "x": 30,
+      "y": 71,
+      "raggio": 5,
+      "layer": 2
+    },
+    {
+      "chiave": "porta",
+      "etichetta": "La portafinestra",
+      "x": 88,
+      "y": 52,
+      "raggio": 7,
+      "layer": 2
+    },
+    {
+      "chiave": "orologio",
+      "etichetta": "L'orologio da polso",
+      "x": 62,
+      "y": 82,
+      "raggio": 4,
+      "layer": 2
+    },
+    {
+      "chiave": "consegna",
+      "etichetta": "Il punto di consegna",
+      "x": 12,
+      "y": 84,
+      "raggio": 6,
+      "layer": 2
+    },
+    {
+      "chiave": "oggetto",
+      "etichetta": "L'oggetto fuori posto",
+      "x": 68,
+      "y": 88,
+      "raggio": 5,
+      "layer": 2
+    }
+  ]
+}

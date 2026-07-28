@@ -1,0 +1,100 @@
+{
+  "chiave": "quadro",
+  "titolo": "Il quadro elettrico",
+  "descrizione": "Leve, contatori, una lampadina sola e un’ombra lunga sul cemento.",
+  "larghezza": 1920,
+  "altezza": 1080,
+  "atmosfera": {
+    "pioggia": false,
+    "nebbia": 0.1,
+    "grana": 0.07,
+    "dominante": "#0B1220"
+  },
+  "layer": [
+    {
+      "file": "layer-0.svg",
+      "profondita": 0,
+      "parallasse": 0.15,
+      "ruolo": "fondo"
+    },
+    {
+      "file": "layer-1.svg",
+      "profondita": 1,
+      "parallasse": 0.4,
+      "ruolo": "medio"
+    },
+    {
+      "file": "layer-2.svg",
+      "profondita": 2,
+      "parallasse": 1,
+      "ruolo": "principale"
+    },
+    {
+      "file": "layer-3.svg",
+      "profondita": 3,
+      "parallasse": 1.6,
+      "ruolo": "primo-piano"
+    }
+  ],
+  "luci": [
+    {
+      "chiave": "lampadina",
+      "x": 50,
+      "y": 14,
+      "raggio": 18,
+      "colore": "#F2E9D8",
+      "intensita": 0.7,
+      "pulsazione": 0
+    }
+  ],
+  "hotspot": [
+    {
+      "chiave": "quadro",
+      "etichetta": "Il quadro elettrico",
+      "x": 50,
+      "y": 44,
+      "raggio": 14,
+      "layer": 2
+    },
+    {
+      "chiave": "orologio",
+      "etichetta": "Il contatore orario",
+      "x": 74,
+      "y": 34,
+      "raggio": 6,
+      "layer": 2
+    },
+    {
+      "chiave": "cassetto",
+      "etichetta": "La cassetta dei fusibili",
+      "x": 24,
+      "y": 46,
+      "raggio": 7,
+      "layer": 2
+    },
+    {
+      "chiave": "porta",
+      "etichetta": "La porta blindata",
+      "x": 90,
+      "y": 56,
+      "raggio": 7,
+      "layer": 2
+    },
+    {
+      "chiave": "consegna",
+      "etichetta": "Il punto di consegna",
+      "x": 14,
+      "y": 80,
+      "raggio": 6,
+      "layer": 2
+    },
+    {
+      "chiave": "oggetto",
+      "etichetta": "L'oggetto fuori posto",
+      "x": 62,
+      "y": 84,
+      "raggio": 5,
+      "layer": 2
+    }
+  ]
+}

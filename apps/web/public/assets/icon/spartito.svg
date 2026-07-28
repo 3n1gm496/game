@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- MÉRIDIEN — asset generato da tools/generate-assets. Non modificare a mano. -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="miter">
+<title>Spartito</title>
+<path d="M3.5 6L20.5 6"/><path d="M3.5 9L20.5 9"/><path d="M3.5 12L20.5 12"/><circle cx="8" cy="17.5" r="2.2"/><path d="M10.2 17.5L10.2 9"/><circle cx="16" cy="15.5" r="2.2"/><path d="M18.2 15.5L18.2 6"/>
+</svg>

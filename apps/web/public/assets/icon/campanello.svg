@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- MÉRIDIEN — asset generato da tools/generate-assets. Non modificare a mano. -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="miter">
+<title>Campanello</title>
+<path d="M4.5 17A7.5 7.5 0 0 1 19.5 17Z"/><path d="M3 17L21 17"/><path d="M12 6.5L12 9.5"/><circle cx="12" cy="5" r="1.4"/><path d="M3 20L21 20"/>
+</svg>

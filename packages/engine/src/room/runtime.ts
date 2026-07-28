@@ -2,6 +2,7 @@ import type { CaseDef, ClueDef, VariantDef } from '../schema/case.js';
 import {
   ERROR_TEXT,
   PROTOCOL_VERSION,
+  type CaseCatalog,
   type ChatEntry,
   type ClientMessage,
   type ErrorCode,
@@ -294,7 +295,7 @@ export class RoomRuntime {
       case 'linkOnBoard':
         return this.onLink(p, msg.fromItemId, msg.toItemId);
       case 'flagContradiction':
-        return this.onFlagContradiction(p, msg.contradictionId);
+        return this.onFlagContradiction(p, msg.itemA, msg.itemB);
       case 'privateMessage':
         return this.onPrivateMessage(p, msg.toPlayerId, msg.text);
       case 'publicQuestion':
@@ -901,15 +902,27 @@ export class RoomRuntime {
     return this.broadcastState();
   }
 
-  private onFlagContradiction(p: PlayerState, contradictionId: string): Effect[] {
+  /**
+   * Il giocatore indica due elementi della bacheca che non possono stare in
+   * piedi insieme. Il server verifica che la coppia corrisponda a una delle
+   * contraddizioni previste dal caso: il client non sa quali siano, quindi non
+   * può cercarle a tentativi utili.
+   */
+  private onFlagContradiction(p: PlayerState, itemA: string, itemB: string): Effect[] {
     const s = this.state;
     if (!isPlaying(s.phase) && s.phase !== 'accusa') return [this.err(p.id, 'invalid-phase')];
-    const contra = this.variant.contradictions.find((c) => c.id === contradictionId);
-    if (!contra) return [this.err(p.id, 'invalid-target')];
-    if (p.contradictionsFound.includes(contradictionId)) return [this.err(p.id, 'already-done')];
+    if (itemA === itemB) return [this.err(p.id, 'invalid-target')];
+    const a = s.board.find((b) => b.id === itemA);
+    const b = s.board.find((x) => x.id === itemB);
+    if (!a || !b) return [this.err(p.id, 'invalid-target')];
 
-    const asserted = new Set(s.board.flatMap((b) => b.nodes));
-    if (!asserted.has(contra.a) || !asserted.has(contra.b)) {
+    const nodesA = new Set(a.nodes);
+    const nodesB = new Set(b.nodes);
+    const contra = this.variant.contradictions.find(
+      (c) => (nodesA.has(c.a) && nodesB.has(c.b)) || (nodesA.has(c.b) && nodesB.has(c.a)),
+    );
+
+    if (!contra) {
       return [
         {
           kind: 'direct',
@@ -917,13 +930,15 @@ export class RoomRuntime {
           msg: {
             t: 'director',
             kind: 'butler',
-            text: 'Le due affermazioni non sono ancora entrambe in bacheca. Senza, è solo un sospetto.',
+            text: 'Le due cose possono benissimo stare insieme. Cerchi ancora.',
             provider: 'deterministic',
           },
         },
       ];
     }
-    p.contradictionsFound.push(contradictionId);
+    if (p.contradictionsFound.includes(contra.id)) return [this.err(p.id, 'already-done')];
+
+    p.contradictionsFound.push(contra.id);
     if (contra.implicates) {
       for (const other of activePlayers(s)) {
         if (other.roleId === contra.implicates) other.declarationRefuted = true;
@@ -937,12 +952,16 @@ export class RoomRuntime {
       text: contra.text,
       byPlayerId: p.id,
       at: this.now(),
-      links: [],
+      links: [itemA, itemB],
       nodes: [contra.a, contra.b],
       tampered: false,
     });
     const effects: Effect[] = [];
-    this.pushChat(effects, { kind: 'sistema', from: p.id, text: `${p.nickname} segnala una contraddizione.` });
+    this.pushChat(effects, {
+      kind: 'sistema',
+      from: p.id,
+      text: `${p.nickname} mette a confronto due affermazioni. Non reggono insieme.`,
+    });
     effects.push(...this.broadcastState());
     return effects;
   }
@@ -1578,11 +1597,62 @@ export class RoomRuntime {
       questions: s.questions,
       openLocationIds: [...s.openLocationIds],
       caseId: s.settings.caseId,
+      catalog: this.catalog(),
       variantId: reveal ? s.variantId : null,
       rematchVotes: [...s.rematchVotes],
       advanceVotes: [...s.advanceVotes],
       playerCount: activePlayers(s).length,
       version: s.version,
+    };
+  }
+
+  /** Dati del caso mostrabili a tutti: nessuna soluzione, nessun segreto. */
+  catalog(): CaseCatalog | null {
+    let c: CaseDef;
+    try {
+      c = this.caseDef;
+    } catch {
+      return null;
+    }
+    return {
+      caseId: c.id,
+      title: c.title,
+      subtitle: c.subtitle,
+      victim: {
+        name: c.victim.name,
+        role: c.victim.role,
+        portrait: c.victim.portrait,
+        description: c.victim.description,
+        lastSeen: c.victim.lastSeen,
+      },
+      locations: c.locations.map((l) => ({
+        id: l.id,
+        name: l.name,
+        scene: l.scene,
+        floor: l.floor,
+        description: l.description,
+        restricted: l.restricted,
+      })),
+      roles: c.roles.map((r) => ({
+        id: r.id,
+        name: r.name,
+        profession: r.profession,
+        portrait: r.portrait,
+        archetype: r.archetype,
+      })),
+      witnesses: c.witnesses.map((w) => ({
+        id: w.id,
+        name: w.name,
+        role: w.role,
+        portrait: w.portrait,
+        locationId: w.locationId,
+        topics: [...w.topics],
+      })),
+      motiveOptions: c.motiveOptions.map((m) => ({ ...m })),
+      methodOptions: c.methodOptions.map((m) => ({ ...m })),
+      beats: c.beats.map((b) => ({ ...b })),
+      abilities: c.abilities.map((a) => ({ id: a.id, name: a.name, description: a.description })),
+      intro: c.texts.intro,
     };
   }
 

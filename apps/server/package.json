@@ -1,0 +1,24 @@
+{
+  "name": "@meridien/server",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "node --enable-source-maps dist/index.js",
+    "build": "tsc -b",
+    "clean": "rm -rf dist *.tsbuildinfo"
+  },
+  "dependencies": {
+    "@meridien/ai": "workspace:*",
+    "@meridien/content": "workspace:*",
+    "@meridien/engine": "workspace:*",
+    "ws": "^8.21.1",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/ws": "^8.18.1",
+    "tsx": "^4.20.6"
+  }
+}

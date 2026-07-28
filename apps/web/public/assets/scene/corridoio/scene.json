@@ -1,0 +1,118 @@
+{
+  "chiave": "corridoio",
+  "titolo": "Il corridoio",
+  "descrizione": "Prospettiva a un punto, moquette a rombi, porte numerate che non dicono niente.",
+  "larghezza": 1920,
+  "altezza": 1080,
+  "atmosfera": {
+    "pioggia": false,
+    "nebbia": 0.14,
+    "grana": 0.06,
+    "dominante": "#7E1712"
+  },
+  "layer": [
+    {
+      "file": "layer-0.svg",
+      "profondita": 0,
+      "parallasse": 0.15,
+      "ruolo": "fondo"
+    },
+    {
+      "file": "layer-1.svg",
+      "profondita": 1,
+      "parallasse": 0.4,
+      "ruolo": "medio"
+    },
+    {
+      "file": "layer-2.svg",
+      "profondita": 2,
+      "parallasse": 1,
+      "ruolo": "principale"
+    },
+    {
+      "file": "layer-3.svg",
+      "profondita": 3,
+      "parallasse": 1.6,
+      "ruolo": "primo-piano"
+    }
+  ],
+  "luci": [
+    {
+      "chiave": "applique-1",
+      "x": 30,
+      "y": 40,
+      "raggio": 8,
+      "colore": "#C9A227",
+      "intensita": 0.5,
+      "pulsazione": 0
+    },
+    {
+      "chiave": "applique-2",
+      "x": 70,
+      "y": 40,
+      "raggio": 8,
+      "colore": "#C9A227",
+      "intensita": 0.5,
+      "pulsazione": 0
+    },
+    {
+      "chiave": "fondo",
+      "x": 50,
+      "y": 46,
+      "raggio": 10,
+      "colore": "#E0C365",
+      "intensita": 0.35,
+      "pulsazione": 0
+    }
+  ],
+  "hotspot": [
+    {
+      "chiave": "porta",
+      "etichetta": "La porta 404",
+      "x": 50,
+      "y": 48,
+      "raggio": 7,
+      "layer": 2
+    },
+    {
+      "chiave": "ventilazione",
+      "etichetta": "La griglia di aerazione",
+      "x": 82,
+      "y": 24,
+      "raggio": 5,
+      "layer": 2
+    },
+    {
+      "chiave": "telefono",
+      "etichetta": "Il telefono di servizio",
+      "x": 16,
+      "y": 52,
+      "raggio": 6,
+      "layer": 2
+    },
+    {
+      "chiave": "quadro",
+      "etichetta": "Il quadro appeso storto",
+      "x": 84,
+      "y": 42,
+      "raggio": 6,
+      "layer": 2
+    },
+    {
+      "chiave": "consegna",
+      "etichetta": "Il carrello della biancheria",
+      "x": 26,
+      "y": 74,
+      "raggio": 7,
+      "layer": 2
+    },
+    {
+      "chiave": "oggetto",
+      "etichetta": "L'oggetto fuori posto",
+      "x": 62,
+      "y": 82,
+      "raggio": 5,
+      "layer": 2
+    }
+  ]
+}

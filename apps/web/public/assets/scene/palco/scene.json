@@ -1,0 +1,109 @@
+{
+  "chiave": "palco",
+  "titolo": "Il palco",
+  "descrizione": "Le luci di ribalta da dentro: sipario, microfono, un leggio e il buio in sala.",
+  "larghezza": 1920,
+  "altezza": 1080,
+  "atmosfera": {
+    "pioggia": false,
+    "nebbia": 0.26,
+    "grana": 0.06,
+    "dominante": "#7E1712"
+  },
+  "layer": [
+    {
+      "file": "layer-0.svg",
+      "profondita": 0,
+      "parallasse": 0.15,
+      "ruolo": "fondo"
+    },
+    {
+      "file": "layer-1.svg",
+      "profondita": 1,
+      "parallasse": 0.4,
+      "ruolo": "medio"
+    },
+    {
+      "file": "layer-2.svg",
+      "profondita": 2,
+      "parallasse": 1,
+      "ruolo": "principale"
+    },
+    {
+      "file": "layer-3.svg",
+      "profondita": 3,
+      "parallasse": 1.6,
+      "ruolo": "primo-piano"
+    }
+  ],
+  "luci": [
+    {
+      "chiave": "occhio-di-bue",
+      "x": 50,
+      "y": 30,
+      "raggio": 24,
+      "colore": "#F2E9D8",
+      "intensita": 0.8,
+      "pulsazione": 0
+    },
+    {
+      "chiave": "ribalta",
+      "x": 50,
+      "y": 86,
+      "raggio": 30,
+      "colore": "#E0C365",
+      "intensita": 0.6,
+      "pulsazione": 0
+    }
+  ],
+  "hotspot": [
+    {
+      "chiave": "spartiti",
+      "etichetta": "Il leggio",
+      "x": 62,
+      "y": 62,
+      "raggio": 8,
+      "layer": 2
+    },
+    {
+      "chiave": "bicchieri",
+      "etichetta": "Il bicchiere sullo sgabello",
+      "x": 34,
+      "y": 68,
+      "raggio": 5,
+      "layer": 2
+    },
+    {
+      "chiave": "porta",
+      "etichetta": "Le quinte",
+      "x": 90,
+      "y": 48,
+      "raggio": 7,
+      "layer": 2
+    },
+    {
+      "chiave": "tavolo",
+      "etichetta": "Lo sgabello",
+      "x": 34,
+      "y": 74,
+      "raggio": 6,
+      "layer": 2
+    },
+    {
+      "chiave": "consegna",
+      "etichetta": "Il punto di consegna",
+      "x": 12,
+      "y": 78,
+      "raggio": 6,
+      "layer": 2
+    },
+    {
+      "chiave": "oggetto",
+      "etichetta": "L'oggetto fuori posto",
+      "x": 50,
+      "y": 88,
+      "raggio": 5,
+      "layer": 2
+    }
+  ]
+}
