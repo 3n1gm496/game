@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- MÉRIDIEN — asset generato da tools/generate-assets. Non modificare a mano. -->
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="1080" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
-<title>Il corridoio — livello 0 (fondo)</title>
-<defs><radialGradient id="corridoio-l0-fondo" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#E0C365" stop-opacity="0.45"/><stop offset="50%" stop-color="#E0C365" stop-opacity="0.158"/><stop offset="100%" stop-color="#E0C365" stop-opacity="0"/></radialGradient></defs>
-<g><rect x="0" y="0" width="1920" height="1080" fill="#201423"/><circle cx="960" cy="520" r="260" fill="url(#corridoio-l0-fondo)"/><g><rect x="882" y="390" width="156" height="260" fill="rgba(201,162,39,0.3)"/><rect x="890" y="400" width="140" height="250" fill="#37223d"/><rect x="906.8" y="420" width="106.4" height="90" fill="rgba(11,18,32,0.3)"/><rect x="906.8" y="530" width="106.4" height="95" fill="rgba(11,18,32,0.3)"/><circle cx="1013.2" cy="535" r="6" fill="#E0C365"/></g><path d="M 940 440 L 980 440 L 986 446 L 986 468 L 980 474 L 940 474 L 934 468 L 934 446 Z" fill="#C9A227"/></g>
-</svg>

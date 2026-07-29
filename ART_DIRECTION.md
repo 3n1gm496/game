@@ -44,6 +44,17 @@ I colori della palette valgono per le **superfici**. Usati tali e quali come
 colore di una lampada danno un giallo al neon: le sorgenti li miscelano verso il
 bianco al 58 %, che è quanto basta perché una lampadina sembri una lampadina.
 
+### 2.3 L'atmosfera
+
+Pioggia in particelle con vento, **pulviscolo** che sale piano nei coni di luce — è ciò che rende
+visibile l'aria di una stanza illuminata da una sola lampada — e i **lampi** della tempesta, che
+scattano sugli eventi del temporale con due battute: il bagliore e la coda che si spegne. Un lampo
+lineare sembra un interruttore. Tutto sotto la gradazione, perché un fulmine che non passa dalla
+stessa curva del resto sembra appiccicato sopra.
+
+Pulviscolo e lampi si spengono con «riduci movimento», e il pulviscolo esiste solo al livello di
+qualità alto.
+
 ### 2.2 La gradazione
 
 Nessuna immagine arriva allo schermo come è stata disegnata. Un solo passaggio
@@ -99,6 +110,13 @@ forme: un ovale, un naso a virgola, due archi per gli occhi, una bocca essenzial
 Ogni ritratto è composto da forme SVG generate da `tools/generate-assets`, parametrizzate da un seed
 per famiglia (colore pelle, capelli, abito, accessorio) e disegnate a mano nei tratti caratteristici.
 Nessun ritratto imita una persona reale o uno stile d'artista vivente.
+
+**La luce sulla figura.** Le forme da sole restano campiture piatte, e nessun volto è piatto. Sopra
+il disegno passano tre velature ritagliate sulla sagoma del personaggio — ottenuta ridisegnando le
+stesse forme in bianco, così non serve conoscere i contorni, che cambiano con posa e accessorio:
+un'ombra che scende verso il basso a destra, una chiave calda che entra dall'alto a sinistra, una
+grana finissima. È la stessa regola della luce degli ambienti, applicata alla persona invece che
+alla stanza. Sotto i piedi, un'ombra di contatto: senza, la figura galleggia.
 
 ## 6. Ambienti
 

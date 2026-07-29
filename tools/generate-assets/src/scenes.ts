@@ -7,6 +7,7 @@
  * in coordinate percentuali. Nessun testo dentro le scene.
  */
 
+import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 
 import type { Palette } from './engine-design.js';
@@ -2183,6 +2184,23 @@ export interface SceneManifestEntry {
   readonly hotspot: readonly Hotspot[];
 }
 
+/**
+ * Il manifesto di un ambiente già reso, se c'è.
+ *
+ * Riconoscerlo è semplice: i livelli resi sono WebP, quelli disegnati SVG.
+ */
+async function leggiManifestoReso(dir: string): Promise<SceneManifestEntry | null> {
+  try {
+    const grezzo = await readFile(path.join(dir, 'scene.json'), 'utf8');
+    const meta = JSON.parse(grezzo) as SceneManifestEntry & { chiave: string };
+    const layer = meta.layer ?? [];
+    if (layer.length > 0 && layer.every((l) => l.file.endsWith('.webp'))) return meta;
+    return null;
+  } catch {
+    return null;
+  }
+}
+
 export async function generateScenes(): Promise<SceneManifestEntry[]> {
   setCategory('scena');
   const p = await loadPalette();
@@ -2191,6 +2209,22 @@ export async function generateScenes(): Promise<SceneManifestEntry[]> {
   for (const scene of scenes()) {
     const dir = path.join(ASSETS_DIR, 'scene', scene.chiave);
     const layerMeta: SceneManifestEntry['layer'][number][] = [];
+
+    /*
+     * Se l'ambiente è già stato renderizzato in Blender, non si torna indietro.
+     *
+     * `pnpm render:scenes` sostituisce i livelli disegnati con quelli resi e
+     * riscrive gli hotspot con le posizioni proiettate dal 3D. Rigenerare qui
+     * gli SVG li cancellerebbe in silenzio, e la volta dopo che qualcuno lancia
+     * `pnpm generate:assets` — per un'icona, per una carta — si ritroverebbe la
+     * grafica vecchia senza capire perché. Qui si riconoscono i livelli resi e
+     * si lascia stare l'ambiente, aggiornando solo ciò che il render non tocca.
+     */
+    const reso = await leggiManifestoReso(dir);
+    if (reso) {
+      out.push({ ...reso, chiave: scene.chiave, titolo: scene.titolo, cartella: `assets/scene/${scene.chiave}` });
+      continue;
+    }
 
     for (let i = 0; i < scene.layers.length; i += 1) {
       const build = scene.layers[i]!(p, `${scene.chiave}-l${i}`);

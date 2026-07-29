@@ -30,11 +30,18 @@ import { Gradazione, type OpzioniGradazione } from './gradazione.js';
 export interface SceneHotspot {
   chiave: string;
   etichetta: string;
-  /** posizione e dimensione in percentuale della scena */
+  /**
+   * Centro del punto, in percentuale della scena — non l'angolo.
+   *
+   * Il render lo ricava proiettando la posizione 3D dell'oggetto: è il punto
+   * dove l'oggetto sta davvero, e il pulsante gli va centrato sopra.
+   */
   x: number;
   y: number;
-  larghezza: number;
-  altezza: number;
+  /** raggio dell'area sensibile, in percentuale del lato minore */
+  raggio: number;
+  /** livello di appartenenza, per la parallasse */
+  layer?: number;
 }
 
 export interface SceneManifest {
@@ -121,6 +128,9 @@ export class SceneRenderer {
   private gradazione: Gradazione | null = null;
   private manifesto: SceneManifest | null = null;
   private drops: { g: Graphics; speed: number; len: number }[] = [];
+  private pulviscolo: { sprite: Sprite; vx: number; vy: number; fase: number }[] = [];
+  private lampo: Graphics | null = null;
+  private lampoResiduo = 0;
   private quality: QualityLevel;
   private reducedMotion: boolean;
   private targetX = 0;
@@ -162,6 +172,15 @@ export class SceneRenderer {
     app.stage.addChild(this.world);
     app.stage.addChild(this.lucine);
     app.stage.addChild(this.weather);
+
+    /*
+     * Il lampo sta sopra tutto e sotto la gradazione: un fulmine deve passare
+     * dalla stessa curva del resto, altrimenti sembra un flash bianco appiccicato.
+     */
+    this.lampo = new Graphics();
+    this.lampo.alpha = 0;
+    app.stage.addChild(this.lampo);
+
     this.applicaGradazione();
 
     this.tickerFn = () => this.frame();
@@ -221,6 +240,7 @@ export class SceneRenderer {
     }
 
     this.costruisciLuci(manifest);
+    this.costruisciPulviscolo();
     this.buildWeather();
     this.layout();
   }
@@ -262,6 +282,55 @@ export class SceneRenderer {
     this.disponiLuci(manifest);
   }
 
+  /**
+   * Il pulviscolo che galleggia nella luce.
+   *
+   * In una stanza illuminata da una sola lampada l'aria si vede: sono granelli
+   * che salgono e scendono senza fretta, e sono ciò che distingue un ambiente
+   * dal disegno di un ambiente. Riusa la texture degli aloni, ridotta a pochi
+   * pixel, così non costa una texture in più.
+   */
+  private costruisciPulviscolo(): void {
+    if (!this.app || this.quality !== 'alta' || this.reducedMotion) return;
+    this.aloneSorgente ??= alone();
+    const { width, height } = this.app.screen;
+
+    for (let i = 0; i < 46; i += 1) {
+      const sprite = new Sprite(new Texture({ source: this.aloneSorgente }));
+      sprite.anchor.set(0.5);
+      sprite.blendMode = 'add';
+      const raggio = 2 + Math.random() * 5;
+      sprite.width = raggio * 2;
+      sprite.height = raggio * 2;
+      sprite.alpha = 0.1 + Math.random() * 0.22;
+      sprite.tint = 0xe0c365;
+      sprite.x = Math.random() * width;
+      sprite.y = Math.random() * height;
+      this.lucine.addChild(sprite);
+      this.pulviscolo.push({
+        sprite,
+        vx: (Math.random() - 0.5) * 0.16,
+        vy: -0.05 - Math.random() * 0.14,
+        fase: Math.random() * Math.PI * 2,
+      });
+    }
+  }
+
+  /**
+   * Un lampo della tempesta.
+   *
+   * Due battute: il bagliore vero, brevissimo, e la coda che si spegne. Un
+   * lampo lineare sembra un interruttore; questo sembra un fulmine.
+   */
+  colpoDiLuce(intensita = 1): void {
+    if (this.reducedMotion || !this.lampo || !this.app) return;
+    const { width, height } = this.app.screen;
+    this.lampo.clear();
+    this.lampo.rect(0, 0, width, height).fill({ color: 0xdce8f5 });
+    this.lampoResiduo = Math.min(0.55, 0.34 * intensita);
+    this.lampo.alpha = this.lampoResiduo;
+  }
+
   private disponiLuci(manifest: SceneManifest): void {
     if (!this.app) return;
     const { width, height } = this.app.screen;
@@ -289,6 +358,11 @@ export class SceneRenderer {
       sprite.destroy({ texture: false });
     }
     this.fari = [];
+    for (const { sprite } of this.pulviscolo) {
+      sprite.parent?.removeChild(sprite);
+      sprite.destroy({ texture: false });
+    }
+    this.pulviscolo = [];
     this.lucine.removeChildren();
     for (const drop of this.drops) {
       drop.g.parent?.removeChild(drop.g);
@@ -350,6 +424,11 @@ export class SceneRenderer {
       sprite.destroy({ texture: false });
     }
     this.fari = [];
+    for (const { sprite } of this.pulviscolo) {
+      sprite.parent?.removeChild(sprite);
+      sprite.destroy({ texture: false });
+    }
+    this.pulviscolo = [];
     this.lucine.removeChildren();
     if (this.manifesto) {
       this.costruisciLuci(this.manifesto);
@@ -390,6 +469,25 @@ export class SceneRenderer {
      */
     this.gradazione?.avanza(deltaMs);
 
+    if (this.lampo && this.lampoResiduo > 0) {
+      // caduta rapida, con un rimbalzo: il secondo bagliore del fulmine
+      this.lampoResiduo *= this.lampoResiduo > 0.12 ? 0.82 : 0.9;
+      if (this.lampoResiduo < 0.004) this.lampoResiduo = 0;
+      this.lampo.alpha = this.lampoResiduo;
+    }
+
+    for (const punto of this.pulviscolo) {
+      punto.fase += deltaMs / 900;
+      punto.sprite.x += punto.vx + Math.sin(punto.fase) * 0.12;
+      punto.sprite.y += punto.vy;
+      if (punto.sprite.y < -8) {
+        punto.sprite.y = height + 8;
+        punto.sprite.x = Math.random() * width;
+      }
+      if (punto.sprite.x < -8) punto.sprite.x = width + 8;
+      if (punto.sprite.x > width + 8) punto.sprite.x = -8;
+    }
+
     for (const faro of this.fari) {
       if (faro.pulsazione <= 0) continue;
       faro.fase += (deltaMs / faro.pulsazione) * Math.PI * 2;
@@ -423,6 +521,8 @@ export class SceneRenderer {
     this.manifesto = null;
     this.gradazione?.distruggi();
     this.gradazione = null;
+    this.lampo?.destroy();
+    this.lampo = null;
     this.aloneSorgente?.destroy();
     this.aloneSorgente = null;
     if (this.app) {

@@ -12,28 +12,22 @@
   },
   "layer": [
     {
-      "file": "layer-0.svg",
+      "file": "layer-0.webp",
       "profondita": 0,
       "parallasse": 0.15,
       "ruolo": "fondo"
     },
     {
-      "file": "layer-1.svg",
+      "file": "layer-1.webp",
       "profondita": 1,
       "parallasse": 0.4,
       "ruolo": "medio"
     },
     {
-      "file": "layer-2.svg",
+      "file": "layer-2.webp",
       "profondita": 2,
       "parallasse": 1,
       "ruolo": "principale"
-    },
-    {
-      "file": "layer-3.svg",
-      "profondita": 3,
-      "parallasse": 1.6,
-      "ruolo": "primo-piano"
     }
   ],
   "luci": [
@@ -60,56 +54,56 @@
     {
       "chiave": "bobina",
       "etichetta": "Il registratore a bobine",
-      "x": 32,
-      "y": 54,
+      "x": 97,
+      "y": 70,
       "raggio": 9,
       "layer": 2
     },
     {
       "chiave": "finestra",
       "etichetta": "Il vetro sulla sala",
-      "x": 68,
-      "y": 34,
+      "x": 9,
+      "y": 39,
       "raggio": 10,
       "layer": 2
     },
     {
       "chiave": "telefono",
       "etichetta": "L'interfono",
-      "x": 84,
-      "y": 62,
+      "x": 33,
+      "y": 68,
       "raggio": 6,
       "layer": 2
     },
     {
       "chiave": "cassetto",
       "etichetta": "Lo schedario dei nastri",
-      "x": 12,
-      "y": 60,
+      "x": 87,
+      "y": 84,
       "raggio": 7,
       "layer": 2
     },
     {
       "chiave": "spartiti",
       "etichetta": "Le note del tecnico",
-      "x": 52,
-      "y": 72,
+      "x": 16,
+      "y": 53,
       "raggio": 6,
       "layer": 2
     },
     {
       "chiave": "consegna",
       "etichetta": "Il punto di consegna",
-      "x": 90,
-      "y": 82,
+      "x": 72,
+      "y": 63,
       "raggio": 6,
       "layer": 2
     },
     {
       "chiave": "oggetto",
       "etichetta": "L'oggetto fuori posto",
-      "x": 46,
-      "y": 86,
+      "x": 57,
+      "y": 91,
       "raggio": 5,
       "layer": 2
     }

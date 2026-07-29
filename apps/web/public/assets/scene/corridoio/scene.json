@@ -12,28 +12,22 @@
   },
   "layer": [
     {
-      "file": "layer-0.svg",
+      "file": "layer-0.webp",
       "profondita": 0,
       "parallasse": 0.15,
       "ruolo": "fondo"
     },
     {
-      "file": "layer-1.svg",
+      "file": "layer-1.webp",
       "profondita": 1,
       "parallasse": 0.4,
       "ruolo": "medio"
     },
     {
-      "file": "layer-2.svg",
+      "file": "layer-2.webp",
       "profondita": 2,
       "parallasse": 1,
       "ruolo": "principale"
-    },
-    {
-      "file": "layer-3.svg",
-      "profondita": 3,
-      "parallasse": 1.6,
-      "ruolo": "primo-piano"
     }
   ],
   "luci": [
@@ -69,48 +63,48 @@
     {
       "chiave": "porta",
       "etichetta": "La porta 404",
-      "x": 50,
-      "y": 48,
+      "x": 37,
+      "y": 59,
       "raggio": 7,
       "layer": 2
     },
     {
       "chiave": "ventilazione",
       "etichetta": "La griglia di aerazione",
-      "x": 82,
-      "y": 24,
+      "x": 63,
+      "y": 35,
       "raggio": 5,
       "layer": 2
     },
     {
       "chiave": "telefono",
       "etichetta": "Il telefono di servizio",
-      "x": 16,
-      "y": 52,
+      "x": 33,
+      "y": 53,
       "raggio": 6,
       "layer": 2
     },
     {
       "chiave": "quadro",
       "etichetta": "Il quadro appeso storto",
-      "x": 84,
-      "y": 42,
+      "x": 66,
+      "y": 49,
       "raggio": 6,
       "layer": 2
     },
     {
       "chiave": "consegna",
       "etichetta": "Il carrello della biancheria",
-      "x": 26,
-      "y": 74,
+      "x": 55,
+      "y": 62,
       "raggio": 7,
       "layer": 2
     },
     {
       "chiave": "oggetto",
       "etichetta": "L'oggetto fuori posto",
-      "x": 62,
-      "y": 82,
+      "x": 45,
+      "y": 79,
       "raggio": 5,
       "layer": 2
     }

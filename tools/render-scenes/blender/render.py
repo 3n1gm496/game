@@ -77,7 +77,11 @@ def main():
             "davanti": v.z > 0,
         }
     (uscita / "hotspot.json").write_text(json.dumps(proiezioni, indent=2), encoding="utf-8")
-    fuori = [n for n, p in proiezioni.items() if not p["davanti"] or not (2 <= p["x"] <= 98 and 2 <= p["y"] <= 98)]
+    fuori = [
+        f"{n}({p['x']:.0f}/{p['y']:.0f})"
+        for n, p in proiezioni.items()
+        if not p["davanti"] or not (3 <= p["x"] <= 97 and 3 <= p["y"] <= 97)
+    ]
     if fuori:
         print(f"HOTSPOT_FUORI_QUADRO {chiave} {' '.join(fuori)}")
 

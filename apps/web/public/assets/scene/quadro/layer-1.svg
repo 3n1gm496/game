@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- MÉRIDIEN — asset generato da tools/generate-assets. Non modificare a mano. -->
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="1080" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
-<title>Il quadro elettrico — livello 1 (medio)</title>
-<defs><radialGradient id="quadro-l1-lampadina" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#F2E9D8" stop-opacity="0.6"/><stop offset="50%" stop-color="#F2E9D8" stop-opacity="0.21"/><stop offset="100%" stop-color="#F2E9D8" stop-opacity="0"/></radialGradient></defs>
-<g><rect x="958" y="0" width="4" height="140" fill="rgba(205,194,174,0.4)"/><circle cx="960" cy="160" r="320" fill="url(#quadro-l1-lampadina)"/><circle cx="960" cy="160" r="22" fill="rgba(242,233,216,0.95)"/><path d="M 948 170 L 972 170 L 1520 1070 L 400 1070 Z" fill="#F2E9D8" opacity="0.1"/><path d="M 0 300 q 960 120 1920 280" fill="none" stroke="rgba(11,18,32,0.85)" stroke-width="5"/><path d="M 0 326 q 960 144 1920 306" fill="none" stroke="rgba(11,18,32,0.85)" stroke-width="6"/><path d="M 0 352 q 960 168 1920 332" fill="none" stroke="rgba(11,18,32,0.85)" stroke-width="7"/><path d="M 0 378 q 960 192 1920 358" fill="none" stroke="rgba(11,18,32,0.85)" stroke-width="8"/><path d="M 0 404 q 960 216 1920 384" fill="none" stroke="rgba(11,18,32,0.85)" stroke-width="9"/><path d="M 0 430 q 960 240 1920 410" fill="none" stroke="rgba(11,18,32,0.85)" stroke-width="10"/></g>
-</svg>

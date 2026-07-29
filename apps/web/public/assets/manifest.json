@@ -3,7 +3,7 @@
  "generatoIl": "2026-07-29",
  "totale": {
   "file": 286,
-  "byte": 1625427
+  "byte": 2265513
  },
  "file": [
   {
@@ -198,48 +198,48 @@
   },
   {
    "percorso": "portrait/portrait-01/card.svg",
-   "byte": 7379,
-   "sha256": "bd79cf11b23f927ab898a5805e9b29d2"
+   "byte": 11682,
+   "sha256": "1726c9632de8e982526cb4a1314c26a8"
   },
   {
    "percorso": "portrait/portrait-01/lean-calm.svg",
-   "byte": 5532,
-   "sha256": "b889a72723549af0214e5d2de8089437"
+   "byte": 9992,
+   "sha256": "d7a2d628f18cacac14bf1ab8eead4977"
   },
   {
    "percorso": "portrait/portrait-01/lean-caught.svg",
-   "byte": 5625,
-   "sha256": "1190e6a6c64d4dfa96d183320095c788"
+   "byte": 10085,
+   "sha256": "f7b12f17abadd8ffbdebd8255667f4e2"
   },
   {
    "percorso": "portrait/portrait-01/lean-smug.svg",
-   "byte": 5533,
-   "sha256": "9e778cd139d4a1b5705806fbb8529b27"
+   "byte": 9993,
+   "sha256": "1a51bcf0277f9c2d623197f861b6bd10"
   },
   {
    "percorso": "portrait/portrait-01/lean-worried.svg",
-   "byte": 5553,
-   "sha256": "e60c4b2d1cb0f3bfe9a9d85eee804bcb"
+   "byte": 10013,
+   "sha256": "5f3b89cb47ea21db6515068061bc1234"
   },
   {
    "percorso": "portrait/portrait-01/neutral-calm.svg",
-   "byte": 5449,
-   "sha256": "b352b85f53fe6cb98c69efff9e327195"
+   "byte": 9823,
+   "sha256": "9fff9f8e920c471318a3395bb77d2684"
   },
   {
    "percorso": "portrait/portrait-01/neutral-caught.svg",
-   "byte": 5542,
-   "sha256": "d8257706ddc3df20b1ecab4b23b8f93e"
+   "byte": 9916,
+   "sha256": "f5137aebf78f40c8b69ccdebda35afbd"
   },
   {
    "percorso": "portrait/portrait-01/neutral-smug.svg",
-   "byte": 5450,
-   "sha256": "6ea72efbbbf68775c1c5b2a0d54e19a3"
+   "byte": 9824,
+   "sha256": "0dab375f9b5dbd01262b3df7f3265ef8"
   },
   {
    "percorso": "portrait/portrait-01/neutral-worried.svg",
-   "byte": 5470,
-   "sha256": "89ba67797c2ccf1380b239f959df4e85"
+   "byte": 9844,
+   "sha256": "aeaa2c02be29176810e42076a37bfcb4"
   },
   {
    "percorso": "portrait/portrait-01/silhouette.svg",
@@ -248,68 +248,68 @@
   },
   {
    "percorso": "portrait/portrait-01/turn-calm.svg",
-   "byte": 5502,
-   "sha256": "d6ee5d5d39aa6b87ebf6c05f01b5a74d"
+   "byte": 9921,
+   "sha256": "f303f72158da14dc1bc5ee19e8013e77"
   },
   {
    "percorso": "portrait/portrait-01/turn-caught.svg",
-   "byte": 5595,
-   "sha256": "8909e38a25af1890c8ff0ce3535436cc"
+   "byte": 10014,
+   "sha256": "380002a23b403531111c7f4524de258e"
   },
   {
    "percorso": "portrait/portrait-01/turn-smug.svg",
-   "byte": 5502,
-   "sha256": "75dfd1ba7e977d87602ead5310ede8e8"
+   "byte": 9921,
+   "sha256": "de67480a7bfb067dad71aea03bdf4811"
   },
   {
    "percorso": "portrait/portrait-01/turn-worried.svg",
-   "byte": 5523,
-   "sha256": "b1c5c534b90717bd5e23063f1ae994d2"
+   "byte": 9942,
+   "sha256": "00f39324d8f3ae44ff855b542a03dfbf"
   },
   {
    "percorso": "portrait/portrait-02/card.svg",
-   "byte": 6994,
-   "sha256": "be261bd74ab64dccc16ef4110ddf78d8"
+   "byte": 10693,
+   "sha256": "95e0cdbc113c830f7e0cd5e39252868f"
   },
   {
    "percorso": "portrait/portrait-02/lean-calm.svg",
-   "byte": 5049,
-   "sha256": "ef29265c3a07d1045e40c6233169710b"
+   "byte": 8875,
+   "sha256": "ab3f13d66d738e6ba7870cc3a397e57d"
   },
   {
    "percorso": "portrait/portrait-02/lean-caught.svg",
-   "byte": 5139,
-   "sha256": "ff7d97d9d1acf0646f350a45c37e5d02"
+   "byte": 8965,
+   "sha256": "ac1a6254470bc24fd52e5a147b59992f"
   },
   {
    "percorso": "portrait/portrait-02/lean-smug.svg",
-   "byte": 5048,
-   "sha256": "c4ed7873e58c3de4ce6fc193fb190cec"
+   "byte": 8874,
+   "sha256": "8dea7ad22b05cbdeba9f05679ebcdb6f"
   },
   {
    "percorso": "portrait/portrait-02/lean-worried.svg",
-   "byte": 5066,
-   "sha256": "e3e054fe0fdadeaf4b433785a78912cd"
+   "byte": 8892,
+   "sha256": "c50679c2bc4d55411f60906ef39c6cbc"
   },
   {
    "percorso": "portrait/portrait-02/neutral-calm.svg",
-   "byte": 4996,
-   "sha256": "7ad07d3b5db373d749e21bbba350c2f0"
+   "byte": 8766,
+   "sha256": "bf33c3157a1e68d674e2c0a87ddd41c4"
   },
   {
    "percorso": "portrait/portrait-02/neutral-caught.svg",
-   "byte": 5086,
-   "sha256": "5513eb4c85ff37d178d13f9eb31a4f09"
+   "byte": 8856,
+   "sha256": "1eab2b2c2b2b1c09d970933c07c3a6ec"
   },
   {
    "percorso": "portrait/portrait-02/neutral-smug.svg",
-   "byte": 4995,
-   "sha256": "d9ea4aec8adc9a1412658253348d961d"
+   "byte": 8765,
+   "sha256": "ae942e122b2d4620af636631bbd710cf"
   },
   {
    "percorso": "portrait/portrait-02/neutral-worried.svg",
-   "byte": 5013,
-   "sha256": "fa2897c49272fb79a90abb4810c0de4d"
+   "byte": 8783,
+   "sha256": "f75d2fd504d2e9c59be9711c58709eac"
   },
   {
    "percorso": "portrait/portrait-02/silhouette.svg",
@@ -318,68 +318,68 @@
   },
   {
    "percorso": "portrait/portrait-02/turn-calm.svg",
-   "byte": 5007,
-   "sha256": "24f04265002b22fcd082839d73216ad0"
+   "byte": 8792,
+   "sha256": "c72d972bbf05c0b4c333fe9fbaa5732e"
   },
   {
    "percorso": "portrait/portrait-02/turn-caught.svg",
-   "byte": 5100,
-   "sha256": "64fc3c9d3d3308d91244f97975d96a91"
+   "byte": 8885,
+   "sha256": "14abe3f7d8f3154092c5a87e536e0df4"
   },
   {
    "percorso": "portrait/portrait-02/turn-smug.svg",
-   "byte": 5008,
-   "sha256": "b02b232cfc18dd5a2856f133cb03b6fe"
+   "byte": 8793,
+   "sha256": "0a74581658435833056fe7433c2bee72"
   },
   {
    "percorso": "portrait/portrait-02/turn-worried.svg",
-   "byte": 5025,
-   "sha256": "4ee1894efdf2b6e35cd130de70278ef6"
+   "byte": 8810,
+   "sha256": "237edd094da84972801dc7a7c78db031"
   },
   {
    "percorso": "portrait/portrait-03/card.svg",
-   "byte": 7391,
-   "sha256": "240f6cabde5820869aab8615076cff82"
+   "byte": 11418,
+   "sha256": "b73560d800e97577b064d8a10fcf9d6e"
   },
   {
    "percorso": "portrait/portrait-03/lean-calm.svg",
-   "byte": 5408,
-   "sha256": "fc555230dfd9ad91cd0ee51bc4ae5751"
+   "byte": 9592,
+   "sha256": "4894867f6d0ecac76b5a674dd22de4e2"
   },
   {
    "percorso": "portrait/portrait-03/lean-caught.svg",
-   "byte": 5498,
-   "sha256": "186e4053ed772782e880b67e28ea1e1f"
+   "byte": 9682,
+   "sha256": "f1c30e376d8d8128bb4a444aa8c53b53"
   },
   {
    "percorso": "portrait/portrait-03/lean-smug.svg",
-   "byte": 5405,
-   "sha256": "0e74a4afb8b08a88d655df7a9d14660c"
+   "byte": 9589,
+   "sha256": "c7b0651c11e7aaf3bb09a911ad0f3e24"
   },
   {
    "percorso": "portrait/portrait-03/lean-worried.svg",
-   "byte": 5425,
-   "sha256": "c4455217425588a84a4e451fc3cb70d6"
+   "byte": 9609,
+   "sha256": "ef4bccf8920cd3db70d26c0bca5e793f"
   },
   {
    "percorso": "portrait/portrait-03/neutral-calm.svg",
-   "byte": 5325,
-   "sha256": "80e00c124defdc45c2dd0c6e4126c8dd"
+   "byte": 9423,
+   "sha256": "2b24b953a04cfd02cb1df6936769b4a6"
   },
   {
    "percorso": "portrait/portrait-03/neutral-caught.svg",
-   "byte": 5415,
-   "sha256": "9ee150cf9787114d32be3fe0236e877a"
+   "byte": 9513,
+   "sha256": "72b4c4e7e9b969df14980d366507cec7"
   },
   {
    "percorso": "portrait/portrait-03/neutral-smug.svg",
-   "byte": 5322,
-   "sha256": "3a3aed354c51d1e7240e0990e84a2448"
+   "byte": 9420,
+   "sha256": "44f32ed508bf4ddec09fec937a6772e8"
   },
   {
    "percorso": "portrait/portrait-03/neutral-worried.svg",
-   "byte": 5342,
-   "sha256": "22dc5f5658f41c03cbf59a1d9e6748fd"
+   "byte": 9440,
+   "sha256": "43015b81a773801ddfb9b9ef557f2a01"
   },
   {
    "percorso": "portrait/portrait-03/silhouette.svg",
@@ -388,68 +388,68 @@
   },
   {
    "percorso": "portrait/portrait-03/turn-calm.svg",
-   "byte": 5365,
-   "sha256": "1187567d594e5e7ea53b0ea24d5afb6b"
+   "byte": 9508,
+   "sha256": "6fb5a46207bfaf2ff6f31aaa0e3216fe"
   },
   {
    "percorso": "portrait/portrait-03/turn-caught.svg",
-   "byte": 5461,
-   "sha256": "5354d88a73977a2d66644fdc48dfccdd"
+   "byte": 9604,
+   "sha256": "01026a90f21d29c5aa41de00a9ccafbc"
   },
   {
    "percorso": "portrait/portrait-03/turn-smug.svg",
-   "byte": 5366,
-   "sha256": "53c1ba737a5291bb2595175883051b20"
+   "byte": 9509,
+   "sha256": "e955f93350d1e697423aad18100db9e2"
   },
   {
    "percorso": "portrait/portrait-03/turn-worried.svg",
-   "byte": 5382,
-   "sha256": "5b4196caa9bc10f2d0d926b18a8893e1"
+   "byte": 9525,
+   "sha256": "e93bc706b341a8cae0f30bc1f10ba511"
   },
   {
    "percorso": "portrait/portrait-04/card.svg",
-   "byte": 7380,
-   "sha256": "9db667db802c3aa9d884b9b1316b6173"
+   "byte": 11488,
+   "sha256": "ced4ff172dde33cb52157499ef4c18e5"
   },
   {
    "percorso": "portrait/portrait-04/lean-calm.svg",
-   "byte": 5299,
-   "sha256": "60b956b28097dcc0363e63580b37e017"
+   "byte": 9534,
+   "sha256": "fb635f7da502b94aa3e9559c4bb954f9"
   },
   {
    "percorso": "portrait/portrait-04/lean-caught.svg",
-   "byte": 5392,
-   "sha256": "93cba725e362352f6e2f77edb8e12013"
+   "byte": 9627,
+   "sha256": "2425c635cd290e7ac12dd61b32f8201b"
   },
   {
    "percorso": "portrait/portrait-04/lean-smug.svg",
-   "byte": 5300,
-   "sha256": "9c4402d64a4cddd773cb3b4a9f01ee26"
+   "byte": 9535,
+   "sha256": "1fd409c08c8a07606e4aa65bf433278a"
   },
   {
    "percorso": "portrait/portrait-04/lean-worried.svg",
-   "byte": 5320,
-   "sha256": "1857b07bdf951bf7ad0e4f15b491afd2"
+   "byte": 9555,
+   "sha256": "f8df517256406081fadbe27666781058"
   },
   {
    "percorso": "portrait/portrait-04/neutral-calm.svg",
-   "byte": 5246,
-   "sha256": "e721d8882425c4f6edafe11ce2fba162"
+   "byte": 9425,
+   "sha256": "ea2df5899aad5e6bea18e13f32573e20"
   },
   {
    "percorso": "portrait/portrait-04/neutral-caught.svg",
-   "byte": 5339,
-   "sha256": "1c655c1b83bbdda93668a2ddaef1b4d3"
+   "byte": 9518,
+   "sha256": "c0a394a2721884a1799d8a30adb73330"
   },
   {
    "percorso": "portrait/portrait-04/neutral-smug.svg",
-   "byte": 5247,
-   "sha256": "02e507f975c5ddc88f2ffc573d8106de"
+   "byte": 9426,
+   "sha256": "9344b3b56e6725504b29a9ef2c624cd8"
   },
   {
    "percorso": "portrait/portrait-04/neutral-worried.svg",
-   "byte": 5267,
-   "sha256": "29f4d88777c21b4d3cbf1ea1ff2d40cb"
+   "byte": 9446,
+   "sha256": "4f62b8db6b1d366adcfca9d512e0807d"
   },
   {
    "percorso": "portrait/portrait-04/silhouette.svg",
@@ -458,68 +458,68 @@
   },
   {
    "percorso": "portrait/portrait-04/turn-calm.svg",
-   "byte": 5268,
-   "sha256": "81a6902c11f311648c6a797b5201fb53"
+   "byte": 9461,
+   "sha256": "d29c1b3cf52081b24732835c365998a1"
   },
   {
    "percorso": "portrait/portrait-04/turn-caught.svg",
-   "byte": 5361,
-   "sha256": "4bf5722f800c56d2d97279b864f2a60e"
+   "byte": 9554,
+   "sha256": "47888d6540cb0b0838716226000b54a3"
   },
   {
    "percorso": "portrait/portrait-04/turn-smug.svg",
-   "byte": 5268,
-   "sha256": "bed19a95bf0b1430446c9f4e406dcaf8"
+   "byte": 9461,
+   "sha256": "ca081395293726376e3004ccaaf8fa90"
   },
   {
    "percorso": "portrait/portrait-04/turn-worried.svg",
-   "byte": 5289,
-   "sha256": "b306d1c6fa7104d6c598486022f56b27"
+   "byte": 9482,
+   "sha256": "2dee576862bb6c2d96cc6d7d9f1944c6"
   },
   {
    "percorso": "portrait/portrait-05/card.svg",
-   "byte": 8056,
-   "sha256": "0560350660a37cce012468dcd7f15996"
+   "byte": 12628,
+   "sha256": "89fe4066ec37e8020da81ee35ca0dbf6"
   },
   {
    "percorso": "portrait/portrait-05/lean-calm.svg",
-   "byte": 5907,
-   "sha256": "f574b632c9ecdc23c5e5ae39a37574e0"
+   "byte": 10606,
+   "sha256": "af17a402438297cb888b5a931eea5ed6"
   },
   {
    "percorso": "portrait/portrait-05/lean-caught.svg",
-   "byte": 6001,
-   "sha256": "2b627ded87daf7e95970b5139d678fea"
+   "byte": 10700,
+   "sha256": "80c34fb2db2de656a843ae6d7e2fd86d"
   },
   {
    "percorso": "portrait/portrait-05/lean-smug.svg",
-   "byte": 5904,
-   "sha256": "d40326318c951ab0e893b1b76338c501"
+   "byte": 10603,
+   "sha256": "fb3889d3011437b4a71a7bee29a68cde"
   },
   {
    "percorso": "portrait/portrait-05/lean-worried.svg",
-   "byte": 5924,
-   "sha256": "e017745c7ffdd3ac4e6a4ae668d17c8f"
+   "byte": 10623,
+   "sha256": "c84935e88731a55aafd3acd41225aaf6"
   },
   {
    "percorso": "portrait/portrait-05/neutral-calm.svg",
-   "byte": 5854,
-   "sha256": "15c3ee1ad0e7254a72ddc22d028e305e"
+   "byte": 10497,
+   "sha256": "5cddbc806ed400674a138b073737776a"
   },
   {
    "percorso": "portrait/portrait-05/neutral-caught.svg",
-   "byte": 5948,
-   "sha256": "4236a1ed65f3ddaff8207dbeb00c920d"
+   "byte": 10591,
+   "sha256": "784d227a9684b76b64cf57745499e192"
   },
   {
    "percorso": "portrait/portrait-05/neutral-smug.svg",
-   "byte": 5851,
-   "sha256": "fbcdef5d53ab25fb58d1c375217f9b2f"
+   "byte": 10494,
+   "sha256": "96694479e664957ae9f1aae32de54af7"
   },
   {
    "percorso": "portrait/portrait-05/neutral-worried.svg",
-   "byte": 5871,
-   "sha256": "a31a5f27c07fb77e02103ee254563cb0"
+   "byte": 10514,
+   "sha256": "c70079d8412384431aad03fc5a6b85a9"
   },
   {
    "percorso": "portrait/portrait-05/silhouette.svg",
@@ -528,68 +528,68 @@
   },
   {
    "percorso": "portrait/portrait-05/turn-calm.svg",
-   "byte": 5865,
-   "sha256": "9484b623b1514695cc78cecb94008e7b"
+   "byte": 10523,
+   "sha256": "ce1030e7f80bfca4672c4e64c6264089"
   },
   {
    "percorso": "portrait/portrait-05/turn-caught.svg",
-   "byte": 5961,
-   "sha256": "037f7c499c0fa1115ff3a359dc0b10b0"
+   "byte": 10619,
+   "sha256": "2abf2d24617b6324915210dc3f217656"
   },
   {
    "percorso": "portrait/portrait-05/turn-smug.svg",
-   "byte": 5864,
-   "sha256": "b0b58ab632948c00d2290e3ad1a4deae"
+   "byte": 10522,
+   "sha256": "2a1a8c3803868c2165443198dd237eb9"
   },
   {
    "percorso": "portrait/portrait-05/turn-worried.svg",
-   "byte": 5883,
-   "sha256": "453bb84fe0ebde0a6e454231268f4c81"
+   "byte": 10541,
+   "sha256": "29f4731b3389ab22731f3fa10d84815c"
   },
   {
    "percorso": "portrait/portrait-06/card.svg",
-   "byte": 7184,
-   "sha256": "1a023e67480b817931becb1716b176b6"
+   "byte": 10819,
+   "sha256": "71ba0a7b01ee2d2c191a273c4952c118"
   },
   {
    "percorso": "portrait/portrait-06/lean-calm.svg",
-   "byte": 4997,
-   "sha256": "f51377afcc9bd64f8b427ed6614fa172"
+   "byte": 8789,
+   "sha256": "e4fc6da83e551ffd5c0bf28a685c20bd"
   },
   {
    "percorso": "portrait/portrait-06/lean-caught.svg",
-   "byte": 5086,
-   "sha256": "7ee359200d6690b99ec9804f1a886ba8"
+   "byte": 8878,
+   "sha256": "ad9f42be1b55997bf5a6b5ad3f436c94"
   },
   {
    "percorso": "portrait/portrait-06/lean-smug.svg",
-   "byte": 4996,
-   "sha256": "fa829f531bf47ab097014b07b825cc02"
+   "byte": 8788,
+   "sha256": "74d2dde0ff53c176ceec36679d3aeaf7"
   },
   {
    "percorso": "portrait/portrait-06/lean-worried.svg",
-   "byte": 5012,
-   "sha256": "12638eadc150b0052127f933b8ebe213"
+   "byte": 8804,
+   "sha256": "f45ed8b86cd051f87b3ff9bca9b498af"
   },
   {
    "percorso": "portrait/portrait-06/neutral-calm.svg",
-   "byte": 4914,
-   "sha256": "d0bf0c6fb0772217c85024687ed9d6d4"
+   "byte": 8620,
+   "sha256": "ab1e4e8e5909db04dfb52d9938119cd8"
   },
   {
    "percorso": "portrait/portrait-06/neutral-caught.svg",
-   "byte": 5003,
-   "sha256": "66e9050d168122a93cf4d7d267d4b059"
+   "byte": 8709,
+   "sha256": "8ef12646ea4fcc49bdb515f83a9ed454"
   },
   {
    "percorso": "portrait/portrait-06/neutral-smug.svg",
-   "byte": 4913,
-   "sha256": "c9ead0348e737b8d216af652f495d0f5"
+   "byte": 8619,
+   "sha256": "09c98d629f4adf1fe4da8bbed4621b8b"
   },
   {
    "percorso": "portrait/portrait-06/neutral-worried.svg",
-   "byte": 4929,
-   "sha256": "9480c5de5a55bc885c09fe8dd0934ae9"
+   "byte": 8635,
+   "sha256": "ad3817f3d80abe6373f0f9ce175f0c2d"
   },
   {
    "percorso": "portrait/portrait-06/silhouette.svg",
@@ -598,68 +598,68 @@
   },
   {
    "percorso": "portrait/portrait-06/turn-calm.svg",
-   "byte": 4956,
-   "sha256": "8ef6b285297d20950ef701a40563af1f"
+   "byte": 8707,
+   "sha256": "e018ece57c5b9b12c471bb1d308094c4"
   },
   {
    "percorso": "portrait/portrait-06/turn-caught.svg",
-   "byte": 5046,
-   "sha256": "c9813dea3d0193c0dd663a4c845ad0d1"
+   "byte": 8797,
+   "sha256": "5407a18f04c711e04fa5ed1b77493f84"
   },
   {
    "percorso": "portrait/portrait-06/turn-smug.svg",
-   "byte": 4957,
-   "sha256": "0b860c9b98f0beef4a38d76a6002945a"
+   "byte": 8708,
+   "sha256": "bf78fc8b0babafd26b74308c1cbade44"
   },
   {
    "percorso": "portrait/portrait-06/turn-worried.svg",
-   "byte": 4971,
-   "sha256": "898216cd8659056a6df876d852f4f10d"
+   "byte": 8722,
+   "sha256": "9bde017b00000f4d047488f006c81ed5"
   },
   {
    "percorso": "portrait/portrait-07/card.svg",
-   "byte": 8765,
-   "sha256": "ae9c5a895d61f149f62e11a04ebfe59c"
+   "byte": 13912,
+   "sha256": "91c6391fc7a81a170da621a7e3502a68"
   },
   {
    "percorso": "portrait/portrait-07/lean-calm.svg",
-   "byte": 6479,
-   "sha256": "ba2a34fd195a96fc38e14a3c282dc047"
+   "byte": 11752,
+   "sha256": "0b1abb17f7dd5baac0c9cd52f61a5514"
   },
   {
    "percorso": "portrait/portrait-07/lean-caught.svg",
-   "byte": 6568,
-   "sha256": "1ac21d91ae03006d5aabffb7cff1438b"
+   "byte": 11841,
+   "sha256": "d1f03f86575676ccacaa14f68227434a"
   },
   {
    "percorso": "portrait/portrait-07/lean-smug.svg",
-   "byte": 6478,
-   "sha256": "b1f105713341fcdc375c09f605d30c8c"
+   "byte": 11751,
+   "sha256": "0a763d145e41c544336fddc850c0c5c6"
   },
   {
    "percorso": "portrait/portrait-07/lean-worried.svg",
-   "byte": 6501,
-   "sha256": "1e148c5e2768fde6fb299b419bd7bb61"
+   "byte": 11774,
+   "sha256": "6d55846f08449e2b02f72500ec6d66d0"
   },
   {
    "percorso": "portrait/portrait-07/neutral-calm.svg",
-   "byte": 6427,
-   "sha256": "03edf6d3a8e65f97431bab8f937e1bf7"
+   "byte": 11645,
+   "sha256": "74b507560dc07e34ed612e7e1ef358d7"
   },
   {
    "percorso": "portrait/portrait-07/neutral-caught.svg",
-   "byte": 6516,
-   "sha256": "62694d072c26b9571114d62dcba7be37"
+   "byte": 11734,
+   "sha256": "0a4eac23afed2a0384a6fa982507545b"
   },
   {
    "percorso": "portrait/portrait-07/neutral-smug.svg",
-   "byte": 6426,
-   "sha256": "b9d6cc6226633828ed6027af12ba4ea6"
+   "byte": 11644,
+   "sha256": "40b04f7c1f7dffa17237a5e38b6769f5"
   },
   {
    "percorso": "portrait/portrait-07/neutral-worried.svg",
-   "byte": 6449,
-   "sha256": "3356f81923de5005132926e1df3510ca"
+   "byte": 11667,
+   "sha256": "a8dae93412978536e616ae755ae69280"
   },
   {
    "percorso": "portrait/portrait-07/silhouette.svg",
@@ -668,68 +668,68 @@
   },
   {
    "percorso": "portrait/portrait-07/turn-calm.svg",
-   "byte": 6438,
-   "sha256": "c426da08a90cfd78b67c239478dee644"
+   "byte": 11670,
+   "sha256": "94c5f1130462c5f6cdd0b22c88db19d8"
   },
   {
    "percorso": "portrait/portrait-07/turn-caught.svg",
-   "byte": 6531,
-   "sha256": "1a4c905c64f9b7ccdcfcc6efaaa6b7ee"
+   "byte": 11763,
+   "sha256": "6251f239b8af1546ec94741d7ec3e08f"
   },
   {
    "percorso": "portrait/portrait-07/turn-smug.svg",
-   "byte": 6438,
-   "sha256": "ca24e357602395a14949d1c5ea9cc9e4"
+   "byte": 11670,
+   "sha256": "c07e36aae40757ef5e35d1ea5b48fa4e"
   },
   {
    "percorso": "portrait/portrait-07/turn-worried.svg",
-   "byte": 6458,
-   "sha256": "55e75c429aa01923060ce83ef85d10da"
+   "byte": 11690,
+   "sha256": "fd0cb81d4367e3eadf2b86f70ca6b436"
   },
   {
    "percorso": "portrait/portrait-08/card.svg",
-   "byte": 7230,
-   "sha256": "4a612f8b33a91475410e30ce3cd491e8"
+   "byte": 10764,
+   "sha256": "fbba86175780c93024e9bd1736b4123f"
   },
   {
    "percorso": "portrait/portrait-08/lean-calm.svg",
-   "byte": 4876,
-   "sha256": "a668676d29ad723181de2bca9263b16b"
+   "byte": 8536,
+   "sha256": "0617feb228eb775824f8909d6bf0811d"
   },
   {
    "percorso": "portrait/portrait-08/lean-caught.svg",
-   "byte": 4968,
-   "sha256": "1a574df1c2a93ef7b1e743715c4c8f89"
+   "byte": 8628,
+   "sha256": "619d1ab9471733fb23f63c3753d16efc"
   },
   {
    "percorso": "portrait/portrait-08/lean-smug.svg",
-   "byte": 4871,
-   "sha256": "71f75c9d6679f683a9935b881ffd66e1"
+   "byte": 8531,
+   "sha256": "640bb37a312cf051b9dbe6b3d8eff29e"
   },
   {
    "percorso": "portrait/portrait-08/lean-worried.svg",
-   "byte": 4894,
-   "sha256": "39bfe2e2ec27fc0c74aad5fb18481677"
+   "byte": 8554,
+   "sha256": "07ee924f7d0650db9d522cad2c56b408"
   },
   {
    "percorso": "portrait/portrait-08/neutral-calm.svg",
-   "byte": 4824,
-   "sha256": "8540b28fd5e41f9fba10117bc588325f"
+   "byte": 8429,
+   "sha256": "2ea6b979c219e217524b0bd1195ea5b2"
   },
   {
    "percorso": "portrait/portrait-08/neutral-caught.svg",
-   "byte": 4916,
-   "sha256": "c057a3608670c387e201f30086642d95"
+   "byte": 8521,
+   "sha256": "c94c1b8ad6195894851d74270345f69f"
   },
   {
    "percorso": "portrait/portrait-08/neutral-smug.svg",
-   "byte": 4819,
-   "sha256": "a207b400bce237aa7a1078e672d6ab65"
+   "byte": 8424,
+   "sha256": "cde3fe37d58f3acf76bd178161162cc3"
   },
   {
    "percorso": "portrait/portrait-08/neutral-worried.svg",
-   "byte": 4842,
-   "sha256": "b9813e14156979252c3b75d19e4b2adb"
+   "byte": 8447,
+   "sha256": "0d07b9b71fcfc3e53a8a9a1bc978cd38"
   },
   {
    "percorso": "portrait/portrait-08/silhouette.svg",
@@ -738,68 +738,68 @@
   },
   {
    "percorso": "portrait/portrait-08/turn-calm.svg",
-   "byte": 4835,
-   "sha256": "9c64cf0c3440c4a8bfa7bcc7bae49f50"
+   "byte": 8454,
+   "sha256": "eed5c169ca4936b6e93b979b45fb5c3c"
   },
   {
    "percorso": "portrait/portrait-08/turn-caught.svg",
-   "byte": 4929,
-   "sha256": "a2e55a773c8ba2037d1bac92c67d3d12"
+   "byte": 8548,
+   "sha256": "fe3f1f78e72d8c5ad4147cd2ed72bced"
   },
   {
    "percorso": "portrait/portrait-08/turn-smug.svg",
-   "byte": 4833,
-   "sha256": "55768bf65ac1f427b8a04c2e5e2c582a"
+   "byte": 8452,
+   "sha256": "f21d504167c3c76d5f7bef6f7839dafd"
   },
   {
    "percorso": "portrait/portrait-08/turn-worried.svg",
-   "byte": 4853,
-   "sha256": "d4aed2ef2807baf1b5e05049074899eb"
+   "byte": 8472,
+   "sha256": "d6cac08eaa991419cb5c8c6d10b01220"
   },
   {
    "percorso": "portrait/portrait-09/card.svg",
-   "byte": 7751,
-   "sha256": "a1267b97c63e83f8d391c324ee7dfcf6"
+   "byte": 11742,
+   "sha256": "6d8e499a4c71f98d9ca0ebda42b65e71"
   },
   {
    "percorso": "portrait/portrait-09/lean-calm.svg",
-   "byte": 5330,
-   "sha256": "b94a50f06a8b6f4e8acf6129600b48a4"
+   "byte": 9448,
+   "sha256": "e37d42e71ce455a466b183a57463caf9"
   },
   {
    "percorso": "portrait/portrait-09/lean-caught.svg",
-   "byte": 5423,
-   "sha256": "2bc05e2797fdfb2ea2cffa034cb5a92e"
+   "byte": 9541,
+   "sha256": "485d7bd7bdce86aef83b211d96db0376"
   },
   {
    "percorso": "portrait/portrait-09/lean-smug.svg",
-   "byte": 5325,
-   "sha256": "a2681e8c979d6f91f886df9f43214b27"
+   "byte": 9443,
+   "sha256": "d14a0829cf12e66279ce7a2c00cf235f"
   },
   {
    "percorso": "portrait/portrait-09/lean-worried.svg",
-   "byte": 5345,
-   "sha256": "519f4918bff8cbb128b13a62682f726b"
+   "byte": 9463,
+   "sha256": "81a0e43a0563d6053e7689da57182357"
   },
   {
    "percorso": "portrait/portrait-09/neutral-calm.svg",
-   "byte": 5277,
-   "sha256": "814e44623062bbb5af39d22987e98a06"
+   "byte": 9339,
+   "sha256": "9d24befd01ef1ff116771d2077a8b8a7"
   },
   {
    "percorso": "portrait/portrait-09/neutral-caught.svg",
-   "byte": 5370,
-   "sha256": "5777cb53d401426f449e7940662a4983"
+   "byte": 9432,
+   "sha256": "5fe51c68ac3def8211afecf6a020836e"
   },
   {
    "percorso": "portrait/portrait-09/neutral-smug.svg",
-   "byte": 5272,
-   "sha256": "950b252ad9fe1a369de072c6da67922f"
+   "byte": 9334,
+   "sha256": "cff6d30e7dee696b6c9d513d932aadb8"
   },
   {
    "percorso": "portrait/portrait-09/neutral-worried.svg",
-   "byte": 5292,
-   "sha256": "ec20bd88a88317d5db247d4ced0f544b"
+   "byte": 9354,
+   "sha256": "8ceb89d33f1f6a2905b829c24d12bd95"
   },
   {
    "percorso": "portrait/portrait-09/silhouette.svg",
@@ -808,68 +808,68 @@
   },
   {
    "percorso": "portrait/portrait-09/turn-calm.svg",
-   "byte": 5288,
-   "sha256": "e178c15571282c8bfcaf11adf485d944"
+   "byte": 9365,
+   "sha256": "63bb4b850d517c5ca48bca4bd15cb476"
   },
   {
    "percorso": "portrait/portrait-09/turn-caught.svg",
-   "byte": 5376,
-   "sha256": "5196d940b96818f3c9333c17579ee1e8"
+   "byte": 9453,
+   "sha256": "1da89468e0a44af7fc088ba7a720cb01"
   },
   {
    "percorso": "portrait/portrait-09/turn-smug.svg",
-   "byte": 5284,
-   "sha256": "3ad4e9b00b38086032d68b0103a23781"
+   "byte": 9361,
+   "sha256": "f95ca016ef7d7756a1bd1228a8d0463f"
   },
   {
    "percorso": "portrait/portrait-09/turn-worried.svg",
-   "byte": 5303,
-   "sha256": "5d863eda9e05656c133c2f149e406160"
+   "byte": 9380,
+   "sha256": "2954d7c7d910c8761317a502187f2cdb"
   },
   {
    "percorso": "portrait/portrait-10/card.svg",
-   "byte": 7424,
-   "sha256": "1cfdefc528ed1da461dd1624acfd8b3f"
+   "byte": 11067,
+   "sha256": "c84d04ee97595cc1925ee9c4a6a2bbd6"
   },
   {
    "percorso": "portrait/portrait-10/lean-calm.svg",
-   "byte": 4965,
-   "sha256": "1e7647242727742ad871bf0d190902f0"
+   "byte": 8765,
+   "sha256": "73a09a252738d26407def60971eb6016"
   },
   {
    "percorso": "portrait/portrait-10/lean-caught.svg",
-   "byte": 5055,
-   "sha256": "e4cdc46025790f16436e53b7ddf9e42e"
+   "byte": 8855,
+   "sha256": "4198250d39000a681972ffe0482d873a"
   },
   {
    "percorso": "portrait/portrait-10/lean-smug.svg",
-   "byte": 4961,
-   "sha256": "e5e2f05e3ff49426981672a7c0cd8a09"
+   "byte": 8761,
+   "sha256": "4d6158282c359bcbbc520dffdbcafeae"
   },
   {
    "percorso": "portrait/portrait-10/lean-worried.svg",
-   "byte": 4985,
-   "sha256": "06419b0c693ee735ed3151793dda8f23"
+   "byte": 8785,
+   "sha256": "7ea6fdbaf7b4d5103940008016fd727a"
   },
   {
    "percorso": "portrait/portrait-10/neutral-calm.svg",
-   "byte": 4882,
-   "sha256": "d97c1eec0da2f1cd8301a5a89f6fa547"
+   "byte": 8596,
+   "sha256": "d7acb549c6ed1bac80d694a69d379713"
   },
   {
    "percorso": "portrait/portrait-10/neutral-caught.svg",
-   "byte": 4972,
-   "sha256": "af38e5e3526ef26fd9db1ceec0162824"
+   "byte": 8686,
+   "sha256": "33914ce4ca225032d877ab7c00c1befd"
   },
   {
    "percorso": "portrait/portrait-10/neutral-smug.svg",
-   "byte": 4878,
-   "sha256": "9966a5314fa6377424c78892bebf9c77"
+   "byte": 8592,
+   "sha256": "045603dcfc627e1efd78fb562d10cdbc"
   },
   {
    "percorso": "portrait/portrait-10/neutral-worried.svg",
-   "byte": 4902,
-   "sha256": "aa15e4163d2ca799933d4dc189c705b0"
+   "byte": 8616,
+   "sha256": "e62c9412a781afe0ca7f6ec441b1a028"
   },
   {
    "percorso": "portrait/portrait-10/silhouette.svg",
@@ -878,68 +878,68 @@
   },
   {
    "percorso": "portrait/portrait-10/turn-calm.svg",
-   "byte": 4928,
-   "sha256": "8790e679f58271daa601cd129c8ed63d"
+   "byte": 8687,
+   "sha256": "45a336a68c8764b5360c3733fa338568"
   },
   {
    "percorso": "portrait/portrait-10/turn-caught.svg",
-   "byte": 5018,
-   "sha256": "f94f5748305bd8f353e2a1cfe084e279"
+   "byte": 8777,
+   "sha256": "bb38a1fa4d5d8ac58e552045d2ff2d03"
   },
   {
    "percorso": "portrait/portrait-10/turn-smug.svg",
-   "byte": 4926,
-   "sha256": "fe0d8ecc3918bcd2dc98e820d292e449"
+   "byte": 8685,
+   "sha256": "50c1a7491db652019c1a1b6341856376"
   },
   {
    "percorso": "portrait/portrait-10/turn-worried.svg",
-   "byte": 4947,
-   "sha256": "2778d3487afa0dbb477d1df0de698079"
+   "byte": 8706,
+   "sha256": "03a65fd1fc20efa2e9ddb9052bba7730"
   },
   {
    "percorso": "portrait/portrait-11/card.svg",
-   "byte": 7546,
-   "sha256": "1b6253472e23d2befba63b8b4518b4a2"
+   "byte": 11341,
+   "sha256": "c46d7ff80a576c7c8154714511ebc6ff"
   },
   {
    "percorso": "portrait/portrait-11/lean-calm.svg",
-   "byte": 5019,
-   "sha256": "798934cf6b5d2654b7d445f2409f2b46"
+   "byte": 8971,
+   "sha256": "f34a9b4b4fe890f49c1c53e46a0e32e5"
   },
   {
    "percorso": "portrait/portrait-11/lean-caught.svg",
-   "byte": 5112,
-   "sha256": "994ccd63ad015722a42e938227e7a494"
+   "byte": 9064,
+   "sha256": "a2c22b005c3b5e2a95f64a54d64942a5"
   },
   {
    "percorso": "portrait/portrait-11/lean-smug.svg",
-   "byte": 5020,
-   "sha256": "f710cec3ed4f38d84ad382ea934ebac7"
+   "byte": 8972,
+   "sha256": "650b94f805b506c1c4368356cd272103"
   },
   {
    "percorso": "portrait/portrait-11/lean-worried.svg",
-   "byte": 5040,
-   "sha256": "3e19008a9fbfe17033f2fabe7b2cf612"
+   "byte": 8992,
+   "sha256": "0c44098707a98c7ca3e2c51bbdb45b47"
   },
   {
    "percorso": "portrait/portrait-11/neutral-calm.svg",
-   "byte": 4936,
-   "sha256": "5bde4670847b1b832f260c06c749bf62"
+   "byte": 8802,
+   "sha256": "8d278786e835260bbe1e329b48cb582e"
   },
   {
    "percorso": "portrait/portrait-11/neutral-caught.svg",
-   "byte": 5029,
-   "sha256": "bf658a28cc6faea965add5612e88f5e1"
+   "byte": 8895,
+   "sha256": "285439763cb4636336eec24407f8f39b"
   },
   {
    "percorso": "portrait/portrait-11/neutral-smug.svg",
-   "byte": 4937,
-   "sha256": "bc4c2f78349a22581856c8fa799e3027"
+   "byte": 8803,
+   "sha256": "0192b5c42060ebb21ffa65be21627a91"
   },
   {
    "percorso": "portrait/portrait-11/neutral-worried.svg",
-   "byte": 4957,
-   "sha256": "e6684ac20f87401c28f5c54705657511"
+   "byte": 8823,
+   "sha256": "04cb680965d69fb0da9ba9ae436cdedb"
   },
   {
    "percorso": "portrait/portrait-11/silhouette.svg",
@@ -948,68 +948,68 @@
   },
   {
    "percorso": "portrait/portrait-11/turn-calm.svg",
-   "byte": 4989,
-   "sha256": "6ddc65c1070f61facac919ebc7229783"
+   "byte": 8900,
+   "sha256": "36870f35042cb05f60284195cc139ffa"
   },
   {
    "percorso": "portrait/portrait-11/turn-caught.svg",
-   "byte": 5082,
-   "sha256": "903e7b1e853be156299feca0108a9ed9"
+   "byte": 8993,
+   "sha256": "6755b8573b4073f389a3eecd7aaaf22e"
   },
   {
    "percorso": "portrait/portrait-11/turn-smug.svg",
-   "byte": 4989,
-   "sha256": "7b11a83e9f1a45de36802c72c9a1063b"
+   "byte": 8900,
+   "sha256": "a235d309183753d3ce80143cd3c1aa92"
   },
   {
    "percorso": "portrait/portrait-11/turn-worried.svg",
-   "byte": 5010,
-   "sha256": "b59d0b919a51ffab2236cfcc35cf96f6"
+   "byte": 8921,
+   "sha256": "e39a0ab6456ccfa9b77cd268d2911780"
   },
   {
    "percorso": "portrait/portrait-12/card.svg",
-   "byte": 7604,
-   "sha256": "368fd38077baf136548ef9b6ffacea79"
+   "byte": 11248,
+   "sha256": "6705e8cc1b4d6a6d542d17b5b35c60d5"
   },
   {
    "percorso": "portrait/portrait-12/lean-calm.svg",
-   "byte": 4978,
-   "sha256": "92d0681fc2aea96c39f575c008eabf91"
+   "byte": 8748,
+   "sha256": "e1e394184d964870f8c34c6822dbef3e"
   },
   {
    "percorso": "portrait/portrait-12/lean-caught.svg",
-   "byte": 5073,
-   "sha256": "4008917ba4314c3b51cb69bf810edb1c"
+   "byte": 8843,
+   "sha256": "d8fe700710287dcacd262f72dd2a185f"
   },
   {
    "percorso": "portrait/portrait-12/lean-smug.svg",
-   "byte": 4977,
-   "sha256": "7e854048df9a521f8c10b67f2debdc07"
+   "byte": 8747,
+   "sha256": "b0d9e7c5cba4e372b5aecc3bce7faf3a"
   },
   {
    "percorso": "portrait/portrait-12/lean-worried.svg",
-   "byte": 4996,
-   "sha256": "16b830a8314eebcb2a465c854f2ba477"
+   "byte": 8766,
+   "sha256": "98edc2434eca39093d81d13e84137c3a"
   },
   {
    "percorso": "portrait/portrait-12/neutral-calm.svg",
-   "byte": 4926,
-   "sha256": "1209e0569ca28b68b6f2e9bfd4079552"
+   "byte": 8641,
+   "sha256": "2dde905c515ab9f890577a54bddff3b9"
   },
   {
    "percorso": "portrait/portrait-12/neutral-caught.svg",
-   "byte": 5021,
-   "sha256": "5c85668ef8d0db1894f1aa0a598c3314"
+   "byte": 8736,
+   "sha256": "890852d3673d89fece7eb5f3abd36820"
   },
   {
    "percorso": "portrait/portrait-12/neutral-smug.svg",
-   "byte": 4925,
-   "sha256": "921e0e99f9adf29960f4f37a4974dc8c"
+   "byte": 8640,
+   "sha256": "6f952b0b737cede5243c6d281df84f24"
   },
   {
    "percorso": "portrait/portrait-12/neutral-worried.svg",
-   "byte": 4944,
-   "sha256": "d0387ce5ac804c6f1b27a73626069148"
+   "byte": 8659,
+   "sha256": "7deb16e60c904d56d82a3207a8bf337b"
   },
   {
    "percorso": "portrait/portrait-12/silhouette.svg",
@@ -1018,23 +1018,23 @@
   },
   {
    "percorso": "portrait/portrait-12/turn-calm.svg",
-   "byte": 4938,
-   "sha256": "d435065820b29d83b4b1166898283f7f"
+   "byte": 8669,
+   "sha256": "b4d6b555c9839c5470448fbe1b9169cf"
   },
   {
    "percorso": "portrait/portrait-12/turn-caught.svg",
-   "byte": 5036,
-   "sha256": "1aa1d349ff603207f5cb8b946d37454e"
+   "byte": 8767,
+   "sha256": "36f05bae60347f9ec0e986793c8a853e"
   },
   {
    "percorso": "portrait/portrait-12/turn-smug.svg",
-   "byte": 4938,
-   "sha256": "aea8bef85b8b1c996ea644b1a31eddef"
+   "byte": 8669,
+   "sha256": "9f9838a85560ab09b377028ebd6ae939"
   },
   {
    "percorso": "portrait/portrait-12/turn-worried.svg",
-   "byte": 4955,
-   "sha256": "bd24e76e16703aeb60923eb59bc32eac"
+   "byte": 8686,
+   "sha256": "64ec2375f80a4e339351af64a796d974"
   },
   {
    "percorso": "scene/bar/layer-0.svg",

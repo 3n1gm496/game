@@ -113,7 +113,9 @@ Stato aggiornato durante lo sviluppo. `✅` fatto · `🔄` in corso · `⬜` da
 - ✅ Facciata dell'albergo nell'apertura (l'asset esisteva e non lo usava nessuno)
 - ✅ Pipeline Blender: ambienti descritti in Python, render Cycles su CPU,
       livelli di parallasse dalla profondità, hotspot proiettati dal 3D
-- ⏳ Messa a punto artistica dei quattordici ambienti (fatto: `hall`)
-- ⏳ Ritratti rifatti
-- ⏳ Particelle e filtri d'atmosfera
-- ⏳ Peso e prestazioni dopo il passaggio a immagini renderizzate
+- ✅ Composizione dei quattordici ambienti: arredi collocati per posizione sullo
+      schermo, tutti i 112 hotspot dentro il quadro, verificato senza renderizzare
+- ✅ Render finale dei quattordici ambienti, integrati in WebP
+- ✅ Luce sulla figura nei ritratti: ombra, chiave calda, grana, ombra di contatto
+- ✅ Atmosfera: pulviscolo nei coni di luce, lampi della tempesta
+- ✅ Peso: livelli in WebP al posto dei PNG e degli SVG

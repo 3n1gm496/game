@@ -1,6 +1,5 @@
 import { create } from 'zustand';
 import type {
-  ChatEntry,
   ClientMessage,
   PrivateBrief,
   PrivateStateView,
@@ -320,10 +319,20 @@ export const useGame = create<GameStore>((set, get) => ({
 type SetState = (partial: Partial<GameStore> | ((s: GameStore) => Partial<GameStore>)) => void;
 type GetState = () => GameStore;
 
+/**
+ * Al massimo due avvisi insieme.
+ *
+ * Con quattro, in un momento agitato — la tempesta che salta, l'atto che
+ * cambia, un indizio trovato — la pila copriva l'intero schermo e il gioco
+ * spariva sotto le sue stesse notifiche. Due bastano: il resto della cronaca
+ * non scade e sta lì da leggere quando si vuole.
+ */
+const AVVISI_INSIEME = 2;
+
 function pushToast(set: SetState, toast: Omit<Toast, 'id' | 'at'>): void {
   toastCounter += 1;
   const full: Toast = { ...toast, id: `t${toastCounter}`, at: Date.now() };
-  set((s) => ({ toasts: [...s.toasts.slice(-3), full] }));
+  set((s) => ({ toasts: [...s.toasts.slice(-(AVVISI_INSIEME - 1)), full] }));
   window.setTimeout(() => {
     useGame.getState().dismissToast(full.id);
   }, 5200);
@@ -371,7 +380,14 @@ function handleMessage(msg: ServerMessage, set: SetState, get: GetState): void {
         patch.currentLocationId = room.openLocationIds[0] ?? null;
       }
       set(patch);
-      announceNewChat(previous?.chat ?? [], room.chat, set);
+      /*
+       * La cronaca non genera avvisi.
+       *
+       * Ogni evento della tempesta arriva già come messaggio `event`, che è
+       * quello che lo annuncia; la stessa cosa finisce poi anche in cronaca.
+       * Annunciare tutt'e due significava vedere lo stesso fatto due volte di
+       * fila, una col suo titolo e una col titolo del maggiordomo.
+       */
       break;
     }
 
@@ -404,7 +420,16 @@ function handleMessage(msg: ServerMessage, set: SetState, get: GetState): void {
       break;
 
     case 'event':
-      pushToast(set, { kind: 'evento', title: msg.title, text: msg.text });
+      pushToast(set, { kind: 'evento', title: msg.title, text: estratto(msg.text) });
+      /*
+       * Un evento della tempesta accende un lampo nella scena.
+       *
+       * Lo store non conosce il renderer e non deve conoscerlo: passa da un
+       * evento del documento, come per le impostazioni. Se nessuna scena è
+       * montata — siamo in lobby, o nei punteggi — non ascolta nessuno e non
+       * succede nulla.
+       */
+      document.dispatchEvent(new CustomEvent('meridien:tuono'));
       break;
 
     case 'witness':
@@ -484,20 +509,9 @@ function handleMessage(msg: ServerMessage, set: SetState, get: GetState): void {
  */
 const LUNGHEZZA_AVVISO = 130;
 
-function estratto(testo: string): string {
+export function estratto(testo: string): string {
   if (testo.length <= LUNGHEZZA_AVVISO) return testo;
   const taglio = testo.slice(0, LUNGHEZZA_AVVISO);
   const spazio = taglio.lastIndexOf(' ');
   return `${(spazio > 60 ? taglio.slice(0, spazio) : taglio).trimEnd()}…`;
-}
-
-function announceNewChat(previous: ChatEntry[], next: ChatEntry[], set: SetState): void {
-  if (previous.length === 0) return;
-  const known = new Set(previous.map((c) => c.id));
-  for (const entry of next) {
-    if (known.has(entry.id)) continue;
-    if (entry.kind === 'evento') {
-      pushToast(set, { kind: 'evento', title: 'Al Méridien', text: estratto(entry.text) });
-    }
-  }
 }

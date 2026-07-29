@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { spawn } from 'node:child_process';
-import { mkdir, readFile, writeFile, readdir, copyFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile, readdir, rm, stat } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -41,6 +41,9 @@ const CAMPIONI = arg('campioni', '128');
 const LARGHEZZA = arg('larghezza', '1600');
 const SOLO = arg('ambiente', null);
 const SOLO_PROIEZIONE = process.argv.includes('--solo-proiezione');
+// rimette in gioco i render già fatti senza ripassare da Blender: serve quando
+// `generate:assets` ha riscritto gli SVG e il manifesto sopra l'integrazione
+const SOLO_INTEGRAZIONE = process.argv.includes('--solo-integrazione');
 
 function esegui(ambiente) {
   return new Promise((risolvi, rifiuta) => {
@@ -74,18 +77,42 @@ function esegui(ambiente) {
   });
 }
 
-/** Porta livelli e hotspot dove il gioco li cerca, senza toccare il resto. */
+/**
+ * Porta livelli e hotspot dove il gioco li cerca, senza toccare il resto.
+ *
+ * I PNG di Blender pesano fra uno e due megabyte l'uno: quarantadue livelli
+ * così sarebbero cinquanta megabyte da scaricare su rete mobile, e il gioco
+ * diventerebbe inutilizzabile proprio sul telefono per cui è stato pensato. Si
+ * convertono in WebP, che qui costa circa un decimo a parità di resa, e i vecchi
+ * SVG disegnati si tolgono di mezzo: tenere due versioni dello stesso ambiente
+ * significa spedirne una inutile.
+ */
 async function integra(ambiente) {
   const origine = path.join(LAVORO, ambiente);
   const destinazione = path.join(DESTINAZIONE, ambiente);
-  if (!existsSync(origine)) return { livelli: 0 };
+  if (!existsSync(origine)) return { livelli: 0, peso: 0 };
 
+  const { default: sharp } = await import('sharp');
   await mkdir(destinazione, { recursive: true });
-  const file = (await readdir(origine)).filter((f) => /^layer-\d+\.png$/.test(f)).sort();
-  for (const f of file) await copyFile(path.join(origine, f), path.join(destinazione, f));
+
+  const png = (await readdir(origine)).filter((f) => /^layer-\d+\.png$/.test(f)).sort();
+  const file = [];
+  let peso = 0;
+  for (const f of png) {
+    const nome = f.replace(/\.png$/, '.webp');
+    const fuori = path.join(destinazione, nome);
+    await sharp(path.join(origine, f)).webp({ quality: 82, effort: 5 }).toFile(fuori);
+    peso += (await stat(fuori)).size;
+    file.push(nome);
+  }
+
+  // via gli SVG disegnati: sostituiti, non affiancati
+  for (const vecchio of await readdir(destinazione)) {
+    if (/^layer-\d+\.svg$/.test(vecchio)) await rm(path.join(destinazione, vecchio));
+  }
 
   const percorsoManifesto = path.join(destinazione, 'scene.json');
-  if (!existsSync(percorsoManifesto)) return { livelli: file.length };
+  if (!existsSync(percorsoManifesto)) return { livelli: file.length, peso };
   const manifesto = JSON.parse(await readFile(percorsoManifesto, 'utf8'));
 
   // i fattori di parallasse restano quelli della direzione artistica
@@ -103,13 +130,14 @@ async function integra(ambiente) {
     manifesto.hotspot = manifesto.hotspot.map((h) => {
       const p = proiezioni[h.chiave];
       if (!p || !p.davanti) return h;
-      // il punto proiettato è il centro; l'area resta quella dichiarata
-      return { ...h, x: Math.round(p.x - h.larghezza / 2), y: Math.round(p.y - h.altezza / 2) };
+      // il punto proiettato è il centro dell'oggetto; il raggio resta quello
+      // scelto da chi ha scritto il caso, che sa quanto è grande il bersaglio
+      return { ...h, x: Math.round(p.x), y: Math.round(p.y) };
     });
   }
 
   await writeFile(percorsoManifesto, `${JSON.stringify(manifesto, null, 2)}\n`, 'utf8');
-  return { livelli: file.length };
+  return { livelli: file.length, peso };
 }
 
 async function main() {
@@ -123,13 +151,15 @@ async function main() {
 
   const inizio = Date.now();
   let fatti = 0;
+  let pesoTotale = 0;
   for (const ambiente of elenco) {
     console.log(`  ${ambiente}`);
     try {
-      await esegui(ambiente);
+      if (!SOLO_INTEGRAZIONE) await esegui(ambiente);
       if (!SOLO_PROIEZIONE) {
-        const { livelli } = await integra(ambiente);
-        console.log(`    integrati ${livelli} livelli`);
+        const { livelli, peso } = await integra(ambiente);
+        pesoTotale += peso;
+        console.log(`    integrati ${livelli} livelli · ${(peso / 1024).toFixed(0)} kB`);
       }
       fatti += 1;
     } catch (errore) {
@@ -138,7 +168,8 @@ async function main() {
   }
 
   const minuti = ((Date.now() - inizio) / 60000).toFixed(1);
-  console.log(`\n  ${fatti}/${elenco.length} ambienti in ${minuti} minuti.\n`);
+  console.log(`\n  ${fatti}/${elenco.length} ambienti in ${minuti} minuti.`);
+  if (pesoTotale > 0) console.log(`  peso complessivo degli ambienti: ${(pesoTotale / 1024 / 1024).toFixed(1)} MB\n`);
   if (fatti < elenco.length) process.exit(1);
 }
 

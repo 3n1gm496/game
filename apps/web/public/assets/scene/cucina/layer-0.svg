@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- MÉRIDIEN — asset generato da tools/generate-assets. Non modificare a mano. -->
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="1080" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
-<title>La cucina — livello 0 (fondo)</title>
-<defs><pattern id="cucina-l0-mattonelle" width="60" height="42" patternUnits="userSpaceOnUse"><rect width="60" height="42" fill="#2e4052"/><rect x="1" y="1" width="58" height="40" fill="#a89f8f"/><rect x="1" y="1" width="58" height="13.6" fill="rgba(255,255,255,0.05)"/></pattern></defs>
-<g><rect x="0" y="0" width="1920" height="1080" fill="#23303e"/><rect x="0" y="0" width="1920" height="720" fill="url(#cucina-l0-mattonelle)"/><rect x="0" y="0" width="1920" height="720" fill="rgba(11,18,32,0.35)"/></g>
-</svg>

@@ -12,28 +12,22 @@
   },
   "layer": [
     {
-      "file": "layer-0.svg",
+      "file": "layer-0.webp",
       "profondita": 0,
       "parallasse": 0.15,
       "ruolo": "fondo"
     },
     {
-      "file": "layer-1.svg",
+      "file": "layer-1.webp",
       "profondita": 1,
       "parallasse": 0.4,
       "ruolo": "medio"
     },
     {
-      "file": "layer-2.svg",
+      "file": "layer-2.webp",
       "profondita": 2,
       "parallasse": 1,
       "ruolo": "principale"
-    },
-    {
-      "file": "layer-3.svg",
-      "profondita": 3,
-      "parallasse": 1.6,
-      "ruolo": "primo-piano"
     }
   ],
   "luci": [
@@ -69,16 +63,16 @@
     {
       "chiave": "bancone",
       "etichetta": "Il bancone della portineria",
-      "x": 31,
-      "y": 62,
+      "x": 50,
+      "y": 60,
       "raggio": 10,
       "layer": 2
     },
     {
       "chiave": "registro",
       "etichetta": "Il registro degli arrivi",
-      "x": 25,
-      "y": 56,
+      "x": 69,
+      "y": 59,
       "raggio": 5,
       "layer": 2
     },
@@ -86,22 +80,22 @@
       "chiave": "orologio",
       "etichetta": "Gli orologi delle capitali",
       "x": 50,
-      "y": 22,
+      "y": 12,
       "raggio": 9,
       "layer": 2
     },
     {
       "chiave": "telefono",
       "etichetta": "Il centralino",
-      "x": 40,
-      "y": 57,
+      "x": 32,
+      "y": 54,
       "raggio": 5,
       "layer": 2
     },
     {
       "chiave": "porta",
       "etichetta": "L'ingresso",
-      "x": 84,
+      "x": 97,
       "y": 52,
       "raggio": 7,
       "layer": 2
@@ -109,16 +103,16 @@
     {
       "chiave": "valigia",
       "etichetta": "I bagagli in attesa",
-      "x": 70,
-      "y": 74,
+      "x": 89,
+      "y": 80,
       "raggio": 6,
       "layer": 2
     },
     {
       "chiave": "consegna",
       "etichetta": "Il punto di consegna",
-      "x": 88,
-      "y": 82,
+      "x": 9,
+      "y": 80,
       "raggio": 6,
       "layer": 2
     },
@@ -126,7 +120,7 @@
       "chiave": "oggetto",
       "etichetta": "L'oggetto fuori posto",
       "x": 58,
-      "y": 80,
+      "y": 92,
       "raggio": 5,
       "layer": 2
     }

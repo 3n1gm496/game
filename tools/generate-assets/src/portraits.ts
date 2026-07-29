@@ -1232,6 +1232,19 @@ function portrait(a: Archetype, p: Palette, options: PortraitOptions): { defs: s
           { offset: 0, color: p.ivory, opacity: 0.1 },
           { offset: 1, color: p.ivory, opacity: 0 },
         ]),
+        // l'ombra scivola dal basso a destra: è il lato opposto alla chiave
+        linear(`ombra-${a.id}`, [0.15, 0], [1, 0.9], [
+          { offset: 0, color: p.night, opacity: 0 },
+          { offset: 0.45, color: p.night, opacity: 0.22 },
+          { offset: 1, color: p.ink, opacity: 0.6 },
+        ]),
+        // la chiave calda entra dall'alto a sinistra, come nelle stanze
+        linear(`chiave-${a.id}`, [0, 0], [0.75, 0.85], [
+          { offset: 0, color: p.brassSoft, opacity: 0.3 },
+          { offset: 0.4, color: p.brassSoft, opacity: 0.06 },
+          { offset: 1, color: p.brassSoft, opacity: 0 },
+        ]),
+        grainFilter(`grana-${a.id}`, 0.9),
       ].join('');
 
   const inner = [
@@ -1248,9 +1261,47 @@ function portrait(a: Archetype, p: Palette, options: PortraitOptions): { defs: s
     parts.push(
       el('rect', { x: 0, y: 0, width: W, height: H, fill: `url(#fondo-${a.id})` }),
       el('ellipse', { cx: HEAD_CX, cy: 300, rx: 250, ry: 300, fill: `url(#vetro-${a.id})` }),
+      // ombra di contatto: senza, la figura galleggia
+      el('ellipse', {
+        cx: HEAD_CX, cy: H - 26, rx: 168, ry: 26,
+        fill: alpha(p.ink, 0.5),
+      }),
     );
   }
-  parts.push(group({ transform: poseTransform(a, options.pose) }, inner));
+
+  const figura = group({ transform: poseTransform(a, options.pose) }, inner);
+  parts.push(figura);
+
+  /*
+   * La modellazione della luce.
+   *
+   * I ritratti erano campiture piatte: nessuna faccia è piatta, e si vedeva.
+   * Qui la stessa regola degli ambienti — una chiave calda in alto a sinistra,
+   * un riflesso freddo dall'altro lato — viene applicata alla figura, non allo
+   * sfondo, ritagliandola sulla sua stessa sagoma.
+   *
+   * La sagoma si ottiene ridisegnando le stesse forme in bianco: costa un po'
+   * di byte e non richiede di conoscere i contorni, che cambiano con posa,
+   * archetipo e accessorio. Il resto sono due velature e una grana, in ordine:
+   * prima l'ombra, poi la luce, poi la superficie.
+   */
+  if (!mono) {
+    const bianco: Ctx = { ...ctx, c: () => '#ffffff' };
+    const sagoma = group(
+      { transform: poseTransform(a, options.pose) },
+      [body(bianco), head(bianco), hair(bianco), accessory(bianco)].join(''),
+    );
+    parts.push(
+      el('mask', { id: `sagoma-${a.id}`, maskUnits: 'userSpaceOnUse' },
+        el('rect', { x: 0, y: 0, width: W, height: H, fill: '#000000' }) + sagoma),
+      group({ mask: `url(#sagoma-${a.id})` }, [
+        el('rect', { x: 0, y: 0, width: W, height: H, fill: `url(#ombra-${a.id})` }),
+        el('rect', { x: 0, y: 0, width: W, height: H, fill: `url(#chiave-${a.id})` }),
+        el('rect', { x: 0, y: 0, width: W, height: H, fill: p.ivory, opacity: 0.05, filter: `url(#grana-${a.id})` }),
+      ].join('')),
+    );
+  }
+
   return { defs, body: parts.join('') };
 }
 

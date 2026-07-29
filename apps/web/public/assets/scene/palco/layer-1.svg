@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- MÉRIDIEN — asset generato da tools/generate-assets. Non modificare a mano. -->
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="1080" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
-<title>Il palco — livello 1 (medio)</title>
-<defs><radialGradient id="palco-l1-occhio" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#F2E9D8" stop-opacity="0.55"/><stop offset="50%" stop-color="#F2E9D8" stop-opacity="0.193"/><stop offset="100%" stop-color="#F2E9D8" stop-opacity="0"/></radialGradient></defs>
-<g><circle cx="960" cy="320" r="420" fill="url(#palco-l1-occhio)"/><path d="M 688 0 L 712 0 L 1120 900 L 280 900 Z" fill="#F2E9D8" opacity="0.09"/><path d="M 1208 0 L 1232 0 L 1640 900 L 800 900 Z" fill="#E0C365" opacity="0.08"/><g><ellipse cx="1760.279" cy="575.815" rx="261.899" ry="72.19" fill="rgba(242,233,216,0.06)"/><ellipse cx="922.283" cy="531.044" rx="181.85" ry="124.074" fill="rgba(242,233,216,0.083)"/><ellipse cx="1367.031" cy="662.607" rx="375.73" ry="52.046" fill="rgba(242,233,216,0.114)"/><ellipse cx="1897.256" cy="511.074" rx="268.971" ry="42.366" fill="rgba(242,233,216,0.094)"/><ellipse cx="162.201" cy="638.815" rx="228.246" ry="95.465" fill="rgba(242,233,216,0.12)"/><ellipse cx="283.194" cy="739.561" rx="168.274" ry="92.194" fill="rgba(242,233,216,0.053)"/><ellipse cx="520.45" cy="732.526" rx="354.485" ry="118.517" fill="rgba(242,233,216,0.081)"/></g></g>
-</svg>

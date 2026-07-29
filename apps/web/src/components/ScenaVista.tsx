@@ -88,6 +88,13 @@ export function ScenaVista({
     };
   }, [chiave]);
 
+  // i lampi della tempesta, annunciati dallo store
+  useEffect(() => {
+    const suTuono = (): void => renderer.current?.colpoDiLuce(0.9 + Math.random() * 0.3);
+    document.addEventListener('meridien:tuono', suTuono);
+    return () => document.removeEventListener('meridien:tuono', suTuono);
+  }, []);
+
   // parallasse: puntatore su desktop, inclinazione dove disponibile
   useEffect(() => {
     if (reducedMotion) return;
@@ -128,16 +135,17 @@ export function ScenaVista({
            * al lato invece che al centro: resta leggibile senza inseguire la
            * larghezza del testo con misure in JavaScript.
            */
-          const centro = h.x + h.larghezza / 2;
-          const ancoraggio = centro < 22 ? ' hotspot--da-sinistra' : centro > 78 ? ' hotspot--da-destra' : '';
+          const ancoraggio = h.x < 22 ? ' hotspot--da-sinistra' : h.x > 78 ? ' hotspot--da-destra' : '';
           return (
             <li
               key={h.chiave}
               style={{
                 left: `${h.x}%`,
                 top: `${h.y}%`,
-                width: `${h.larghezza}%`,
-                height: `${h.altezza}%`,
+                // il punto è il centro dell'oggetto, non il suo angolo
+                transform: 'translate(-50%, -50%)',
+                width: `${h.raggio * 2}%`,
+                aspectRatio: '1',
               }}
             >
               <button

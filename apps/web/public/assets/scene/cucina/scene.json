@@ -12,28 +12,22 @@
   },
   "layer": [
     {
-      "file": "layer-0.svg",
+      "file": "layer-0.webp",
       "profondita": 0,
       "parallasse": 0.15,
       "ruolo": "fondo"
     },
     {
-      "file": "layer-1.svg",
+      "file": "layer-1.webp",
       "profondita": 1,
       "parallasse": 0.4,
       "ruolo": "medio"
     },
     {
-      "file": "layer-2.svg",
+      "file": "layer-2.webp",
       "profondita": 2,
       "parallasse": 1,
       "ruolo": "principale"
-    },
-    {
-      "file": "layer-3.svg",
-      "profondita": 3,
-      "parallasse": 1.6,
-      "ruolo": "primo-piano"
     }
   ],
   "luci": [
@@ -60,56 +54,56 @@
     {
       "chiave": "tavolo",
       "etichetta": "Il tavolo d'acciaio",
-      "x": 48,
-      "y": 70,
+      "x": 50,
+      "y": 77,
       "raggio": 11,
       "layer": 2
     },
     {
       "chiave": "orologio",
       "etichetta": "L'orologio a muro",
-      "x": 78,
-      "y": 22,
+      "x": 88,
+      "y": 18,
       "raggio": 6,
       "layer": 2
     },
     {
       "chiave": "bicchieri",
       "etichetta": "I bicchieri sul vassoio",
-      "x": 30,
-      "y": 64,
+      "x": 17,
+      "y": 68,
       "raggio": 5,
       "layer": 2
     },
     {
       "chiave": "porta",
       "etichetta": "La porta a battente",
-      "x": 90,
-      "y": 52,
+      "x": 13,
+      "y": 50,
       "raggio": 7,
       "layer": 2
     },
     {
       "chiave": "ventilazione",
       "etichetta": "La cappa",
-      "x": 16,
-      "y": 30,
+      "x": 50,
+      "y": 25,
       "raggio": 7,
       "layer": 2
     },
     {
       "chiave": "consegna",
       "etichetta": "Il passavivande",
-      "x": 8,
-      "y": 66,
+      "x": 83,
+      "y": 70,
       "raggio": 6,
       "layer": 2
     },
     {
       "chiave": "oggetto",
       "etichetta": "L'oggetto fuori posto",
-      "x": 62,
-      "y": 78,
+      "x": 60,
+      "y": 75,
       "raggio": 5,
       "layer": 2
     }
