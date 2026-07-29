@@ -148,32 +148,47 @@ che invalida il service worker.
 
 ### 5.1 Messaggi client → server
 
-`hello`, `createRoom`, `joinRoom`, `setProfile`, `setReady`, `updateSettings`, `startGame`,
-`advancePhase`, `declare`, `investigate`, `solveHotspot`, `askWitness`, `shareClue`, `pinToBoard`,
-`unpin`, `linkOnBoard`, `privateMessage`, `publicQuestion`, `answerQuestion`, `useAbility`,
-`saveNote`, `submitAccusation`, `voteVerdict`, `requestHint`, `requestRecap`, `rematch`,
-`kickPlayer`, `pause`, `resume`, `heartbeat`, `resume` (riconnessione con `sessionToken`).
+`hello`, `createRoom`, `joinRoom`, `resume` (riconnessione con `sessionToken`), `setProfile`,
+`setReady`, `updateSettings`, `startGame`, `advancePhase`, `declare`, `enterLocation`, `investigate`,
+`solvePuzzle`, `askWitness`, `shareClue`, `pinToBoard`, `unpin`, `linkOnBoard`, `flagContradiction`,
+`privateMessage`, `publicQuestion`, `answerQuestion`, `useAbility`, `saveNote`, `submitAccusation`,
+`voteVerdict`, `requestHint`, `requestRecap`, `rematch`, `kickPlayer`, `pause`, `resumeGame`,
+`leave`, `ping`.
 
-Ogni azione mutante porta un `actionId` (ULID client) usato per **idempotenza**: il server tiene una
-finestra LRU di 256 `actionId` per giocatore e ignora i duplicati restituendo l'esito già calcolato.
+Ogni azione mutante porta un `actionId` generato dal client e usato per **idempotenza**: il server
+tiene una finestra LRU di `actionId` per giocatore e ignora i duplicati restituendo l'esito già
+calcolato.
 
 ### 5.2 Messaggi server → client
 
-`welcome`, `roomSnapshot`, `roomPatch`, `privateBrief`, `privatePatch`, `clueGranted`, `boardUpdate`,
-`chat`, `phaseChanged`, `tick`, `sceneEvent`, `witnessReply`, `questionAsked`, `answerGiven`,
-`abilityResult`, `accusationAck`, `verdictResult`, `scoreboard`, `error`, `pong`, `kicked`,
-`hostChanged`, `roomClosed`.
+`welcome`, `joined`, `state`, `brief`, `private`, `clue`, `puzzle`, `tick`, `event`, `witness`,
+`director`, `verdict`, `reconstruction`, `scores`, `hostChanged`, `kicked`, `roomClosed`, `pong`,
+`error`.
 
-`roomSnapshot` è lo stato pubblico completo; `roomPatch` è un delta JSON minimale. Alla riconnessione
-si riceve sempre uno snapshot completo più il `privateBrief`.
+Lo stato pubblico viaggia come **istantanea intera** (`state`), non come delta. È una scelta
+deliberata: un'istantanea numerata è impossibile da disallineare, sopravvive a un pacchetto perso e
+rende la riconnessione identica alla connessione. La versione (`state.version`) cresce a ogni
+modifica, e il client scarta ciò che arriva in ritardo.
+
+Perché un'istantanea intera non costi come un delta, il **catalogo del caso** — ambienti, ruoli,
+testimoni, moventi, metodi: circa ottomila byte che non cambiano mai a partita iniziata — viene
+mandato una volta sola per collegamento (`apps/server/src/catalogo.ts`) e poi omesso. Nei messaggi
+successivi il campo `catalog` è **assente**, che è diverso da `null` («nessun caso scelto»); il
+client conserva l'ultimo catalogo ricevuto. Se il padrone di casa cambia caso, riparte per intero.
+Misurato con `pnpm test:load` su venti stanze e cento giocatori: il traffico di stato scende del
+66 %, la latenza p95 da 109 ms a 47 ms.
+
+Alla riconnessione si ricevono sempre `joined`, un'istantanea completa (catalogo incluso, perché il
+collegamento è nuovo) e il `brief` privato.
 
 ### 5.3 Separazione pubblico/privato
 
 `RoomState` contiene `secretState` (soluzione, segreti, mano di indizi di ciascun giocatore). Il
 server non serializza **mai** `secretState` verso il client: le viste sono costruite da
-`publicView(state)` e `privateView(state, playerId)`. Un test di integrazione
-(`no-leak.test.ts`) attraversa una partita completa e verifica che nessun messaggio in uscita
-contenga il nome del colpevole prima del verdetto, né segreti altrui.
+`publicView(state)` e `privateView(state, playerId)`. Il gruppo di test *Riservatezza*
+(`apps/server/src/__tests__/room.test.ts`) attraversa una partita completa e verifica che nessun
+messaggio in uscita contenga il colpevole prima del verdetto, né i segreti altrui; la prova di
+carico ripete lo stesso controllo sotto pressione, su cento collegamenti insieme.
 
 ## 6. Ciclo di vita di una stanza
 

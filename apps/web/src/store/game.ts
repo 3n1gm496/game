@@ -224,6 +224,11 @@ export const useGame = create<GameStore>((set, get) => ({
       client.send({ t: 'resume', code: stored.code, sessionToken: stored.token });
     }
 
+    // appiglio diagnostico per i test end-to-end e per l'indagine sui problemi
+    // di rete: vedi `MeridienClient.simulaCaduta`
+    (window as unknown as { __meridienChiudiSocket?: () => void }).__meridienChiudiSocket = () =>
+      client.simulaCaduta();
+
     // ritorno dall'app switcher o riattivazione dello schermo
     const wake = (): void => {
       if (document.visibilityState === 'visible') client.wake();
@@ -337,7 +342,14 @@ function handleMessage(msg: ServerMessage, set: SetState, get: GetState): void {
 
     case 'state': {
       const previous = get().room;
-      const room = msg.state;
+      /*
+       * Il catalogo del caso arriva una volta sola: nei messaggi successivi il
+       * campo è assente, e va ripreso da quello che avevamo già. Assente e
+       * `null` non sono la stessa cosa — `null` significa che nessun caso è
+       * stato scelto, e in quel caso il catalogo va davvero azzerato.
+       */
+      const room: PublicRoomState =
+        'catalog' in msg.state ? msg.state : { ...msg.state, catalog: previous?.catalog ?? null };
       const nextScreen = screenForPhase(room.phase);
       const patch: Partial<GameStore> = { room };
       if (!previous || previous.phase !== room.phase) {
@@ -463,13 +475,29 @@ function handleMessage(msg: ServerMessage, set: SetState, get: GetState): void {
   }
 }
 
+/**
+ * Un avviso è un colpetto sulla spalla, non una pagina da leggere.
+ *
+ * Certi eventi della tempesta arrivano con un paragrafo intero: riversato in
+ * un avviso coprirebbe mezzo schermo proprio mentre si legge il dossier. Qui
+ * resta l'inizio; il testo completo è nella cronaca, che non scade.
+ */
+const LUNGHEZZA_AVVISO = 130;
+
+function estratto(testo: string): string {
+  if (testo.length <= LUNGHEZZA_AVVISO) return testo;
+  const taglio = testo.slice(0, LUNGHEZZA_AVVISO);
+  const spazio = taglio.lastIndexOf(' ');
+  return `${(spazio > 60 ? taglio.slice(0, spazio) : taglio).trimEnd()}…`;
+}
+
 function announceNewChat(previous: ChatEntry[], next: ChatEntry[], set: SetState): void {
   if (previous.length === 0) return;
   const known = new Set(previous.map((c) => c.id));
   for (const entry of next) {
     if (known.has(entry.id)) continue;
     if (entry.kind === 'evento') {
-      pushToast(set, { kind: 'evento', title: 'Al Méridien', text: entry.text });
+      pushToast(set, { kind: 'evento', title: 'Al Méridien', text: estratto(entry.text) });
     }
   }
 }

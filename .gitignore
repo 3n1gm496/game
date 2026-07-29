@@ -16,3 +16,4 @@ apps/ios/App/DerivedData/
 tests/visual/**/*-actual.png
 tests/visual/**/*-diff.png
 .pnpm-store/
+dist-types/

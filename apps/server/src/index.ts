@@ -13,6 +13,7 @@ import { contentLibrary } from '@meridien/content';
 import { AiDirector, directorFromEnv } from '@meridien/ai';
 import { SERVER_VERSION, loadConfig } from './config.js';
 import { createLogger } from './log.js';
+import { creaFiltroCatalogo } from './catalogo.js';
 import { createRequestHandler } from './http.js';
 import { RoomRegistry, type Connection } from './rooms.js';
 import { ACTION_COST, DEFAULT_ACTION_COST, TEXT_FIELDS, TokenBucket, moderate } from './limits.js';
@@ -49,14 +50,25 @@ registry.start();
 const httpServer = createServer(createRequestHandler({ config, registry, startedAt, counters }));
 const wss = new WebSocketServer({ server: httpServer, path: '/ws', maxPayload: 16 * 1024 });
 
-/** Limiti per connessione e per indirizzo. */
+/*
+ * Limiti per connessione e per indirizzo.
+ *
+ * Il limite sugli ingressi ha due volti. Da un lato deve impedire di provare i
+ * codici stanza a raffica: è la difesa contro l'enumerazione. Dall'altro non
+ * deve punire otto amici che giocano dallo stesso Wi-Fi, o una scuola dietro
+ * un solo indirizzo pubblico. Per questo gli ingressi *riusciti* hanno una
+ * soglia generosa, mentre i *tentativi a vuoto* — quelli che contano davvero
+ * per chi cerca stanze altrui — ne hanno una molto più stretta.
+ */
 const actionLimiter = new TokenBucket(30, 3);
-const joinLimiter = new TokenBucket(10, 10 / 60);
-const connectLimiter = new TokenBucket(20, 20 / 60);
+const joinLimiter = new TokenBucket(config.RATE_JOIN_BURST, config.RATE_JOIN_BURST / 60);
+const failedJoinLimiter = new TokenBucket(10, 10 / 60);
+const connectLimiter = new TokenBucket(config.RATE_CONNECT_BURST, config.RATE_CONNECT_BURST / 60);
 
 setInterval(() => {
   actionLimiter.sweep();
   joinLimiter.sweep();
+  failedJoinLimiter.sweep();
   connectLimiter.sweep();
 }, 60_000).unref?.();
 
@@ -68,6 +80,8 @@ wss.on('connection', (socket: WebSocket, req) => {
   }
 
   counters.connections += 1;
+  const senzaCatalogoRipetuto = creaFiltroCatalogo();
+
   const connection: Connection = {
     id: randomUUID(),
     playerId: null,
@@ -77,7 +91,7 @@ wss.on('connection', (socket: WebSocket, req) => {
     send(msg: ServerMessage) {
       if (socket.readyState !== socket.OPEN) return;
       counters.messages += 1;
-      socket.send(JSON.stringify(msg));
+      socket.send(JSON.stringify(senzaCatalogoRipetuto(msg)));
     },
     close(code: number, reason: string) {
       try {
@@ -185,7 +199,14 @@ wss.on('connection', (socket: WebSocket, req) => {
         }
         const code = normalizeRoomCode(msg.code);
         const joined = registry.join(connection, code, msg.nickname, msg.avatar, msg.asSpectator);
-        if (!joined.ok) fail(connection, joined.error);
+        if (!joined.ok) {
+          // un codice che non esiste è il segnale di chi sta tentando a caso
+          if (joined.error === 'room-not-found' && !failedJoinLimiter.take(address)) {
+            fail(connection, 'rate-limited');
+            return;
+          }
+          fail(connection, joined.error);
+        }
         return;
       }
 

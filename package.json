@@ -1,6 +1,6 @@
 {
   "name": "meridien",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "description": "MÉRIDIEN — Delitto al Grand Hotel. Giallo sociale multiplayer 4-8 giocatori.",
   "license": "SEE LICENSE IN LICENSE",
@@ -27,6 +27,7 @@
     "test:watch": "vitest --root .",
     "test:e2e": "pnpm --filter @meridien/tests test:e2e",
     "test:visual": "pnpm --filter @meridien/tests test:visual",
+    "test:visual:aggiorna": "pnpm --filter @meridien/tests test:visual:aggiorna",
     "test:load": "node tools/loadtest/dist/index.js || pnpm --filter @meridien/loadtest run start",
     "validate:cases": "pnpm --filter @meridien/validate-cases run start",
     "simulate": "pnpm --filter @meridien/simulate run start",

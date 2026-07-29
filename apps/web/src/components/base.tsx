@@ -1,8 +1,16 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { audio } from '../audio/engine.js';
 import { haptic } from '../store/settings.js';
+import { simbolo } from './icone.js';
 
-/** Icona dal foglio sprite generato (`/assets/icons.svg`). */
+/**
+ * Icona dal foglio sprite generato da `tools/generate-assets`.
+ *
+ * Il riferimento è interno (`#icon-…`), non al file: `installaSprite()` inietta
+ * il foglio nel documento all'avvio. Un `<use>` che punta a un file esterno non
+ * è affidabile su WebKit, e il foglio pesa cinque kilobyte: conviene averlo
+ * dentro la pagina e risparmiare anche la richiesta.
+ */
 export function Icona({
   nome,
   size = 20,
@@ -21,7 +29,7 @@ export function Icona({
       focusable="false"
       style={{ flex: '0 0 auto' }}
     >
-      <use href={`/assets/icons.svg#icon-${nome}`} />
+      <use href={`#icon-${simbolo(nome)}`} />
     </svg>
   );
 }

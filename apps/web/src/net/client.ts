@@ -66,6 +66,9 @@ export interface ClientEvents {
 
 const BACKOFF_MS = [500, 1000, 2000, 4000, 8000, 15_000];
 
+/** Oltre questo silenzio la connessione si considera caduta, anche se «aperta». */
+const SILENZIO_MASSIMO_MS = 30_000;
+
 export class MeridienClient {
   private socket: WebSocket | null = null;
   private queue: ClientMessage[] = [];
@@ -73,6 +76,8 @@ export class MeridienClient {
   private reconnectTimer: number | null = null;
   private pingTimer: number | null = null;
   private closedByUser = false;
+  /** momento dell'ultima risposta del server */
+  private lastPongAt = 0;
   status: ConnectionStatus = 'chiusa';
   latency = 0;
   messagesReceived = 0;
@@ -98,6 +103,7 @@ export class MeridienClient {
 
     socket.onopen = () => {
       this.attempt = 0;
+      this.lastPongAt = Date.now();
       this.setStatus('aperta');
       this.rawSend({ t: 'hello', protocol: PROTOCOL_VERSION, client: 'web' });
       const pending = this.queue;
@@ -114,6 +120,7 @@ export class MeridienClient {
       } catch {
         return;
       }
+      this.lastPongAt = Date.now();
       if (msg.t === 'pong') {
         this.latency = Date.now() - msg.at;
         this.events.onLatency(this.latency);
@@ -152,9 +159,26 @@ export class MeridienClient {
     }, delay + Math.random() * 250);
   }
 
+  /**
+   * Battito e rilevamento delle connessioni morte.
+   *
+   * Su rete mobile capita che un socket resti aperto per il sistema operativo
+   * pur non trasportando più nulla: nessun evento `close`, nessun errore, solo
+   * silenzio. Senza questo controllo il gioco resterebbe fermo a fissare una
+   * connessione che non esiste più. Se per trenta secondi non arriva niente
+   * dal server — nemmeno un pong — la si considera caduta e si ricomincia.
+   */
   private startPing(): void {
     this.stopPing();
     this.pingTimer = window.setInterval(() => {
+      const silenzio = Date.now() - this.lastPongAt;
+      if (silenzio > SILENZIO_MASSIMO_MS) {
+        this.socket?.close(4002, 'nessuna risposta dal server');
+        this.socket = null;
+        this.stopPing();
+        this.scheduleReconnect();
+        return;
+      }
       this.rawSend({ t: 'ping', at: Date.now() });
     }, 10_000);
   }
@@ -183,6 +207,21 @@ export class MeridienClient {
     } catch {
       this.queue.push(msg);
     }
+  }
+
+  /**
+   * Simula una caduta della linea.
+   *
+   * Serve ai test end-to-end e a chi indaga su un problema di rete: chiude il
+   * socket senza dichiararlo volontario, così scatta la riconnessione come se
+   * il telefono fosse passato dal Wi-Fi alla rete cellulare. Non espone nulla
+   * che un giocatore non possa già fare spegnendo la connessione.
+   */
+  simulaCaduta(): void {
+    this.socket?.close(4003, 'caduta simulata');
+    this.socket = null;
+    this.stopPing();
+    this.scheduleReconnect();
   }
 
   /** Riporta la connessione online subito (ritorno dall'app switcher). */

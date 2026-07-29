@@ -14,7 +14,7 @@ Se `pnpm verify` passa, il tuo ambiente è a posto.
 
 1. **Il server decide.** Nessuna logica di gioco nel client. Se una modifica richiede che
    il client calcoli qualcosa che conta, la modifica va ripensata.
-2. **Nessun segnaposto.** `TODO`, `FIXME`, `placeholder`, lorem ipsum e pulsanti inattivi
+2. **Nessun segnaposto.** `TODO`, `FIXME`, `placeholder`, `lorem ipsum` e pulsanti inattivi
    sono vietati dal linter, non per pignoleria: un prodotto finito non li contiene.
 3. **Nessun asset esterno.** Grafica e audio si generano dal codice. Se serve un'immagine
    nuova, si aggiunge un generatore in `tools/generate-assets`.

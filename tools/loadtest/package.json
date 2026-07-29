@@ -1,0 +1,19 @@
+{
+  "name": "@meridien/loadtest",
+  "version": "1.0.1",
+  "private": true,
+  "type": "module",
+  "description": "Prova di carico: stanze e giocatori concorrenti contro un server reale.",
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "build": "tsc -b"
+  },
+  "dependencies": {
+    "@meridien/engine": "workspace:*",
+    "ws": "^8.21.1"
+  },
+  "devDependencies": {
+    "@types/ws": "^8.18.1",
+    "tsx": "^4.20.6"
+  }
+}

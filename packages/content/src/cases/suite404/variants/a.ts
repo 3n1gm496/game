@@ -16,14 +16,20 @@ export const varianteChiaveGemella: VariantDef = {
   culpritRoleId: 'role.croupier',
   motiveKey: 'debito',
   methodKey: 'chiave-duplicata',
-  sequence: ['beat.bugia', 'beat.incontro', 'beat.gesto', 'beat.uscita', 'beat.scoperta'],
+  sequence: [
+    'beat.incontro',
+    'beat.bugia',
+    'beat.gesto',
+    'beat.uscita',
+    'beat.scoperta',
+  ],
   beatDetails: {
     'beat.bugia':
       'Alle 22:12 chiude il banco della saletta, riporta la chiave al bancone e dice a Bramante che scende in terrazza a prendere aria.',
     'beat.incontro':
-      'Alle 22:18 è nella 404. Malaspina lo aspettava e aveva già versato due cognac: la cosa doveva somigliare a una trattativa.',
+      'Alle 21:42 Malaspina scende in hall per un giro fra i tavoli e si ferma al banco. Parlano due minuti. Nessuno sente cosa si dicono, ma il banco chiude mezz’ora prima del solito.',
     'beat.gesto':
-      'Alle 22:33 Malaspina gli mostra la lettera per la questura. La trattativa finisce, e finisce male.',
+      'Alle 22:18 è nella 404: Malaspina lo aspettava e aveva già versato due cognac. Alle 22:33 gli mostra la lettera per la questura. La trattativa finisce, e finisce male.',
     'beat.uscita':
       'Esce nel corridoio, gira due volte la copia dell’8 gennaio e scende dal passaggio di servizio mentre l’orchestra tace.',
     'beat.scoperta':
@@ -121,7 +127,9 @@ export const varianteChiaveGemella: VariantDef = {
   ),
 
   timeline: [
-    t('victim', 1260, 1320, 'loc.sala-ballo', 'Riceve gli invitati accanto alla pedana e annuncia il brindisi delle 23.'),
+    t('victim', 1260, 1300, 'loc.sala-ballo', 'Riceve gli invitati accanto alla pedana e annuncia il brindisi delle 23.'),
+    t('victim', 1302, 1310, 'loc.hall', 'Scende a fare un giro fra i tavoli da gioco e si ferma al banco del croupier.'),
+    t('victim', 1312, 1320, 'loc.sala-ballo', 'Torna in sala di pessimo umore e non balla più.'),
     t('victim', 1326, 1400, 'loc.suite-404', 'Sale a cambiarsi la camicia e non scende più.', true),
     t('role.croupier', 1250, 1332, 'loc.hall', 'Tiene il banco nella saletta e passa dal bancone per la chiave.'),
     t('role.croupier', 1338, 1355, 'loc.suite-404', 'Sale dal corridoio: si parla di cambiali e di questura.', true),

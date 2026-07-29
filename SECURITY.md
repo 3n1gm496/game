@@ -71,7 +71,7 @@ posizione degli hotspot. Nessun `script-src 'unsafe-inline'` in produzione, ness
 Nessun segreto è nel repository. Tutto passa da variabili d'ambiente del **server**
 (`.env.example` le elenca tutte, senza valori). `scripts/check-secrets.mjs` cerca chiavi
 Anthropic, OpenAI, AWS, GitHub, token Bearer, chiavi private e riferimenti a certificati di
-firma in ogni file versionato e nel bundle costruito; fa parte di `pnpm deploy:*` e del
+firma in ogni file versionato e nel bundle costruito; fa parte degli script di pubblicazione e del
 workflow di CI.
 
 Rotazione: le chiavi vivono solo nell'ambiente del processo. Cambiarle richiede un riavvio,

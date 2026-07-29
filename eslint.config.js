@@ -140,9 +140,9 @@ export default tseslint.config(
     rules: { '@typescript-eslint/no-unused-vars': 'off' },
   },
 
-  // questo file elenca per forza i termini che vieta agli altri
+  // questi due file elencano per forza i termini che cercano negli altri
   {
-    files: ['eslint.config.js'],
+    files: ['eslint.config.js', 'scripts/check-docs.mjs'],
     rules: { 'meridien/no-placeholder': 'off' },
   },
 );

@@ -237,7 +237,17 @@ export interface PublicRoomState {
   questions: PublicQuestion[];
   openLocationIds: string[];
   caseId: string;
-  catalog: CaseCatalog | null;
+  /**
+   * Il catalogo del caso: ambienti, ruoli, testimoni, moventi. Sono ottomila
+   * byte che non cambiano mai durante la partita, e rispedirli a ogni
+   * aggiornamento di stato significherebbe occupare la linea per nulla.
+   *
+   * Il server lo manda una volta per collegamento, e lo rimanda solo se il
+   * caso cambia; nei messaggi successivi il campo è assente — che è diverso
+   * da `null`, il quale significa «nessun caso scelto». Il client tiene da
+   * parte l'ultimo catalogo ricevuto.
+   */
+  catalog?: CaseCatalog | null;
   /** noto solo dall'epilogo in poi */
   variantId: string | null;
   rematchVotes: string[];

@@ -115,6 +115,8 @@ export function Partita(): ReactNode {
         bloccata={room.paused || ricercheRimaste <= 0}
       />
 
+      <Cronaca />
+
       <div className="partita__stato" role="status">
         <span className="pillola">
           <Icona nome="lente" size={13} /> {ricercheRimaste} ricerche
@@ -328,6 +330,56 @@ export function Partita(): ReactNode {
       </div>
 
     </div>
+  );
+}
+
+/**
+ * La cronaca dell'albergo.
+ *
+ * Eventi della tempesta, dichiarazioni, cambi di padrone di casa, battute del
+ * maggiordomo: senza questa striscia il giocatore non ha modo di sapere che
+ * qualcosa è successo. Mostra le ultime righe e le annuncia ai lettori di
+ * schermo, con un pannello che si apre per rileggere tutto.
+ */
+function Cronaca(): ReactNode {
+  const room = useGame((s) => s.room);
+  const [aperta, setAperta] = useState(false);
+  if (!room) return null;
+
+  const righe = room.chat.slice(-30);
+  const ultima = righe.at(-1);
+
+  return (
+    <>
+      <button
+        type="button"
+        className="cronaca"
+        onClick={() => {
+          audio.play('clic');
+          setAperta(true);
+        }}
+        aria-label="Apri la cronaca della serata"
+      >
+        <Icona nome="taccuino" size={14} />
+        <span className="cronaca__riga" aria-live="polite">
+          {ultima ? ultima.text : 'La serata è appena cominciata.'}
+        </span>
+      </button>
+
+      <FoglioInferiore aperto={aperta} titolo="Cronaca della serata" onChiudi={() => setAperta(false)}>
+        {righe.length === 0 ? (
+          <p className="sommario">Ancora nulla da annotare.</p>
+        ) : (
+          <ol className="cronaca__elenco">
+            {righe.map((r) => (
+              <li key={r.id} className={`cronaca__voce cronaca__voce--${r.kind}`}>
+                {r.text}
+              </li>
+            ))}
+          </ol>
+        )}
+      </FoglioInferiore>
+    </>
   );
 }
 

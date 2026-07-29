@@ -36,9 +36,19 @@ export function registraServiceWorker(): void {
         // la modalità offline
       });
 
+    /*
+     * Ricaricare serve solo dopo un aggiornamento accettato dall'utente.
+     *
+     * Alla primissima visita non c'è ancora un controller: quando il service
+     * worker appena installato prende il controllo, `controllerchange` scatta
+     * lo stesso. Ricaricare lì significa far lampeggiare la pagina a chiunque
+     * apra il gioco per la prima volta, senza alcun motivo. Si ricarica quindi
+     * solo se un controller c'era già.
+     */
+    const cEraUnControllore = Boolean(navigator.serviceWorker.controller);
     let ricaricato = false;
     navigator.serviceWorker.addEventListener('controllerchange', () => {
-      if (ricaricato) return;
+      if (!cEraUnControllore || ricaricato) return;
       ricaricato = true;
       location.reload();
     });

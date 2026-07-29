@@ -122,6 +122,14 @@ export function ScenaVista({
       <ul className="scena__hotspot" aria-label={`Punti da esaminare: ${nomeAmbiente}`}>
         {(manifesto?.hotspot ?? []).map((h) => {
           const disponibile = hotspotAttivi.has(h.chiave);
+          /*
+           * L'etichetta è centrata sotto il punto, ma vicino ai bordi finirebbe
+           * fuori dalla scena e verrebbe tagliata. Sul terzo esterno si ancora
+           * al lato invece che al centro: resta leggibile senza inseguire la
+           * larghezza del testo con misure in JavaScript.
+           */
+          const centro = h.x + h.larghezza / 2;
+          const ancoraggio = centro < 22 ? ' hotspot--da-sinistra' : centro > 78 ? ' hotspot--da-destra' : '';
           return (
             <li
               key={h.chiave}
@@ -134,7 +142,7 @@ export function ScenaVista({
             >
               <button
                 type="button"
-                className={`hotspot${disponibile ? ' hotspot--attivo' : ''}`}
+                className={`hotspot${disponibile ? ' hotspot--attivo' : ''}${ancoraggio}`}
                 disabled={bloccata}
                 onClick={() => onHotspot(h.chiave)}
                 aria-label={`Esamina: ${h.etichetta}${disponibile ? ' — qualcosa attira l’attenzione' : ''}`}

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- MÉRIDIEN — asset generato da tools/generate-assets. Non modificare a mano. -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="miter">
+<title>Boccetta</title>
+<path d="M9.5 2.5H14.5"/><path d="M10.5 2.5V8L7 14.5A3.4 3.4 0 0 0 10 21H14A3.4 3.4 0 0 0 17 14.5L13.5 8V2.5"/><path d="M8.4 16L15.6 16"/>
+</svg>

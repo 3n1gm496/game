@@ -1,6 +1,6 @@
 {
   "name": "@meridien/capacitor-plugin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "description": "Plugin nativi iOS di MÉRIDIEN: haptics, condivisione, modello locale MLX.",
   "main": "dist/plugin.js",

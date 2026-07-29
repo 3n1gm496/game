@@ -1,4 +1,12 @@
 import { Application, Assets, Container, Graphics, Sprite, type Texture } from 'pixi.js';
+/*
+ * Pixi genera i programmi degli shader con `new Function`, che la nostra
+ * Content Security Policy vieta: nessun `unsafe-eval`, in nessuna forma.
+ * Questo modulo è la via prevista da Pixi per gli ambienti severi — sostituisce
+ * la generazione dinamica con un percorso equivalente e statico. L'import va
+ * prima di qualunque uso di `Application`, e per questo sta qui in testa.
+ */
+import 'pixi.js/unsafe-eval';
 import type { QualityLevel } from '../store/settings.js';
 
 /**

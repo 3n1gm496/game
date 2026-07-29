@@ -1,6 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { App } from './App.js';
+import { installaSprite } from './components/sprite.js';
 import { registraServiceWorker } from './pwa/registra.js';
 import './styles/global.css';
 
@@ -8,6 +9,9 @@ const radice = document.getElementById('radice');
 if (!radice) {
   throw new Error('Elemento radice non trovato');
 }
+
+// le icone devono esistere nel documento prima del primo disegno
+installaSprite();
 
 createRoot(radice).render(
   <StrictMode>

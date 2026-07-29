@@ -60,7 +60,7 @@ function schermataAvvio(p: Awaited<ReturnType<typeof loadPalette>>, w: number, h
   const pioggia = Array.from({ length: 90 }, (_, i) => {
     const x = ((i * 137.5) % 100) / 100;
     return el('path', {
-      d: `M${f(x * w)} ${f(((i * 61) % 100) / 100) === 0 ? 0 : f((((i * 61) % 100) / 100) * h)}l-14 46`,
+      d: `M${f(x * w)} ${f((((i * 61) % 100) / 100) * h)}l-14 46`,
       stroke: alpha(p.rain, 0.14),
       'stroke-width': 1.4,
     });

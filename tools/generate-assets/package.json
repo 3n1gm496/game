@@ -1,6 +1,6 @@
 {
   "name": "@meridien/generate-assets",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "type": "module",
   "description": "Pipeline di generazione degli asset grafici originali di MÉRIDIEN (SVG procedurali).",

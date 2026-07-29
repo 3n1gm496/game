@@ -11,6 +11,7 @@ import {
   type ServerMessage,
 } from '@meridien/engine';
 import { contentLibrary } from '@meridien/content';
+import { creaFiltroCatalogo } from '../catalogo.js';
 
 /**
  * Test di integrazione della stanza.
@@ -782,5 +783,73 @@ describe('Azioni illegali', () => {
     const ids = t.apparecchia(4);
     t.azione(ids[0]!, { t: 'kickPlayer', playerId: ids[3]! });
     expect(t.pubblico().players.map((p) => p.id)).not.toContain(ids[3]);
+  });
+});
+
+describe('Traffico di rete', () => {
+  /**
+   * Il catalogo del caso è la parte grossa dello stato e non cambia mai a
+   * partita iniziata. Se tornasse a ogni aggiornamento, ogni movimento di ogni
+   * giocatore costerebbe ottomila byte a testa: su una connessione mobile si
+   * sentirebbe. Questi test tengono ferma quella promessa.
+   */
+
+  function statoConCaso(caseId: string): ServerMessage {
+    const t = new Tavolo({ caseId });
+    t.apparecchia(4);
+    return { t: 'state', state: t.pubblico() };
+  }
+
+  it('manda il catalogo nel primo stato e lo tace nei successivi', () => {
+    const filtra = creaFiltroCatalogo();
+    const primo = filtra(statoConCaso(CASO));
+    const secondo = filtra(statoConCaso(CASO));
+
+    expect(primo.t).toBe('state');
+    expect(secondo.t).toBe('state');
+    if (primo.t !== 'state' || secondo.t !== 'state') return;
+
+    expect(primo.state.catalog).not.toBeNull();
+    expect(primo.state.catalog?.locations.length).toBeGreaterThan(0);
+    // assente, non nullo: `null` significherebbe «nessun caso scelto»
+    expect('catalog' in secondo.state).toBe(false);
+  });
+
+  it('lo rimanda per intero se il caso cambia', () => {
+    const altro = contentLibrary.listPublic()[1]!.id;
+    const filtra = creaFiltroCatalogo();
+
+    filtra(statoConCaso(CASO));
+    const dopoIlCambio = filtra(statoConCaso(altro));
+
+    expect(dopoIlCambio.t).toBe('state');
+    if (dopoIlCambio.t !== 'state') return;
+    expect(dopoIlCambio.state.catalog?.caseId).toBe(altro);
+  });
+
+  it('ogni collegamento ha la sua memoria', () => {
+    // chi entra a metà lobby deve ricevere il catalogo lo stesso
+    const primoOspite = creaFiltroCatalogo();
+    const ospiteTardivo = creaFiltroCatalogo();
+
+    primoOspite(statoConCaso(CASO));
+    const perIlTardivo = ospiteTardivo(statoConCaso(CASO));
+
+    expect(perIlTardivo.t).toBe('state');
+    if (perIlTardivo.t !== 'state') return;
+    expect(perIlTardivo.state.catalog).not.toBeNull();
+  });
+
+  it('non tocca i messaggi che non sono stato', () => {
+    const filtra = creaFiltroCatalogo();
+    const pong: ServerMessage = { t: 'pong', at: 42 };
+    expect(filtra(pong)).toBe(pong);
+  });
+
+  it('alleggerisce lo stato di più di metà', () => {
+    const filtra = creaFiltroCatalogo();
+    const pieno = JSON.stringify(filtra(statoConCaso(CASO))).length;
+    const magro = JSON.stringify(filtra(statoConCaso(CASO))).length;
+    expect(magro).toBeLessThan(pieno * 0.5);
   });
 });

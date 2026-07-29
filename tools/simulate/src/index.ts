@@ -150,9 +150,17 @@ function simulaPartita(
 
   if (state.phase !== 'briefing') throw new Error('la partita non è cominciata');
 
+
   for (const a of agenti) {
     for (const c of runtime.privateView(a.id).clues) a.indizi.add(c.id);
   }
+
+  /*
+   * `state.phase` cambia dentro il runtime, che TypeScript non segue: senza
+   * questa lettura esplicita il tipo resterebbe inchiodato alla fase iniziale
+   * e ogni confronto sembrerebbe impossibile.
+   */
+  const fase = (): string => state.phase;
 
   let turni = 0;
   const avanzaFase = (): void => {
@@ -195,15 +203,17 @@ function simulaPartita(
         }
         // se arriva un enigma, l'agente lo risolve: la risposta è nel setup
         for (const e of effetti) {
-          if (e.kind === 'direct' && e.msg.t === 'puzzle') {
-            const setup = variante.clueSetup.find((s) => s.clueId === e.msg.clueId);
+          if (e.kind !== 'direct') continue;
+          const msg = e.msg;
+          if (msg.t === 'puzzle') {
+            const setup = variante.clueSetup.find((s) => s.clueId === msg.clueId);
             if (setup?.puzzle) {
               contatore += 1;
               applica(
                 runtime.handle(a.id, {
                   t: 'solvePuzzle',
                   actionId: `p${contatore}`,
-                  clueId: e.msg.clueId,
+                  clueId: msg.clueId,
                   answer: setup.puzzle.answer,
                 }),
               );
@@ -247,7 +257,7 @@ function simulaPartita(
   }
 
   // ── accusa ───────────────────────────────────────────────────────────────
-  if (state.phase !== 'accusa') throw new Error(`fase inattesa: ${state.phase}`);
+  if (fase() !== 'accusa') throw new Error(`fase inattesa: ${fase()}`);
 
   // che cosa sa il gruppo, davvero
   const inBacheca = new Set(state.board.filter((b) => b.clueId).map((b) => b.clueId as string));
@@ -303,7 +313,7 @@ function simulaPartita(
     true,
   );
 
-  if (state.phase !== 'verdetto') avanzaFase();
+  if (fase() !== 'verdetto') avanzaFase();
 
   // ── verdetto ─────────────────────────────────────────────────────────────
   const candidati = agenti.filter((a) => state.players[a.id]?.accusation?.culpritRoleId);
@@ -314,7 +324,7 @@ function simulaPartita(
       runtime.handle(a.id, { t: 'voteVerdict', actionId: `v${contatore}`, accusationOfPlayerId: scelto.id }),
     );
   }
-  if (state.phase !== 'epilogo') avanzaFase();
+  if (fase() !== 'epilogo') avanzaFase();
 
   const risultato = state.result as {
     collectiveCorrect: boolean;

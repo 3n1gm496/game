@@ -91,7 +91,8 @@ Stato aggiornato durante lo sviluppo. `✅` fatto · `🔄` in corso · `⬜` da
 - ✅ E2E Playwright: 4 e 8 giocatori, disconnessioni, refresh, rete lenta, rivincita, PWA
 - ✅ Visual regression su 4 viewport
 - ✅ Simulazioni: 9 varianti × 5 taglie × 2 modalità
-- ✅ Load test: stanze concorrenti
+- ✅ Load test: stanze concorrenti, con verifica che i client entrino davvero
+- ✅ Test del foglio icone e della corrispondenza fra nomi dei contenuti e simboli
 
 ## Fase 10 — Rilascio
 
@@ -99,3 +100,6 @@ Stato aggiornato durante lo sviluppo. `✅` fatto · `🔄` in corso · `⬜` da
 - ✅ Health endpoint, versionamento protocollo, gestione client obsoleto
 - ✅ Dockerfile, configurazione preview/production, rollback
 - ✅ Verifica finale end-to-end su build di produzione
+- ✅ Osservazione diretta del gioco avviato: partita vera su quattro browser, schermate
+      guardate una per una, difetti corretti (icone, contrasto sulla carta, avvisi
+      invadenti, facciata inutilizzata, catalogo ripetuto sulla rete)

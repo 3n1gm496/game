@@ -57,7 +57,8 @@ l'artefatto che va in produzione, e gira senza alcun servizio esterno.
 | `pnpm test` | test unitari e di integrazione (Vitest) |
 | `pnpm test:e2e` | partite reali multi-browser (Playwright) |
 | `pnpm test:visual` | screenshot regression su quattro viewport |
-| `pnpm test:load` | stanze e giocatori concorrenti |
+| `pnpm test:visual:aggiorna` | riscrive gli screenshot di riferimento |
+| `pnpm test:load` | stanze e giocatori concorrenti (server già avviato) |
 | `pnpm validate:cases` | i dieci controlli sui casi e sulle varianti |
 | `pnpm simulate` | partite simulate su ogni variante |
 | `pnpm generate:assets` | rigenera tutti gli asset grafici |
@@ -66,6 +67,16 @@ l'artefatto che va in produzione, e gira senza alcun servizio esterno.
 | `pnpm ios:sync` · `pnpm ios:build` | wrapper iOS |
 
 Pannello diagnostico (solo in sviluppo): `http://localhost:5173/?diag=1`.
+
+La prova di carico vuole un server già in ascolto e i limiti per indirizzo alzati: cento client dallo
+stesso IP verrebbero altrimenti respinti dalla difesa contro l'enumerazione delle stanze, e la misura
+sarebbe falsata. Lo strumento se ne accorge e si ferma dicendolo.
+
+```bash
+pnpm build
+RATE_JOIN_BURST=400 RATE_CONNECT_BURST=800 pnpm start   # in un terminale
+pnpm test:load --stanze=20 --giocatori=5 --durata=30    # nell'altro
+```
 
 ---
 

@@ -20,6 +20,10 @@ const EnvSchema = z.object({
   /** durata massima di una stanza in ore */
   ROOM_MAX_HOURS: z.coerce.number().min(0.5).max(24).default(3),
   MAX_ROOMS: z.coerce.number().int().min(1).max(10_000).default(500),
+  /** ingressi riusciti ammessi al minuto, per indirizzo */
+  RATE_JOIN_BURST: z.coerce.number().int().min(4).max(500).default(40),
+  /** nuove connessioni ammesse al minuto, per indirizzo */
+  RATE_CONNECT_BURST: z.coerce.number().int().min(4).max(1000).default(60),
   /** disattiva il Regista esterno anche se configurato */
   MERIDIEN_AI_ENABLED: z.string().default('true'),
   MERIDIEN_AI_PROVIDER: z.string().default('deterministic'),
@@ -49,7 +53,7 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env): ServerConfig {
   };
 }
 
-export const SERVER_VERSION = '1.0.0';
+export const SERVER_VERSION = '1.0.1';
 
 /**
  * Content Security Policy. Nessuna risorsa remota: gli asset sono tutti nel

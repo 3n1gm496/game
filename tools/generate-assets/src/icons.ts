@@ -169,6 +169,70 @@ const ICONE: Icona[] = [
     titolo: 'Tempesta',
     corpo: [percorso('M6 12.5A4 4 0 0 1 7 4.7A5.2 5.2 0 0 1 17 6.4A3.6 3.6 0 0 1 18 13.4H7'), linea(8, 17, 6.5, 21), linea(13, 17, 11.5, 21), linea(18, 17, 16.5, 21)].join(''),
   },
+  {
+    nome: 'busta',
+    titolo: 'Busta',
+    corpo: [rettTagliato(3, 6, 18, 12), percorso('M3 6L12 13.5L21 6')].join(''),
+  },
+  {
+    nome: 'fotografia',
+    titolo: 'Fotografia',
+    corpo: [
+      rettTagliato(3.5, 4.5, 17, 15),
+      linea(3.5, 16.5, 20.5, 16.5),
+      cerchio(9, 10.5, 2.6),
+      percorso('M13 16.5L17.5 10.5L20.5 15'),
+    ].join(''),
+  },
+  {
+    nome: 'boccetta',
+    titolo: 'Boccetta',
+    corpo: [
+      percorso('M9.5 2.5H14.5'),
+      percorso('M10.5 2.5V8L7 14.5A3.4 3.4 0 0 0 10 21H14A3.4 3.4 0 0 0 17 14.5L13.5 8V2.5'),
+      linea(8.4, 16, 15.6, 16),
+    ].join(''),
+  },
+  {
+    nome: 'impronta',
+    titolo: 'Impronta',
+    corpo: [
+      percorso('M5.5 12A6.5 6.5 0 0 1 18.5 12V15'),
+      percorso('M8.5 12A3.5 3.5 0 0 1 15.5 12V17.5'),
+      percorso('M11.5 12.5V19.5'),
+      percorso('M18.2 18.5A9 9 0 0 1 17.4 20.8'),
+    ].join(''),
+  },
+  {
+    nome: 'scarpa',
+    titolo: 'Scarpa',
+    corpo: [
+      percorso('M3 17.5V10.5L7.5 10.5L11 13.5H16.5A4.5 4.5 0 0 1 21 17.5Z'),
+      linea(7.5, 10.5, 7.5, 13.5),
+      linea(11, 13.5, 11, 17.5),
+      linea(15.5, 13.8, 15.5, 17.5),
+    ].join(''),
+  },
+  {
+    nome: 'quadro',
+    titolo: 'Quadro',
+    corpo: [
+      rett(3.5, 4.5, 17, 13),
+      rett(6, 7, 12, 8.5),
+      linea(12, 17.5, 12, 20),
+      linea(9, 20, 15, 20),
+    ].join(''),
+  },
+  {
+    nome: 'filo',
+    titolo: 'Filo',
+    corpo: [
+      percorso('M3 6C7 6 7 12 11 12S15 6 19 6'),
+      percorso('M3 18C7 18 7 12 11 12S15 18 19 18'),
+      cerchio(20.5, 6, 1.4),
+      cerchio(20.5, 18, 1.4),
+    ].join(''),
+  },
 ];
 
 function documento(icona: Icona): string {
@@ -195,11 +259,26 @@ export async function generateIcons(): Promise<string[]> {
     await write(path.join(ASSETS_DIR, 'icon', `${icona.nome}.svg`), documento(icona));
   }
 
-  // foglio sprite: un solo file per tutta l'interfaccia
+  /*
+   * Foglio sprite: un solo file per tutta l'interfaccia.
+   *
+   * Gli attributi di tratto stanno su ogni `symbol`, non solo sulla radice.
+   * `<use>` clona il simbolo nell'albero ombra della pagina che lo richiama:
+   * l'ereditarietà riparte da lì, e quanto scritto sulla radice del foglio non
+   * arriva. Senza questi attributi ogni icona verrebbe disegnata con il fill
+   * nero predefinito e nessun tratto — invisibile su fondo scuro.
+   */
   const simboli = ICONE.map((icona) =>
     el(
       'symbol',
-      { id: `icon-${icona.nome}`, viewBox: `0 0 ${S} ${S}` },
+      {
+        id: `icon-${icona.nome}`,
+        viewBox: `0 0 ${S} ${S}`,
+        fill: 'none',
+        stroke: 'currentColor',
+        'stroke-width': TRATTO,
+        'stroke-linejoin': 'miter',
+      },
       el('title', {}, icona.titolo) + icona.corpo,
     ),
   ).join('');

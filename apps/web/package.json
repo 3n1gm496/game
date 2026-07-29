@@ -1,6 +1,6 @@
 {
   "name": "@meridien/web",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "type": "module",
   "scripts": {
@@ -8,7 +8,7 @@
     "build": "vite build",
     "preview": "vite preview --port 4173",
     "typecheck": "tsc -b",
-    "clean": "rm -rf dist *.tsbuildinfo"
+    "clean": "rm -rf dist dist-types *.tsbuildinfo"
   },
   "dependencies": {
     "@meridien/engine": "workspace:*",

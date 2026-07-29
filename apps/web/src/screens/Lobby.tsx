@@ -101,7 +101,7 @@ export function Lobby(): ReactNode {
                   <img src={`/assets/portrait/${p.avatar}/neutral-calm.svg`} alt="" width={44} height={55} />
                   <span className="lista-giocatori__nome">
                     {p.nickname}
-                    {p.isHost ? <span className="pillola" style={{ marginLeft: 8 }}>padrone di casa</span> : null}
+                    {p.isHost ? <span className="pillola">padrone di casa</span> : null}
                     {!p.connected ? <span className="sommario"> · assente</span> : null}
                   </span>
                   <span className={`stato-pronto${p.ready ? ' stato-pronto--si' : ''}`} aria-label={p.ready ? 'pronto' : 'non pronto'}>
@@ -110,11 +110,12 @@ export function Lobby(): ReactNode {
                   {sonoHost && p.id !== playerId ? (
                     <button
                       type="button"
-                      className="bottone bottone--fantasma"
+                      className="bottone bottone--fantasma bottone--icona"
                       onClick={() => act({ t: 'kickPlayer', playerId: p.id })}
                       aria-label={`Accompagna ${p.nickname} all'uscita`}
+                      title={`Accompagna ${p.nickname} all'uscita`}
                     >
-                      ✕
+                      <Icona nome="porta" size={18} />
                     </button>
                   ) : null}
                 </li>

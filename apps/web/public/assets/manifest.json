@@ -1,9 +1,9 @@
 {
  "versione": 1,
- "generatoIl": "2026-07-28",
+ "generatoIl": "2026-07-29",
  "totale": {
-  "file": 279,
-  "byte": 1618274
+  "file": 286,
+  "byte": 1625427
  },
  "file": [
   {
@@ -42,6 +42,16 @@
    "sha256": "214a57059367a82e1bbe4c96523bcdd0"
   },
   {
+   "percorso": "icon/boccetta.svg",
+   "byte": 500,
+   "sha256": "1fb3073c15af0da0adae7fdaa840bd67"
+  },
+  {
+   "percorso": "icon/busta.svg",
+   "byte": 419,
+   "sha256": "5308dd29a8f99ed5f875dea657cae5f5"
+  },
+  {
    "percorso": "icon/campanello.svg",
    "byte": 510,
    "sha256": "c146721228877a142f8c2c6805788175"
@@ -62,6 +72,16 @@
    "sha256": "7e46de355fd9c29d64f60971d4d61366"
   },
   {
+   "percorso": "icon/filo.svg",
+   "byte": 513,
+   "sha256": "7fcf72710027579d0a1d43a2cf713c42"
+  },
+  {
+   "percorso": "icon/fotografia.svg",
+   "byte": 512,
+   "sha256": "9e67f558ffca68f6f254484eefcbb579"
+  },
+  {
    "percorso": "icon/fulmine.svg",
    "byte": 418,
    "sha256": "d96db41a2a8c79f531d19b9ec6c70a91"
@@ -70,6 +90,11 @@
    "percorso": "icon/guanto.svg",
    "byte": 562,
    "sha256": "703a2b13176b420aed04f3900f7951be"
+  },
+  {
+   "percorso": "icon/impronta.svg",
+   "byte": 521,
+   "sha256": "50569c3518dbc6df06993095df6dd9d1"
   },
   {
    "percorso": "icon/lente.svg",
@@ -102,6 +127,11 @@
    "sha256": "02928b0cafa0bb7b13a7f20abb19e9b7"
   },
   {
+   "percorso": "icon/quadro.svg",
+   "byte": 471,
+   "sha256": "adf801c7821e11ea1dddb59fff9aff23"
+  },
+  {
    "percorso": "icon/scacchiera.svg",
    "byte": 521,
    "sha256": "59ffce820a8dafdaf7c73e96088180b0"
@@ -110,6 +140,11 @@
    "percorso": "icon/scala.svg",
    "byte": 498,
    "sha256": "8cf269d6842a1946f6045361edbd0fe5"
+  },
+  {
+   "percorso": "icon/scarpa.svg",
+   "byte": 519,
+   "sha256": "e302b4d5db71e064a88702c84e320a15"
   },
   {
    "percorso": "icon/sigillo.svg",
@@ -143,8 +178,8 @@
   },
   {
    "percorso": "icons.svg",
-   "byte": 5044,
-   "sha256": "7f16911bda8dfd4af39b62453726399e"
+   "byte": 8742,
+   "sha256": "6a542b85bdd784a3ffac35d50082cea3"
   },
   {
    "percorso": "logo-animato.svg",
@@ -3222,6 +3257,13 @@
   "guanto",
   "bobina",
   "scacchiera",
-  "tempesta"
+  "tempesta",
+  "busta",
+  "fotografia",
+  "boccetta",
+  "impronta",
+  "scarpa",
+  "quadro",
+  "filo"
  ]
 }

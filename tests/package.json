@@ -1,0 +1,16 @@
+{
+  "name": "@meridien/tests",
+  "version": "1.0.1",
+  "private": true,
+  "type": "module",
+  "description": "Test end-to-end e visual regression di MÉRIDIEN.",
+  "scripts": {
+    "test:e2e": "playwright test --project=partite",
+    "test:visual": "playwright test --project=visivi",
+    "test:visual:aggiorna": "playwright test --project=visivi --update-snapshots",
+    "test:all": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.1"
+  }
+}

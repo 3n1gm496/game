@@ -30,6 +30,17 @@ export function Apertura(): ReactNode {
   return (
     <div className="schermo apertura">
       <div className="apertura__cielo" aria-hidden="true" />
+      {/*
+        La facciata dell'albergo, in tre piani di profondità. Sono le stesse
+        immagini della scena di gioco, qui montate come semplici <img>: nessun
+        contesto WebGL prima del primo tocco, e la porta girevole si vede già
+        dal titolo.
+      */}
+      <div className="apertura__facciata" aria-hidden="true">
+        <img src="/assets/scene/facciata/layer-0.svg" alt="" className="apertura__strato apertura__strato--fondo" />
+        <img src="/assets/scene/facciata/layer-1.svg" alt="" className="apertura__strato apertura__strato--medio" />
+        <img src="/assets/scene/facciata/layer-2.svg" alt="" className="apertura__strato apertura__strato--fronte" />
+      </div>
       <div className="apertura__pioggia" aria-hidden="true" />
 
       <div className="apertura__centro">

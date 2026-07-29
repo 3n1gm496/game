@@ -76,7 +76,11 @@ body {
   overflow-y: auto;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
-  padding: var(--sp-4) var(--sp-4) var(--sp-6);
+  /*
+   * Lo spazio in fondo tiene conto della tastiera: senza, l'ultimo campo di
+   * un modulo resta sotto di essa e non c'è modo di raggiungerlo scorrendo.
+   */
+  padding: var(--sp-4) var(--sp-4) calc(var(--sp-6) + var(--tastiera, 0px));
   scrollbar-width: thin;
   scrollbar-color: var(--c-brass) transparent;
 }
@@ -102,10 +106,21 @@ body {
   position: sticky;
   bottom: 0;
   display: flex;
+  /*
+   * Su un telefono da 320 punti tre pulsanti affiancati non ci stanno: senza
+   * il ritorno a capo l'ultimo — che è sempre quello che conta, «Comincia» —
+   * finisce fuori dallo schermo.
+   */
+  flex-wrap: wrap;
   gap: var(--sp-2);
   padding: var(--sp-3) var(--sp-4) calc(var(--sp-3) + env(safe-area-inset-bottom));
   background: linear-gradient(to top, var(--c-ink) 62%, transparent);
   z-index: 5;
+}
+
+.barra-inferiore > * {
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 /* ── Tipografia ────────────────────────────────────────────────────────── */
@@ -174,6 +189,15 @@ p {
 }
 
 .carta {
+  /*
+   * Sulla carta si scrive in inchiostro.
+   *
+   * I componenti annidati — sommari, pillole, pulsanti fantasma — usano i token
+   * chiari pensati per il fondo notturno, e sul chiaro sparirebbero. Ridefinirli
+   * qui una volta sola li fa scurire tutti insieme, senza eccezioni sparse.
+   */
+  --c-ivory: #23201a;
+  --c-ivory-dim: #57503f;
   position: relative;
   background: linear-gradient(155deg, #f6efe0, #e4d9c2);
   color: #23201a;
@@ -277,6 +301,15 @@ p {
   width: 100%;
 }
 
+/* solo icona: quadrato, ma con l'area di tocco che serve su un telefono */
+.bottone--icona {
+  padding: 0;
+  width: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  flex: 0 0 auto;
+}
+
 .campo {
   width: 100%;
   min-height: 48px;
@@ -351,17 +384,23 @@ label {
 }
 
 .salta-al-contenuto {
+  /*
+   * Nascosto ma raggiungibile. Non si usa `left: -9999px`: quel trucco crea
+   * un'area di scorrimento fantasma che fa fallire i controlli sul debordo
+   * orizzontale — e su un telefono stretto si vede davvero.
+   */
   position: absolute;
-  left: -9999px;
   top: 0;
+  left: var(--sp-3);
   z-index: 100;
   padding: var(--sp-2) var(--sp-3);
   background: var(--c-brass);
   color: var(--c-ink);
+  transform: translateY(-150%);
+  transition: transform var(--motion-micro) var(--ease-micro);
 }
 .salta-al-contenuto:focus {
-  left: var(--sp-3);
-  top: calc(var(--sp-3) + env(safe-area-inset-top));
+  transform: translateY(calc(env(safe-area-inset-top) + var(--sp-2)));
 }
 
 .pillola {

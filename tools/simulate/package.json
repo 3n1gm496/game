@@ -1,6 +1,6 @@
 {
   "name": "@meridien/simulate",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "type": "module",
   "description": "Partite simulate con agenti deterministici, per verificare risolvibilità ed equità.",
