@@ -103,3 +103,17 @@ Stato aggiornato durante lo sviluppo. `✅` fatto · `🔄` in corso · `⬜` da
 - ✅ Osservazione diretta del gioco avviato: partita vera su quattro browser, schermate
       guardate una per una, difetti corretti (icone, contrasto sulla carta, avvisi
       invadenti, facciata inutilizzata, catalogo ripetuto sulla rete)
+
+
+## Fase 11 — Rifacimento grafico
+
+- ✅ Regola della luce e della gradazione fissate in `ART_DIRECTION.md`
+- ✅ Filtro di gradazione: aberrazione, contrasto, viraggio, vignettatura, grana
+- ✅ Aloni delle sorgenti luminose dichiarate in `scene.json`, finalmente disegnati
+- ✅ Facciata dell'albergo nell'apertura (l'asset esisteva e non lo usava nessuno)
+- ✅ Pipeline Blender: ambienti descritti in Python, render Cycles su CPU,
+      livelli di parallasse dalla profondità, hotspot proiettati dal 3D
+- ⏳ Messa a punto artistica dei quattordici ambienti (fatto: `hall`)
+- ⏳ Ritratti rifatti
+- ⏳ Particelle e filtri d'atmosfera
+- ⏳ Peso e prestazioni dopo il passaggio a immagini renderizzate

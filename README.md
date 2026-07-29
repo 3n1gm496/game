@@ -62,6 +62,7 @@ l'artefatto che va in produzione, e gira senza alcun servizio esterno.
 | `pnpm validate:cases` | i dieci controlli sui casi e sulle varianti |
 | `pnpm simulate` | partite simulate su ogni variante |
 | `pnpm generate:assets` | rigenera tutti gli asset grafici |
+| `pnpm render:scenes` | rende gli ambienti in Blender (opzionale, serve Blender) |
 | `pnpm verify` | lint + typecheck + test + validazione, in un colpo |
 | `pnpm deploy:preview` · `pnpm deploy:production` | build verificata e pubblicazione |
 | `pnpm ios:sync` · `pnpm ios:build` | wrapper iOS |

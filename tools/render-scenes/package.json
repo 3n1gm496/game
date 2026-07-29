@@ -1,0 +1,10 @@
+{
+  "name": "@meridien/render-scenes",
+  "version": "1.0.1",
+  "private": true,
+  "type": "module",
+  "description": "Rende gli ambienti del Méridien in Blender: geometria descritta in Python, luci vere, livelli di parallasse dalla profondità.",
+  "scripts": {
+    "start": "node src/index.mjs"
+  }
+}

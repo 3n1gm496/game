@@ -32,6 +32,7 @@
     "validate:cases": "pnpm --filter @meridien/validate-cases run start",
     "simulate": "pnpm --filter @meridien/simulate run start",
     "generate:assets": "pnpm --filter @meridien/generate-assets run start",
+    "render:scenes": "pnpm --filter @meridien/render-scenes run start",
     "deploy:preview": "node scripts/deploy.mjs preview",
     "deploy:production": "node scripts/deploy.mjs production",
     "ios:sync": "pnpm build:web && npx cap sync ios",

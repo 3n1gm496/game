@@ -1,4 +1,4 @@
-import { Application, Assets, Container, Graphics, Sprite, type Texture } from 'pixi.js';
+import { Application, Assets, Container, Graphics, Sprite, Texture, type TextureSource } from 'pixi.js';
 /*
  * Pixi genera i programmi degli shader con `new Function`, che la nostra
  * Content Security Policy vieta: nessun `unsafe-eval`, in nessuna forma.
@@ -8,6 +8,7 @@ import { Application, Assets, Container, Graphics, Sprite, type Texture } from '
  */
 import 'pixi.js/unsafe-eval';
 import type { QualityLevel } from '../store/settings.js';
+import { Gradazione, type OpzioniGradazione } from './gradazione.js';
 
 /**
  * Renderer 2.5D.
@@ -44,7 +45,16 @@ export interface SceneManifest {
   altezza: number;
   atmosfera?: { pioggia: boolean; nebbia: number; grana: number; dominante: string };
   layer: { file: string; profondita: number; parallasse: number; ruolo: string }[];
-  luci?: { chiave: string; x: number; y: number; raggio: number; colore: string; intensita: number }[];
+  luci?: {
+    chiave: string;
+    x: number;
+    y: number;
+    raggio: number;
+    colore: string;
+    intensita: number;
+    /** millisecondi di un respiro completo; 0 = luce ferma */
+    pulsazione?: number;
+  }[];
   hotspot: SceneHotspot[];
 }
 
@@ -56,11 +66,60 @@ export interface RendererOptions {
 
 const RAIN_COUNT: Record<QualityLevel, number> = { alta: 220, media: 90, bassa: 0 };
 
+/**
+ * La gradazione per livello di qualità.
+ *
+ * Sul livello basso non viene applicata affatto: un passaggio a schermo intero
+ * su un telefono lento costa più di quanto renda, e il gioco deve restare
+ * giocabile prima che bello.
+ */
+const GRADAZIONE: Record<QualityLevel, OpzioniGradazione | null> = {
+  alta: { grana: 0.055, vignetta: 0.42, aberrazione: 0.0034, forza: 0.85, saturazione: 1.03 },
+  media: { grana: 0.038, vignetta: 0.36, aberrazione: 0.0018, forza: 0.78, saturazione: 1.0 },
+  bassa: null,
+};
+
+/** Alone di luce: bianco al centro, trasparente al bordo, caduta morbida. */
+function alone(): TextureSource {
+  const lato = 256;
+  const tela = document.createElement('canvas');
+  tela.width = lato;
+  tela.height = lato;
+  const ctx = tela.getContext('2d');
+  if (ctx) {
+    const g = ctx.createRadialGradient(lato / 2, lato / 2, 0, lato / 2, lato / 2, lato / 2);
+    /*
+     * Una caduta lineare produce un disco con il bordo visibile. Questi punti
+     * disegnano una curva più vicina a come si spegne una lampadina vera:
+     * ripida vicino alla sorgente, lunghissima in periferia.
+     */
+    g.addColorStop(0, 'rgba(255,255,255,1)');
+    g.addColorStop(0.18, 'rgba(255,255,255,0.62)');
+    g.addColorStop(0.42, 'rgba(255,255,255,0.24)');
+    g.addColorStop(0.72, 'rgba(255,255,255,0.06)');
+    g.addColorStop(1, 'rgba(255,255,255,0)');
+    ctx.fillStyle = g;
+    ctx.fillRect(0, 0, lato, lato);
+  }
+  return Texture.from(tela).source;
+}
+
+function tinta(colore: string): number {
+  const pulito = colore.replace('#', '');
+  const n = Number.parseInt(pulito.length === 3 ? pulito.replace(/./g, '$&$&') : pulito, 16);
+  return Number.isFinite(n) ? n : 0xffffff;
+}
+
 export class SceneRenderer {
   private app: Application | null = null;
   private world = new Container();
+  private lucine = new Container();
   private weather = new Container();
   private layers: { sprite: Sprite; parallax: number }[] = [];
+  private fari: { sprite: Sprite; base: number; pulsazione: number; fase: number }[] = [];
+  private aloneSorgente: TextureSource | null = null;
+  private gradazione: Gradazione | null = null;
+  private manifesto: SceneManifest | null = null;
   private drops: { g: Graphics; speed: number; len: number }[] = [];
   private quality: QualityLevel;
   private reducedMotion: boolean;
@@ -101,16 +160,46 @@ export class SceneRenderer {
     app.canvas.style.height = '100%';
     this.options.container.appendChild(app.canvas);
     app.stage.addChild(this.world);
+    app.stage.addChild(this.lucine);
     app.stage.addChild(this.weather);
+    this.applicaGradazione();
 
     this.tickerFn = () => this.frame();
     app.ticker.add(this.tickerFn);
+  }
+
+  /**
+   * Applica — o toglie — la gradazione all'intera scena.
+   *
+   * Il filtro sta sullo stage e non sui singoli livelli: pioggia e aloni
+   * devono passare dalla stessa curva del fondale, altrimenti si vedrebbe che
+   * sono stati aggiunti dopo.
+   */
+  private applicaGradazione(): void {
+    if (!this.app) return;
+    const opzioni = GRADAZIONE[this.quality];
+
+    if (!opzioni) {
+      this.app.stage.filters = [];
+      this.gradazione?.distruggi();
+      this.gradazione = null;
+      return;
+    }
+
+    if (!this.gradazione) {
+      this.gradazione = new Gradazione(opzioni);
+      this.app.stage.filters = [this.gradazione.filtro];
+    } else {
+      this.gradazione.regola(opzioni);
+    }
+    this.gradazione.proporzione(this.app.screen.width, this.app.screen.height);
   }
 
   /** Carica una scena e sostituisce quella corrente, liberando le texture. */
   async swap(manifest: SceneManifest, baseUrl: string): Promise<void> {
     if (!this.app || this.destroyed) return;
     this.clearLayers();
+    this.manifesto = manifest;
     this.pioggiaAttiva = manifest.atmosfera?.pioggia !== false;
 
     for (const layer of manifest.layer) {
@@ -131,8 +220,62 @@ export class SceneRenderer {
       this.layers.push({ sprite, parallax: layer.parallasse });
     }
 
+    this.costruisciLuci(manifest);
     this.buildWeather();
     this.layout();
+  }
+
+  /**
+   * Gli aloni delle sorgenti luminose.
+   *
+   * Ogni scena dichiara le proprie luci in `scene.json` — l'insegna, la
+   * pensilina, il faro lontano — con posizione, raggio, colore e respiro. Erano
+   * lì dall'inizio e nessuno le disegnava: la scena restava illuminata in modo
+   * uniforme, che è esattamente ciò che nessun ambiente reale è.
+   *
+   * Sono sprite in somma additiva: la luce si aggiunge a ciò che c'è sotto,
+   * come farebbe davvero, invece di coprirlo.
+   */
+  private costruisciLuci(manifest: SceneManifest): void {
+    if (!this.app || this.quality === 'bassa') return;
+    const sorgenti = manifest.luci ?? [];
+    if (sorgenti.length === 0) return;
+
+    this.aloneSorgente ??= alone();
+
+    for (const luce of sorgenti) {
+      const sprite = new Sprite(new Texture({ source: this.aloneSorgente }));
+      sprite.anchor.set(0.5);
+      sprite.blendMode = 'add';
+      sprite.tint = tinta(luce.colore);
+      sprite.alpha = luce.intensita;
+      sprite.label = luce.chiave;
+      this.lucine.addChild(sprite);
+      this.fari.push({
+        sprite,
+        base: luce.intensita,
+        pulsazione: this.reducedMotion ? 0 : (luce.pulsazione ?? 0),
+        // fasi diverse: due luci che respirano all'unisono sembrano un errore
+        fase: Math.random() * Math.PI * 2,
+      });
+    }
+    this.disponiLuci(manifest);
+  }
+
+  private disponiLuci(manifest: SceneManifest): void {
+    if (!this.app) return;
+    const { width, height } = this.app.screen;
+    const sorgenti = manifest.luci ?? [];
+    this.fari.forEach((faro, i) => {
+      const luce = sorgenti[i];
+      if (!luce) return;
+      faro.sprite.x = (luce.x / 100) * width;
+      faro.sprite.y = (luce.y / 100) * height;
+      // il raggio è in percentuale del lato minore, come nella scena originale
+      const diametro = (luce.raggio / 100) * Math.min(width, height) * 4;
+      faro.sprite.width = diametro;
+      faro.sprite.height = diametro;
+    });
   }
 
   private clearLayers(): void {
@@ -141,6 +284,12 @@ export class SceneRenderer {
       sprite.destroy({ children: true, texture: false });
     }
     this.layers = [];
+    for (const { sprite } of this.fari) {
+      sprite.parent?.removeChild(sprite);
+      sprite.destroy({ texture: false });
+    }
+    this.fari = [];
+    this.lucine.removeChildren();
     for (const drop of this.drops) {
       drop.g.parent?.removeChild(drop.g);
       drop.g.destroy();
@@ -193,6 +342,19 @@ export class SceneRenderer {
     this.drops = [];
     this.weather.removeChildren();
     this.buildWeather();
+    this.applicaGradazione();
+
+    // gli aloni dipendono dalla qualità e dal movimento: si rifanno
+    for (const { sprite } of this.fari) {
+      sprite.parent?.removeChild(sprite);
+      sprite.destroy({ texture: false });
+    }
+    this.fari = [];
+    this.lucine.removeChildren();
+    if (this.manifesto) {
+      this.costruisciLuci(this.manifesto);
+      this.layout();
+    }
   }
 
   resize(): void {
@@ -212,11 +374,28 @@ export class SceneRenderer {
       sprite.x = width / 2;
       sprite.y = height / 2;
     }
+    if (this.manifesto) this.disponiLuci(this.manifesto);
+    this.gradazione?.proporzione(width, height);
   }
 
   private frame(): void {
     if (!this.app) return;
     const { width, height } = this.app.screen;
+    const deltaMs = this.app.ticker.deltaMS;
+
+    /*
+     * La grana avanza anche a movimento ridotto: non è movimento, è la
+     * superficie della pellicola. Quello che si ferma è il respiro delle luci,
+     * che invece è animazione a tutti gli effetti.
+     */
+    this.gradazione?.avanza(deltaMs);
+
+    for (const faro of this.fari) {
+      if (faro.pulsazione <= 0) continue;
+      faro.fase += (deltaMs / faro.pulsazione) * Math.PI * 2;
+      // respiro contenuto: una luce che lampeggia distrae, una che palpita vive
+      faro.sprite.alpha = faro.base * (0.86 + 0.14 * Math.sin(faro.fase));
+    }
 
     if (!this.reducedMotion) {
       this.offsetX += (this.targetX - this.offsetX) * 0.06;
@@ -241,6 +420,11 @@ export class SceneRenderer {
   destroy(): void {
     this.destroyed = true;
     this.clearLayers();
+    this.manifesto = null;
+    this.gradazione?.distruggi();
+    this.gradazione = null;
+    this.aloneSorgente?.destroy();
+    this.aloneSorgente = null;
     if (this.app) {
       if (this.tickerFn) this.app.ticker.remove(this.tickerFn);
       this.app.destroy(true, { children: true, texture: true });

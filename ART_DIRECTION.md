@@ -29,6 +29,30 @@ contro pioggia blu. Nessun horror, nessun gore: il delitto è un'assenza elegant
 **Regola 60/30/10**: 60 % notte/petrolio, 30 % avorio/marmo, 10 % ottone + lacca.
 La lacca è riservata a ciò che è **irreversibile** (accusa, verdetto, tempo scaduto).
 
+### 2.1 La regola della luce
+
+**Una sola sorgente calda domina ogni scena; tutto il resto è riflesso freddo.**
+
+Non è un'indicazione di gusto, è una legge applicata due volte. In Blender ogni
+ambiente ha una luce chiave ambrata — una lampada, un lampadario, un'insegna —
+e sorgenti di riempimento fredde molto più deboli, che vengono dalla pioggia o
+dal mare. Nel gioco il filtro di gradazione la ripete in numeri: le ombre
+scivolano verso il blu (`0.84 · 0.94 · 1.20`), le luci verso l'ambra
+(`1.16 · 1.03 · 0.79`), interpolando sulla luminanza del pixel.
+
+I colori della palette valgono per le **superfici**. Usati tali e quali come
+colore di una lampada danno un giallo al neon: le sorgenti li miscelano verso il
+bianco al 58 %, che è quanto basta perché una lampadina sembri una lampadina.
+
+### 2.2 La gradazione
+
+Nessuna immagine arriva allo schermo come è stata disegnata. Un solo passaggio
+(`apps/web/src/scene/gradazione.ts`) applica, nell'ordine della luce vera:
+aberrazione cromatica crescente ai bordi, curva di contrasto a S, viraggio
+separato fra ombre e luci, saturazione governata, vignettatura ellittica, grana
+a quattordici scatti al secondo. Sul livello di qualità basso non viene
+applicato: il gioco deve restare giocabile prima che bello.
+
 Modalità **alto contrasto**: `--ivory` → `#FFFFFF`, `--night` → `#000000`, ottone → `#FFD24A`,
 bordi portati a 2 px, texture disattivate, opacità minima 0.92 su ogni testo.
 
@@ -94,9 +118,18 @@ Undici scene, tutte a 3–5 livelli di profondità:
 | Passaggi di servizio | Tubi, luce verde d'emergenza, scala a chiocciola |
 | Sala macchine / quadro elettrico | Leve, contatori, ombra lunga |
 
-**Presentazione 2.5D**: 4 layer con parallasse (`0.15 · 0.4 · 1.0 · 1.6`), luce volumetrica in
-overlay, pioggia in particelle (WebGL), riflessi su marmo tramite maschera speculare, nebbia
-discreta a bassa opacità, grana di carta su tutto (blend `soft-light`, 6 %).
+**Presentazione 2.5D**: livelli con parallasse (`0.15 · 0.4 · 1.0 · 1.6`), aloni di luce in somma
+additiva ricavati dalle sorgenti dichiarate in `scene.json`, pioggia in particelle (WebGL), nebbia
+discreta, grana di carta su tutto.
+
+**Come nascono gli ambienti.** Gli SVG disegnati sono il ripiego che rende il gioco completo senza
+strumenti esterni. La resa vera arriva da `pnpm render:scenes`: le stanze sono **descritte in
+Python** (`tools/render-scenes/blender/ambienti.py`) — dimensioni, materiali procedurali, arredi,
+luci — e rese da Cycles su CPU con luci fisiche e ombre vere. Da un solo render si ricavano i
+livelli di parallasse tagliando sul passaggio di profondità, e le posizioni degli hotspot
+**proiettando i punti 3D** nella vista della camera: non si scrivono più percentuali a mano, e
+spostare un mobile aggiorna il suo punto da solo. Nessuna texture fotografica, nessun asset di
+terzi: i materiali sono rumore, onde e voronoi.
 
 ## 7. Movimento
 
