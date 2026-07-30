@@ -24,6 +24,14 @@ def guscio(m, larghezza=9.0, profondita=7.6, altezza=4.6, pavimento=None, pareti
         pareti or m.materiale_intonaco(tinta="night"),
         soffitto or m.materiale_intonaco("soffitto", tinta="ink", ruvidita=0.95),
     )
+    # Velatura sul cornicione.
+    #
+    # Il nero nella parte alta dell'inquadratura non è atmosfera: è una parete
+    # che nessuno illumina. Una sorgente larga e debole rivolta in su stacca il
+    # soffitto dal muro e dà alla stanza un'altezza che prima non aveva. Costa
+    # poco perché non genera ombre nette.
+    m.luce_area("velatura", (0, 0.2, altezza - 0.4), 165, max(larghezza, profondita) * 0.8,
+                "ivory_dim", (math.pi, 0, 0))
     return pezzi
 
 
@@ -121,14 +129,14 @@ def hall(m):
     legno = m.materiale_legno(tinta="plum")
     guscio(
         m, L, P, H,
-        pavimento=m.materiale_scacchiera(scala=5.0),
+        pavimento=m.materiale_scacchiera(scala=2.21),
         pareti=m.materiale_intonaco(tinta="petrol", ruvidita=0.7),
     )
     cornicione(m, L, P, H, ottone)
 
     # bancone della portineria
     m.blocco("bancone", (0, P / 2 - 2.2, 0.55), (5.2, 0.8, 1.1), legno)
-    m.blocco("piano_bancone", (0, P / 2 - 2.2, 1.13), (5.5, 0.95, 0.07), m.materiale_marmo("piano", "marble", "plum", 3.0))
+    m.blocco("piano_bancone", (0, P / 2 - 2.2, 1.13), (5.5, 0.95, 0.07), m.materiale_marmo("piano", "marble", "plum", 1.02))
     m.blocco("zoccolo_ottone", (0, P / 2 - 2.62, 0.12), (5.2, 0.04, 0.24), ottone)
 
     # quadro delle chiavi: griglia di caselle, ognuna con la sua ombra
@@ -152,11 +160,11 @@ def hall(m):
         m.blocco(f"lancetta_{i}", (x + math.cos(ang) * 0.09, P / 2 - 0.28, 3.95 + math.sin(ang) * 0.09),
                  (0.19, 0.01, 0.015), m.materiale_tinta_piatta(f"ago{i}", "ink", 0.5), (0, ang, 0))
 
-    colonne(m, 2, L, P, H, m.materiale_marmo("colonna", "marble", "ink", 2.0), 0.9)
+    colonne(m, 2, L, P, H, m.materiale_marmo("colonna", "marble", "ink", 0.68), 0.9)
 
     # tappeto rosso e valigie
     m.blocco("tappeto", (0, -0.6, 0.012), (2.4, 5.4, 0.02), m.materiale_velluto("tappeto", "lacquer_deep"))
-    valigia = m.materiale_legno("cuoio", tinta="lacquer_deep", scala=8.0)
+    valigia = m.materiale_legno("cuoio", tinta="lacquer_deep", scala=4.24)
     m.blocco("valigia_1", (2.6, 0.4, 0.22), (0.72, 0.34, 0.44), valigia)
     m.blocco("valigia_2", (2.72, 0.25, 0.62), (0.6, 0.3, 0.36), valigia)
     m.blocco("campanello", (-2.2, P / 2 - 2.55, 1.22), (0.14, 0.14, 0.1), ottone)
@@ -217,13 +225,13 @@ def sala_ballo(m):
     ottone = m.materiale_ottone()
     guscio(
         m, L, P, H,
-        pavimento=m.materiale_legno("parquet", tinta="plum", scala=9.0),
+        pavimento=m.materiale_legno("parquet", tinta="plum", scala=4.77),
         pareti=m.materiale_intonaco(tinta="plum", ruvidita=0.75),
     )
     cornicione(m, L, P, H, ottone)
 
     # palco in fondo, con tendaggio
-    m.blocco("palco", (0, P / 2 - 1.4, 0.35), (7.0, 2.6, 0.7), m.materiale_legno("assi", tinta="plum", scala=14.0))
+    m.blocco("palco", (0, P / 2 - 1.4, 0.35), (7.0, 2.6, 0.7), m.materiale_legno("assi", tinta="plum", scala=7.42))
     velluto = m.materiale_velluto("sipario", "lacquer_deep")
     for i in range(9):
         x = -3.6 + i * 0.9
@@ -240,10 +248,10 @@ def sala_ballo(m):
             m.sfera(f"goccia_{anello}_{i}", (math.cos(a) * raggio, -0.4 + math.sin(a) * raggio, quota - 0.22), 0.075,
                     luce_mat if i % 2 == 0 else vetro)
 
-    colonne(m, 4, L, P, H, m.materiale_marmo("colonna", "marble", "plum", 2.0), 1.0)
+    colonne(m, 4, L, P, H, m.materiale_marmo("colonna", "marble", "plum", 0.68), 1.0)
 
     # tavolini e coppe
-    marmo = m.materiale_marmo("tavolo", "marble", "ink", 4.0)
+    marmo = m.materiale_marmo("tavolo", "marble", "ink", 1.36)
     for i, (x, y) in enumerate([(-4.1, -1.4), (4.1, -1.2), (-3.6, 1.6), (3.8, 1.8)]):
         m.cilindro(f"tavolo_{i}", (x, y, 0.72), 0.46, 0.06, marmo)
         m.cilindro(f"gamba_{i}", (x, y, 0.36), 0.06, 0.72, ottone)
@@ -263,7 +271,7 @@ def sala_ballo(m):
 
     p_porta = pt(-0.82, 0.02, 8.6)
     m.blocco("porta_servizio", (p_porta[0], p_porta[1], 1.25), (1.1, 0.18, 2.5),
-             m.materiale_legno("porta_ballo", tinta="plum", scala=6.0))
+             m.materiale_legno("porta_ballo", tinta="plum", scala=3.18))
 
     p_tavolo = pt(-0.6, 0.42, 6.4)
     m.cilindro("tavolo_vicino", (p_tavolo[0], p_tavolo[1], 0.74), 0.48, 0.06, marmo)
@@ -298,7 +306,7 @@ def suite(m):
     P = 7.2
     L, H = misure_inquadratura(P, lente=40.0, altezza_occhi=1.7)
     ottone = m.materiale_ottone()
-    legno = m.materiale_legno(tinta="plum", scala=5.0)
+    legno = m.materiale_legno(tinta="plum", scala=2.65)
     guscio(
         m, L, P, H,
         pavimento=m.materiale_velluto("moquette", "plum"),
@@ -399,7 +407,7 @@ def terrazza(m):
     m.piano("mare", (0, 26, -1.6), (90, 60), mare)
 
     # ringhiera
-    m.blocco("parapetto", (0, P / 2 - 0.2, 0.5), (L, 0.28, 1.0), m.materiale_marmo("parapetto", "marble", "ink", 3.0))
+    m.blocco("parapetto", (0, P / 2 - 0.2, 0.5), (L, 0.28, 1.0), m.materiale_marmo("parapetto", "marble", "ink", 1.02))
     m.blocco("corrimano", (0, P / 2 - 0.2, 1.06), (L, 0.36, 0.08), ottone)
     for i in range(18):
         x = -L / 2 + 0.5 + i * (L - 1.0) / 17
@@ -411,7 +419,7 @@ def terrazza(m):
 
     # vasi e sedute
     for i, x in enumerate((-4.6, 4.6)):
-        m.cilindro(f"vaso_{i}", (x, P / 2 - 1.8, 0.35), 0.5, 0.7, m.materiale_marmo(f"vaso{i}", "marble", "petrol", 4.0))
+        m.cilindro(f"vaso_{i}", (x, P / 2 - 1.8, 0.35), 0.5, 0.7, m.materiale_marmo(f"vaso{i}", "marble", "petrol", 1.36))
         for f in range(7):
             a = (f / 7) * math.tau
             m.cilindro(f"foglia_{i}_{f}", (x + math.cos(a) * 0.3, P / 2 - 1.8 + math.sin(a) * 0.3, 1.25),
@@ -443,7 +451,7 @@ def terrazza(m):
 
     p_tavolo = pt(-0.34, 0.3, 6.8)
     m.blocco("tavolino", (p_tavolo[0], p_tavolo[1], 0.7), (1.1, 1.1, 0.06),
-             m.materiale_marmo("tavolino", "marble", "ink", 3.0))
+             m.materiale_marmo("tavolino", "marble", "ink", 1.02))
     m.cilindro("piede", (p_tavolo[0], p_tavolo[1], 0.35), 0.09, 0.7, ottone)
     p_bicchieri = (p_tavolo[0] - 0.2, p_tavolo[1] + 0.1, 0.82)
     m.cilindro("calice", p_bicchieri, 0.05, 0.18, m.materiale_vetro())
@@ -526,7 +534,7 @@ def piscina(m):
 
     p_consegna = pt(-0.62, 0.2, 7.0)
     m.blocco("cesta_bordo", (p_consegna[0], p_consegna[1], 0.3), (0.7, 0.7, 0.6),
-             m.materiale_legno("vimini_bordo", tinta="brass", scala=18.0))
+             m.materiale_legno("vimini_bordo", tinta="brass", scala=9.54))
 
     cam = sguardo(m, P, 1.76, 32.0, 1.0)
     return cam, {
@@ -571,7 +579,7 @@ def cucina(m):
     # cassette e bottiglie
     for i in range(4):
         m.blocco(f"cassetta_{i}", (-3.6, -2.2 + i * 0.1, 0.2 + i * 0.34), (0.7, 0.5, 0.32),
-                 m.materiale_legno(f"cassa{i}", tinta="plum", scala=12.0))
+                 m.materiale_legno(f"cassa{i}", tinta="plum", scala=6.36))
     vetro = m.materiale_vetro()
     for i in range(6):
         m.cilindro(f"bottiglia_{i}", (-1.6 + i * 0.3, -0.6, 1.12), 0.045, 0.32, vetro, lati=14)
@@ -620,7 +628,7 @@ def corridoio(m):
            pavimento=m.materiale_scacchiera("rombi", "lacquer_deep", "plum", 9.0),
            pareti=m.materiale_intonaco(tinta="plum", ruvidita=0.8))
 
-    legno = m.materiale_legno("porta", tinta="plum", scala=6.0)
+    legno = m.materiale_legno("porta", tinta="plum", scala=3.18)
     numero = m.materiale_tinta_piatta("numero", "brass_soft", 0.3, 1.0)
     for i in range(6):
         y = -P / 2 + 2.4 + i * 2.5
@@ -682,9 +690,9 @@ def camerino(m):
     P = 6.2
     L, H = misure_inquadratura(P, lente=45.0, altezza_occhi=1.66)
     ottone = m.materiale_ottone()
-    legno = m.materiale_legno(tinta="plum", scala=5.0)
+    legno = m.materiale_legno(tinta="plum", scala=2.65)
     guscio(m, L, P, H,
-           pavimento=m.materiale_legno("assito", tinta="plum", scala=11.0),
+           pavimento=m.materiale_legno("assito", tinta="plum", scala=5.83),
            pareti=m.materiale_intonaco(tinta="petrol", ruvidita=0.8))
 
     # specchio con le lampadine
@@ -901,14 +909,14 @@ def bar(m):
     P = 6.8
     L, H = misure_inquadratura(P, lente=38.0, altezza_occhi=1.7)
     ottone = m.materiale_ottone()
-    legno = m.materiale_legno("noce", tinta="plum", scala=4.0)
+    legno = m.materiale_legno("noce", tinta="plum", scala=2.12)
     guscio(m, L, P, H,
            pavimento=m.materiale_scacchiera("pavimento_bar", "ink", "plum", 7.0),
            pareti=m.materiale_velluto("parete_bar", "lacquer_deep"))
 
     # bancone
     m.blocco("bancone", (0, 0.9, 0.58), (6.2, 0.9, 1.16), legno)
-    m.blocco("piano", (0, 0.9, 1.19), (6.5, 1.1, 0.07), m.materiale_marmo("piano_bar", "ink", "marble", 3.0))
+    m.blocco("piano", (0, 0.9, 1.19), (6.5, 1.1, 0.07), m.materiale_marmo("piano_bar", "ink", "marble", 1.02))
     m.blocco("poggiapiedi", (0, 0.3, 0.22), (6.2, 0.06, 0.06), ottone)
 
     # scaffale delle bottiglie, retroilluminato
@@ -947,7 +955,7 @@ def bar(m):
 
     p_tavolo = pt(-0.56, 0.3, 6.4)
     m.cilindro("tavolino_bar", (p_tavolo[0], p_tavolo[1], 0.7), 0.42, 0.06,
-               m.materiale_marmo("tav_bar", "marble", "ink", 3.0))
+               m.materiale_marmo("tav_bar", "marble", "ink", 1.02))
     m.cilindro("piede_bar", (p_tavolo[0], p_tavolo[1], 0.35), 0.06, 0.7, ottone)
     p_oggetto = (p_tavolo[0] + 0.15, p_tavolo[1], 0.75)
     m.blocco("chiave_bar", p_oggetto, (0.11, 0.03, 0.02), ottone, (0, 0, 0.4))
@@ -976,7 +984,7 @@ def palco(m):
     L, H = misure_inquadratura(P, lente=32.0, altezza_occhi=1.72)
     ottone = m.materiale_ottone()
     guscio(m, L, P, H,
-           pavimento=m.materiale_legno("assito_palco", tinta="plum", scala=16.0),
+           pavimento=m.materiale_legno("assito_palco", tinta="plum", scala=8.48),
            pareti=m.materiale_intonaco(tinta="ink", ruvidita=0.9))
 
     # sipario aperto ai lati
@@ -1011,11 +1019,11 @@ def palco(m):
 
     p_porta = pt(-0.78, 0.0, 7.6)
     m.blocco("porta_scena", (p_porta[0], p_porta[1], 1.2), (1.0, 0.16, 2.4),
-             m.materiale_legno("porta_palco", tinta="plum", scala=6.0))
+             m.materiale_legno("porta_palco", tinta="plum", scala=3.18))
 
     p_tavolo = pt(0.62, 0.34, 6.4)
     m.blocco("tavolino_quinta", (p_tavolo[0], p_tavolo[1], 0.72), (0.9, 0.6, 0.06),
-             m.materiale_legno("tav_quinta", tinta="plum", scala=8.0))
+             m.materiale_legno("tav_quinta", tinta="plum", scala=4.24))
     for sx in (-0.38, 0.38):
         m.cilindro(f"gamba_q{sx}", (p_tavolo[0] + sx, p_tavolo[1], 0.36), 0.04, 0.72, ottone)
     p_bicchieri = (p_tavolo[0] - 0.1, p_tavolo[1] + 0.05, 0.86)
@@ -1023,7 +1031,7 @@ def palco(m):
 
     p_consegna = pt(-0.34, 0.36, 6.0)
     m.blocco("cassa_scena", (p_consegna[0], p_consegna[1], 0.26), (0.8, 0.5, 0.52),
-             m.materiale_legno("cassa_scena", tinta="plum", scala=14.0))
+             m.materiale_legno("cassa_scena", tinta="plum", scala=7.42))
 
     p_oggetto = pt(0.1, 0.12, 7.4)
     m.blocco("guanto_palco", (p_oggetto[0], p_oggetto[1], 0.03), (0.2, 0.09, 0.03),
@@ -1047,7 +1055,7 @@ def registrazione(m):
     P = 6.6
     L, H = misure_inquadratura(P, lente=42.0, altezza_occhi=1.68)
     acciaio = m.materiale_acciaio()
-    legno = m.materiale_legno("compensato", tinta="plum", scala=7.0)
+    legno = m.materiale_legno("compensato", tinta="plum", scala=3.71)
     guscio(m, L, P, H,
            pavimento=m.materiale_velluto("moquette_studio", "ink"),
            pareti=m.materiale_intonaco(tinta="plum", ruvidita=0.9))
@@ -1136,17 +1144,28 @@ def registrazione(m):
 def facciata(m):
     """L'unico esterno: notte, pioggia, e l'albergo che aspetta."""
     scena = m.bpy.context.scene
-    m.cielo(scena, "night", 0.25)
+    """
+    Un esterno di notte non si illumina come un interno.
+
+    In una stanza c'è una lampada e il resto è riflesso; sotto un temporale la
+    sorgente principale è **il cielo**, enorme e diffuso, e le lampade sono
+    punti che si vedono ma illuminano poco. Con l'ambiente da interno la
+    facciata restava nera e l'unica area luminosa era la macchia dell'insegna
+    sparata a un metro dal muro.
+    """
+    m.cielo(scena, "rain", 1.1)
     ottone = m.materiale_ottone()
-    marmo = m.materiale_marmo("facciata", "marble", "ink", 1.2)
+    # pietra fine: a ventisei metri di facciata una venatura larga diventa una
+    # pelliccia di macchie. Qui serve grana, non marmo di Carrara.
+    marmo = m.materiale_marmo("facciata", "marble", "ink", 2.4)
 
     # strada bagnata: quasi uno specchio
     m.piano("strada", (0, 0, 0), (60, 40), m.materiale_tinta_piatta("asfalto_bagnato", "ink", 0.09))
-    m.blocco("marciapiede", (0, 6.0, 0.09), (34, 5.0, 0.18), m.materiale_marmo("lastre", "marble", "ink", 3.0))
+    m.blocco("marciapiede", (0, 6.0, 0.09), (34, 5.0, 0.18), m.materiale_marmo("lastre", "marble", "ink", 1.02))
 
     # corpo dell'albergo
     m.blocco("corpo", (0, 12.0, 9.0), (26.0, 9.0, 18.0), marmo)
-    m.blocco("basamento", (0, 7.4, 1.6), (26.0, 0.6, 3.2), m.materiale_marmo("basamento", "marble", "plum", 2.0))
+    m.blocco("basamento", (0, 7.4, 1.6), (26.0, 0.6, 3.2), m.materiale_marmo("basamento", "marble", "plum", 0.68))
 
     # finestre illuminate, a scacchiera irregolare
     caldo = m.materiale_emissivo("finestra_accesa", "brass_soft", 2.6)
@@ -1175,15 +1194,15 @@ def facciata(m):
     m.blocco("cornice_insegna", (0, 7.08, 13.6), (10.7, 0.06, 1.55), ottone)
 
     # un ombrello rovesciato sull'asfalto: l'oggetto fuori posto
-    p_ombrello = punto_schermo(0.2, -0.06, 19.6, 0.0, 34.0, da=(0, -13.5, 4.3), verso=(0, 7.0, 5.4))
+    p_ombrello = punto_schermo(0.16, 0.16, 33.0, 0.0, 34.0, da=(0, -27.0, 7.2), verso=(0, 7.0, 9.0))
     m.blocco("ombrello", (p_ombrello[0], p_ombrello[1], 0.06), (0.9, 0.34, 0.12),
              m.materiale_tinta_piatta("ombrello_fac", "ink", 0.5), (0, 0, 0.7))
     m.cilindro("manico_ombrello", (p_ombrello[0] + 0.6, p_ombrello[1], 0.06), 0.025, 0.5,
-               m.materiale_legno("manico", tinta="plum", scala=20.0), (0, math.pi / 2, 0))
+               m.materiale_legno("manico", tinta="plum", scala=10.6), (0, math.pi / 2, 0))
 
     # palme piegate dal vento
     for i, x in enumerate((-12.5, 12.5, -15.5)):
-        m.cilindro(f"tronco_{i}", (x, 4.0, 2.6), 0.22, 5.2, m.materiale_legno(f"tronco{i}", tinta="plum", scala=20.0),
+        m.cilindro(f"tronco_{i}", (x, 4.0, 2.6), 0.22, 5.2, m.materiale_legno(f"tronco{i}", tinta="plum", scala=10.6),
                    (0.16, 0, 0))
         for f in range(7):
             a = (f / 7) * math.tau
@@ -1198,33 +1217,40 @@ def facciata(m):
         m.cilindro(f"ruota_{wx}_{wy}", (wx, wy, 0.34), 0.34, 0.22, m.materiale_tinta_piatta(f"gom{wx}{wy}", "ink", 0.8),
                    (0, math.pi / 2, 0), lati=20)
 
-    # luci: l'insegna domina, la pensilina raccoglie, il faro pulsa in fondo
-    m.luce_area("insegna", (0, 6.4, 13.6), 812, 8.0, "brass_soft", (math.pi / 2, 0, 0))
-    m.luce_area("pensilina", (0, 5.4, 3.7), 281, 5.0, "brass", (math.pi, 0, 0))
-    m.luce_area("cielo", (0, -12.0, 22.0), 219, 40.0, "rain", (math.pi / 3.2, 0, 0))
-    m.luce_punto("faro_lontano", (-26.0, 34.0, 12.0), 938, "rain", 2.0)
+    # Luci: il cielo del temporale fa il lavoro grosso, le lampade fanno i punti.
+    # L'insegna resta un'emissione che si vede, non un proiettore sul muro.
+    m.luce_area("temporale", (0, -20.0, 34.0), 1600, 60.0, "rain", (math.pi / 3.6, 0, 0))
+    # L'insegna non ha una propria luce d'area.
+    #
+    # Una sorgente larga a tre metri dal muro non fa un'insegna: fa un
+    # rettangolo di parete illuminata, con i bordi netti, e si vedeva. Il neon è
+    # una superficie emissiva — si vede da sé — e il bagliore attorno lo mette
+    # il gioco, con l'alone additivo che ha per ogni sorgente dichiarata.
+    m.luce_area("pensilina", (0, 5.2, 3.6), 190, 6.0, "brass", (math.pi, 0, 0))
+    m.luce_area("marciapiede", (0, -1.0, 6.0), 220, 20.0, "brass", (math.pi, 0, 0))
+    m.luce_punto("faro_lontano", (-26.0, 34.0, 12.0), 3200, "rain", 2.0)
 
     # la facciata ha la sua camera: il punto di vista è in mezzo alla strada,
     # più basso e più lontano di quello degli interni
-    DA, VERSO = (0, -13.5, 4.3), (0, 7.0, 5.4)
+    DA, VERSO = (0, -27.0, 7.2), (0, 7.0, 9.0)
 
     def pt(fx, fy, d):
         return punto_schermo(fx, fy, d, 0.0, 34.0, da=DA, verso=VERSO)
 
     # cabina telefonica, bagagli sotto la pensilina, carrello del facchino
-    p_telefono = pt(-0.62, 0.26, 17.5)
+    p_telefono = pt(-0.66, 0.36, 30.0)
     m.blocco("cabina", (p_telefono[0], p_telefono[1], 1.3), (1.1, 1.1, 2.6),
              m.materiale_tinta_piatta("cabina", "lacquer_deep", 0.35))
     m.blocco("vetro_cabina", (p_telefono[0], p_telefono[1] - 0.54, 1.5), (0.9, 0.06, 1.6), m.materiale_vetro())
     m.blocco("tetto_cabina", (p_telefono[0], p_telefono[1], 2.68), (1.3, 1.3, 0.16), ottone)
     m.sfera("luce_cabina", (p_telefono[0], p_telefono[1], 2.4), 0.1, m.materiale_emissivo("luce_cab", "ivory", 8.0))
 
-    valigia_mat = m.materiale_legno("cuoio_fac", tinta="lacquer_deep", scala=8.0)
-    p_valigia = pt(0.44, 0.3, 17.0)
+    valigia_mat = m.materiale_legno("cuoio_fac", tinta="lacquer_deep", scala=4.24)
+    p_valigia = pt(0.42, 0.34, 29.0)
     m.blocco("baule_fac", (p_valigia[0], p_valigia[1], 0.5), (1.1, 0.6, 0.7), valigia_mat)
     m.blocco("valigia_fac", (p_valigia[0] + 0.9, p_valigia[1] - 0.1, 0.3), (0.8, 0.4, 0.5), valigia_mat)
 
-    p_consegna = pt(-0.26, 0.22, 17.5)
+    p_consegna = pt(-0.3, 0.34, 29.5)
     m.blocco("carrello_fac", (p_consegna[0], p_consegna[1], 0.4), (1.4, 0.8, 0.1), ottone)
     m.cilindro("montante_fac", (p_consegna[0] + 0.6, p_consegna[1], 1.1), 0.04, 1.4, ottone)
 
@@ -1277,7 +1303,7 @@ FOSCHIA = {
     "bar": 0.005,
     "palco": 0.014,
     "registrazione": 0.003,
-    "facciata": 0.009,
+    "facciata": 0.014,
 }
 
 # distanza minima e massima dalla camera, per la divisione in livelli

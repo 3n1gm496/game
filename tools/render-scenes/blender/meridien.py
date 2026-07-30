@@ -130,7 +130,21 @@ def imperfezione_ovunque(forza=0.26):
 
 
 def _coordinate(nodi, scala=1.0):
-    coord = nodi.new("ShaderNodeTexCoord")
+    """
+    Coordinate nello **spazio del mondo**, non normalizzate all'oggetto.
+
+    Le coordinate d'oggetto vanno da -1 a 1 sui limiti della mesh, qualunque sia
+    la mesh: un palazzo di ventisei metri e un fermacarte ricevono la stessa
+    densità di pattern. Il risultato si vedeva — la facciata dell'albergo usciva
+    coperta di macchie da lontano, come una pelliccia di dalmata, mentre la
+    stessa pietra su una colonna sembrava marmo.
+
+    Con la posizione nel mondo la scala ha un significato fisico: `scala` è il
+    numero di ripetizioni **per metro**, ed è la stessa su ogni superficie del
+    Méridien. Un pavimento a scacchi da quaranta centimetri si scrive 2.5, e
+    resta di quaranta centimetri sia nella hall sia in cucina.
+    """
+    coord = nodi.new("ShaderNodeNewGeometry")
     coord.location = (-900, 0)
     mappa = nodi.new("ShaderNodeMapping")
     mappa.location = (-700, 0)
@@ -140,12 +154,12 @@ def _coordinate(nodi, scala=1.0):
 
 # ── materiali procedurali ───────────────────────────────────────────────────
 
-def materiale_marmo(nome="marmo", base="marble", vena="ink", scala=1.6):
+def materiale_marmo(nome="marmo", base="marble", vena="ink", scala=0.55):
     """Marmo: rumore stirato in una direzione produce venature credibili."""
     mat, nodi, link, bsdf = _nuovo_materiale(nome)
     coord, mappa = _coordinate(nodi, scala)
-    link.new(coord.outputs["Object"], mappa.inputs["Vector"])
-    mappa.inputs["Scale"].default_value = (scala, scala * 0.22, scala)
+    link.new(coord.outputs["Position"], mappa.inputs["Vector"])
+    mappa.inputs["Scale"].default_value = (scala, scala * 0.2, scala * 1.15)
 
     rumore = nodi.new("ShaderNodeTexNoise")
     rumore.location = (-500, 0)
@@ -168,10 +182,10 @@ def materiale_marmo(nome="marmo", base="marble", vena="ink", scala=1.6):
     return mat
 
 
-def materiale_scacchiera(nome="scacchi", chiaro="marble", scuro="ink", scala=6.0):
+def materiale_scacchiera(nome="scacchi", chiaro="marble", scuro="ink", scala=2.6):
     mat, nodi, link, bsdf = _nuovo_materiale(nome)
     coord, mappa = _coordinate(nodi, scala)
-    link.new(coord.outputs["Object"], mappa.inputs["Vector"])
+    link.new(coord.outputs["Position"], mappa.inputs["Vector"])
 
     dama = nodi.new("ShaderNodeTexChecker")
     dama.location = (-460, 0)
@@ -186,17 +200,20 @@ def materiale_scacchiera(nome="scacchi", chiaro="marble", scuro="ink", scala=6.0
     return mat
 
 
-def materiale_legno(nome="legno", tinta="plum", scala=3.0):
+def materiale_legno(nome="legno", tinta="plum", scala=1.6):
     mat, nodi, link, bsdf = _nuovo_materiale(nome)
     coord, mappa = _coordinate(nodi, scala)
-    link.new(coord.outputs["Object"], mappa.inputs["Vector"])
+    link.new(coord.outputs["Position"], mappa.inputs["Vector"])
 
     onde = nodi.new("ShaderNodeTexWave")
     onde.location = (-500, 0)
     onde.wave_type = "BANDS"
-    onde.inputs["Scale"].default_value = 2.0
-    onde.inputs["Distortion"].default_value = 6.0
-    onde.inputs["Detail"].default_value = 4.0
+    # bande larghe, molto distorte: è così che si legge una fibra, non una
+    # lamiera. Bande fitte e regolari davano un'ondulazione da capannone.
+    onde.inputs["Scale"].default_value = 0.6
+    onde.inputs["Distortion"].default_value = 14.0
+    onde.inputs["Detail"].default_value = 6.0
+    onde.inputs["Detail Scale"].default_value = 2.2
     link.new(mappa.outputs["Vector"], onde.inputs["Vector"])
 
     rampa = nodi.new("ShaderNodeValToRGB")
@@ -232,8 +249,8 @@ def materiale_velluto(nome="velluto", tinta="petrol"):
 
 def materiale_intonaco(nome="intonaco", tinta="night", ruvidita=0.86):
     mat, nodi, link, bsdf = _nuovo_materiale(nome)
-    coord, mappa = _coordinate(nodi, 8.0)
-    link.new(coord.outputs["Object"], mappa.inputs["Vector"])
+    coord, mappa = _coordinate(nodi, 1.4)
+    link.new(coord.outputs["Position"], mappa.inputs["Vector"])
 
     rumore = nodi.new("ShaderNodeTexNoise")
     rumore.location = (-460, -200)
@@ -252,10 +269,10 @@ def materiale_intonaco(nome="intonaco", tinta="night", ruvidita=0.86):
     return mat
 
 
-def materiale_piastrelle(nome="piastrelle", tinta="petrol", fuga="marble", scala=14.0):
+def materiale_piastrelle(nome="piastrelle", tinta="petrol", fuga="marble", scala=5.0):
     mat, nodi, link, bsdf = _nuovo_materiale(nome)
     coord, mappa = _coordinate(nodi, scala)
-    link.new(coord.outputs["Object"], mappa.inputs["Vector"])
+    link.new(coord.outputs["Position"], mappa.inputs["Vector"])
 
     mattoni = nodi.new("ShaderNodeTexBrick")
     mattoni.location = (-460, 0)
@@ -349,7 +366,14 @@ def blocco(nome, posizione, dimensioni, materiale=None, rotazione=(0, 0, 0), smu
     bpy.ops.mesh.primitive_cube_add(size=1, location=posizione, rotation=rotazione)
     ob = bpy.context.object
     ob.name = nome
-    ob.scale = (dimensioni[0] / 2, dimensioni[1] / 2, dimensioni[2] / 2)
+    # `primitive_cube_add(size=1)` produce un cubo di **lato** uno, con i
+    # vertici a ±0.5: la scala è già la dimensione finale. Dividere per due —
+    # come si fa quando si parte da un cubo di lato due — dimezzava ogni
+    # volume. Le pareti uscivano larghe metà del pavimento e alte metà della
+    # stanza, ed è da lì che venivano i vuoti neri agli angoli
+    # dell'inquadratura, che per settimane sono stati corretti spostando la
+    # camera invece di sistemare la geometria.
+    ob.scale = dimensioni
     bpy.ops.object.transform_apply(location=False, rotation=False, scale=True)
     if materiale:
         ob.data.materials.append(materiale)
