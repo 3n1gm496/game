@@ -20,7 +20,7 @@ import json  # noqa: E402
 import bpy  # noqa: E402
 from bpy_extras.object_utils import world_to_camera_view  # noqa: E402
 import meridien as m  # noqa: E402
-from ambienti import AMBIENTI, PROFONDITA  # noqa: E402
+from ambienti import AMBIENTI, FOSCHIA, PROFONDITA  # noqa: E402
 
 m.bpy = bpy
 
@@ -51,6 +51,9 @@ def main():
     inizio = time.time()
     esito = AMBIENTI[chiave](m)
     cam, punti = esito if isinstance(esito, tuple) else (esito, {})
+    # imperfezione e foschia si applicano a scena finita: valgono per tutto
+    materiali = m.imperfezione_ovunque()
+    m.foschia(scena, densita=FOSCHIA.get(chiave, 0.005))
     costruzione = time.time() - inizio
 
     m.imposta_render(scena, larghezza, altezza, campioni, uscita)
@@ -87,7 +90,7 @@ def main():
 
     oggetti = len([o for o in scena.objects if o.type == "MESH"])
     luci = len([o for o in scena.objects if o.type == "LIGHT"])
-    print(f"COSTRUITO {chiave} · {oggetti} oggetti · {luci} luci · {costruzione:.1f}s")
+    print(f"COSTRUITO {chiave} · {oggetti} oggetti · {luci} luci · {materiali} materiali · {costruzione:.1f}s")
 
     # è un'opzione senza valore: `argomento` cerca `--nome=`, qui basta esserci
     if "--solo-proiezione" in sys.argv:

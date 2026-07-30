@@ -1258,6 +1258,28 @@ AMBIENTI = {
     "facciata": facciata,
 }
 
+# Densità della foschia, ambiente per ambiente.
+#
+# Dove la luce deve *vedersi* — i coni delle applique in corridoio, l'insegna
+# sotto la pioggia, i fari sul palco — vale la pena pagarla. In una suite
+# chiusa non serve, e costerebbe soltanto tempo di calcolo.
+FOSCHIA = {
+    "hall": 0.006,
+    "sala-ballo": 0.008,
+    "suite": 0.003,
+    "terrazza": 0.010,
+    "piscina": 0.005,
+    "cucina": 0.004,
+    "corridoio": 0.012,
+    "camerino": 0.003,
+    "passaggio": 0.011,
+    "quadro": 0.007,
+    "bar": 0.005,
+    "palco": 0.014,
+    "registrazione": 0.003,
+    "facciata": 0.009,
+}
+
 # distanza minima e massima dalla camera, per la divisione in livelli
 PROFONDITA = {
     "hall": (1.5, 11.0),

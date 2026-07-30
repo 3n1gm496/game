@@ -18,3 +18,4 @@ tests/visual/**/*-diff.png
 .pnpm-store/
 dist-types/
 .render-scenes/
+__pycache__/

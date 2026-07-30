@@ -71,6 +71,64 @@ def _nuovo_materiale(nome):
     return mat, nodi, collegamenti, principale
 
 
+def imperfezione(nodi, link, bsdf, forza=0.28, scala=9.0):
+    """
+    Nessuna superficie è uniforme.
+
+    Una ruvidità costante è la firma inconfondibile del 3D fatto in fretta: il
+    riflesso resta identico su tutta la faccia, e il cervello lo legge come
+    plastica. Basta increspare la ruvidità con un rumore a bassa frequenza —
+    polvere, impronte, l'usura di sessant'anni di ospiti — perché il riflesso
+    respiri e la superficie diventi materia.
+
+    Modula la ruvidità **esistente** invece di sostituirla: il marmo resta
+    lucido, il velluto resta opaco, entrambi smettono di essere perfetti.
+    """
+    base = bsdf.inputs["Roughness"].default_value
+
+    rumore = nodi.new("ShaderNodeTexNoise")
+    rumore.location = (-520, -420)
+    rumore.inputs["Scale"].default_value = scala
+    rumore.inputs["Detail"].default_value = 6.0
+    rumore.inputs["Roughness"].default_value = 0.55
+
+    intervallo = nodi.new("ShaderNodeMapRange")
+    intervallo.location = (-280, -420)
+    intervallo.inputs["From Min"].default_value = 0.25
+    intervallo.inputs["From Max"].default_value = 0.75
+    intervallo.inputs["To Min"].default_value = max(0.02, base * (1.0 - forza))
+    intervallo.inputs["To Max"].default_value = min(1.0, base * (1.0 + forza) + 0.04)
+    intervallo.clamp = True
+
+    link.new(rumore.outputs["Fac"], intervallo.inputs["Value"])
+    link.new(intervallo.outputs["Result"], bsdf.inputs["Roughness"])
+
+
+def imperfezione_ovunque(forza=0.26):
+    """
+    Applica l'imperfezione a ogni materiale che non abbia già una ruvidità
+    pilotata da una texture.
+
+    Si fa in un passaggio unico a scena costruita, invece che dentro ognuna
+    delle dieci funzioni di materiale: così vale anche per i materiali aggiunti
+    domani, e nessuno se ne dimentica.
+    """
+    toccati = 0
+    for mat in bpy.data.materials:
+        if not mat.use_nodes:
+            continue
+        nodi = mat.node_tree.nodes
+        link = mat.node_tree.links
+        bsdf = next((n for n in nodi if n.type == "BSDF_PRINCIPLED"), None)
+        if bsdf is None:
+            continue
+        if bsdf.inputs["Roughness"].is_linked:
+            continue
+        imperfezione(nodi, link, bsdf, forza=forza)
+        toccati += 1
+    return toccati
+
+
 def _coordinate(nodi, scala=1.0):
     coord = nodi.new("ShaderNodeTexCoord")
     coord.location = (-900, 0)
@@ -257,7 +315,36 @@ def materiale_tinta_piatta(nome, tinta, ruvidita=0.6, metallo=0.0):
 
 # ── geometria ───────────────────────────────────────────────────────────────
 
-def blocco(nome, posizione, dimensioni, materiale=None, rotazione=(0, 0, 0)):
+def smussa(ob, larghezza=0.012, segmenti=2):
+    """
+    Lo smusso: il singolo dettaglio che distingue un oggetto da una scatola.
+
+    Nessuno spigolo del mondo reale è perfetto. Un bordo vivo non riflette
+    nulla, resta una linea nera e legge come «primitiva 3D»; uno smusso anche
+    di un centimetro raccoglie una scia di luce, e quella scia è ciò che il
+    nostro occhio usa per dire «è un mobile». È il rapporto qualità/costo più
+    alto di tutta la pipeline: due segmenti, un millimetro di modificatore, e
+    quattordici stanze smettono di sembrare fatte di cartone.
+
+    `harden_normals` evita che lo smusso sporchi l'ombreggiatura delle facce
+    piatte, che è il difetto tipico di chi lo applica alla cieca.
+    """
+    mod = ob.modifiers.new(name="smusso", type="BEVEL")
+    mod.width = larghezza
+    mod.segments = segmenti
+    mod.limit_method = "ANGLE"
+    mod.angle_limit = math.radians(40)
+    # `harden_normals` richiede l'ombreggiatura morbida: da Blender 4.1 non
+    # esiste più `use_auto_smooth`, si passa dallo shade_smooth per angolo
+    try:
+        mod.harden_normals = True
+        bpy.ops.object.shade_auto_smooth(angle=math.radians(35))
+    except (AttributeError, RuntimeError):
+        mod.harden_normals = False
+    return ob
+
+
+def blocco(nome, posizione, dimensioni, materiale=None, rotazione=(0, 0, 0), smusso=True):
     """Un parallelepipedo. È il mattone di tutto: mobili, cornici, gradini."""
     bpy.ops.mesh.primitive_cube_add(size=1, location=posizione, rotation=rotazione)
     ob = bpy.context.object
@@ -266,6 +353,9 @@ def blocco(nome, posizione, dimensioni, materiale=None, rotazione=(0, 0, 0)):
     bpy.ops.object.transform_apply(location=False, rotation=False, scale=True)
     if materiale:
         ob.data.materials.append(materiale)
+    if smusso:
+        piu_corto = min(dimensioni)
+        smussa(ob, min(0.014, max(0.002, piu_corto * 0.12)))
     return ob
 
 
@@ -275,8 +365,10 @@ def cilindro(nome, posizione, raggio, altezza, materiale=None, rotazione=(0, 0, 
     )
     ob = bpy.context.object
     ob.name = nome
+    bpy.ops.object.shade_smooth()
     if materiale:
         ob.data.materials.append(materiale)
+    smussa(ob, min(0.01, max(0.002, min(raggio, altezza) * 0.08)))
     return ob
 
 
@@ -380,6 +472,35 @@ def cielo(scena, tinta="ink", forza=0.16):
 
 # ── camera ──────────────────────────────────────────────────────────────────
 
+def foschia(scena, densita=0.006, tinta="rain"):
+    """
+    L'aria della stanza, resa visibile.
+
+    Una lampada in una stanza secca illumina le superfici e basta. La stessa
+    lampada in un albergo sul mare, di notte, con la pioggia che entra da ogni
+    porta aperta, disegna un cono: la luce si vede *nel mezzo*, non solo dove
+    arriva. Sono i raggi di luce che rendono cinematografica un'inquadratura, e
+    non si possono simulare con un gradiente sovrapposto — vanno calcolati.
+
+    La densità è deliberatamente bassa. La foschia costa cara su CPU, e una
+    dose eccessiva appiattisce i neri: si vuole l'accenno del cono, non la
+    nebbia.
+    """
+    mondo = scena.world
+    if mondo is None:
+        return
+    nodi = mondo.node_tree.nodes
+    link = mondo.node_tree.links
+    uscita = next((n for n in nodi if n.type == "OUTPUT_WORLD"), None)
+    if uscita is None:
+        return
+    scatter = nodi.new("ShaderNodeVolumeScatter")
+    scatter.inputs["Color"].default_value = srgb(PALETTE[tinta])
+    scatter.inputs["Density"].default_value = densita
+    scatter.inputs["Anisotropy"].default_value = 0.35
+    link.new(scatter.outputs["Volume"], uscita.inputs["Volume"])
+
+
 def camera(scena, posizione, bersaglio, lunghezza=32.0):
     """
     Inquadratura a un punto di fuga: la camera guarda dritta verso il fondo.
@@ -395,6 +516,25 @@ def camera(scena, posizione, bersaglio, lunghezza=32.0):
 
     direzione = Vector(bersaglio) - Vector(posizione)
     cam.rotation_euler = direzione.to_track_quat("-Z", "Y").to_euler()
+
+    """
+    Profondità di campo.
+
+    Un'immagine con tutto a fuoco è una planimetria: l'occhio non sa dove
+    guardare e la scena resta piatta anche se è tridimensionale. Una lente vera
+    tiene a fuoco un piano solo, e il resto sfuma — è così che una fotografia
+    dice «questo è importante, quello è contesto».
+
+    Il fuoco cade sul bersaglio della camera, che è il centro della scena;
+    f/2.8 è abbastanza aperto da staccare il fondo senza trasformare la stanza
+    in una macchia. Costa qualche campione in più e non richiede nulla in
+    tempo reale: lo sfocato è già cotto nell'immagine.
+    """
+    cam.data.dof.use_dof = True
+    cam.data.dof.focus_distance = direzione.length
+    cam.data.dof.aperture_fstop = 2.8
+    cam.data.dof.aperture_blades = 6
+
     scena.camera = cam
     return cam
 
