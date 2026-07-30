@@ -111,6 +111,15 @@ function alone(): TextureSource {
   return Texture.from(tela).source;
 }
 
+/** Miscela un colore verso il bianco: serve al nucleo delle sorgenti. */
+function schiarisci(colore: number, quanto: number): number {
+  const r = (colore >> 16) & 0xff;
+  const g = (colore >> 8) & 0xff;
+  const b = colore & 0xff;
+  const verso = (c: number): number => Math.round(c + (255 - c) * quanto);
+  return (verso(r) << 16) | (verso(g) << 8) | verso(b);
+}
+
 function tinta(colore: string): number {
   const pulito = colore.replace('#', '');
   const n = Number.parseInt(pulito.length === 3 ? pulito.replace(/./g, '$&$&') : pulito, 16);
@@ -264,20 +273,38 @@ export class SceneRenderer {
     this.aloneSorgente ??= alone();
 
     for (const luce of sorgenti) {
-      const sprite = new Sprite(new Texture({ source: this.aloneSorgente }));
-      sprite.anchor.set(0.5);
-      sprite.blendMode = 'add';
-      sprite.tint = tinta(luce.colore);
-      sprite.alpha = luce.intensita;
-      sprite.label = luce.chiave;
-      this.lucine.addChild(sprite);
-      this.fari.push({
-        sprite,
-        base: luce.intensita,
-        pulsazione: this.reducedMotion ? 0 : (luce.pulsazione ?? 0),
-        // fasi diverse: due luci che respirano all'unisono sembrano un errore
-        fase: Math.random() * Math.PI * 2,
-      });
+      /*
+       * Ogni sorgente è due sprite, non uno.
+       *
+       * Un solo alone largo fa una macchia; una lampada vera ha un nucleo
+       * quasi bianco e un velo che si perde nell'aria. Sono i due termini di
+       * cui è fatto il bagliore di una fotografia — e sommandoli in additiva si
+       * ottiene lo stesso effetto di un bloom, senza il passaggio a schermo
+       * intero che su un telefono costerebbe caro.
+       */
+      const velo = new Sprite(new Texture({ source: this.aloneSorgente }));
+      velo.anchor.set(0.5);
+      velo.blendMode = 'add';
+      velo.tint = tinta(luce.colore);
+      velo.alpha = luce.intensita * 0.55;
+      velo.label = `${luce.chiave}-velo`;
+      this.lucine.addChild(velo);
+
+      const nucleo = new Sprite(new Texture({ source: this.aloneSorgente }));
+      nucleo.anchor.set(0.5);
+      nucleo.blendMode = 'add';
+      // il nucleo tende al bianco: nessuna sorgente conserva il proprio colore
+      // dove è più intensa
+      nucleo.tint = schiarisci(tinta(luce.colore), 0.62);
+      nucleo.alpha = Math.min(1, luce.intensita * 1.15);
+      nucleo.label = `${luce.chiave}-nucleo`;
+      this.lucine.addChild(nucleo);
+
+      // fasi diverse: due luci che respirano all'unisono sembrano un errore
+      const fase = Math.random() * Math.PI * 2;
+      const pulsazione = this.reducedMotion ? 0 : (luce.pulsazione ?? 0);
+      this.fari.push({ sprite: velo, base: velo.alpha, pulsazione, fase });
+      this.fari.push({ sprite: nucleo, base: nucleo.alpha, pulsazione, fase });
     }
     this.disponiLuci(manifest);
   }
@@ -336,12 +363,15 @@ export class SceneRenderer {
     const { width, height } = this.app.screen;
     const sorgenti = manifest.luci ?? [];
     this.fari.forEach((faro, i) => {
-      const luce = sorgenti[i];
+      // due sprite per sorgente: velo e nucleo, in quest'ordine
+      const luce = sorgenti[Math.floor(i / 2)];
       if (!luce) return;
+      const nucleo = i % 2 === 1;
       faro.sprite.x = (luce.x / 100) * width;
       faro.sprite.y = (luce.y / 100) * height;
       // il raggio è in percentuale del lato minore, come nella scena originale
-      const diametro = (luce.raggio / 100) * Math.min(width, height) * 4;
+      const base = (luce.raggio / 100) * Math.min(width, height);
+      const diametro = base * (nucleo ? 1.1 : 4.4);
       faro.sprite.width = diametro;
       faro.sprite.height = diametro;
     });
